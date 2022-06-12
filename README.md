@@ -6,4 +6,5 @@ actualidad éstos últimos tambien utilizan éste tipo de accesorios.
 
 ##Integrantes: 
 - Reyna,Luisina. Localidad: Villa la Angostura. Edad: 24 años. 
+- Romanos,Caleb. Localidad: San Miguel. Edad: 34 años.
 
