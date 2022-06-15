@@ -1,4 +1,5 @@
-# Ventas de Mochilas, Carteras y Riñoneras.
+# Amapola Bags.
+
 ## Breve Reseña:
 Nuestra página web será exclusivamente dedicada a la venta de mochilas, carteras y riñoneras.
 La audiencia a la cual vamos a estar enfocados será a mujeres y hombres, ya que en la 
