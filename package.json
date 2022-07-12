@@ -1,0 +1,26 @@
+{
+  "name": "amapola-bags",
+  "version": "1.0.0",
+  "description": "Somos un grupo de compañeros de la Fundación Formar realizando el curso de Programación Web Full Stack; en este proyecto replicaremos E-commerce con las herramientas aprendidas.\r El diseño de nuestra web fue inspirado en los siguientes sitios:",
+  "main": "app.js",
+  "scripts": {
+    "start": "app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ReynaLuisina15/grupo_4_AmapolaBags.git"
+  },
+  "author": "Meli Gimenez, Caleb Romanos, Facundo Arevalos y Reina Luisina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ReynaLuisina15/grupo_4_AmapolaBags/issues"
+  },
+  "homepage": "https://github.com/ReynaLuisina15/grupo_4_AmapolaBags#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}
