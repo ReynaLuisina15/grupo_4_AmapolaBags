@@ -1,2 +1,7 @@
 @import 'general.css';
 @import 'index.css';
+@import 'register.css';
+@import 'productGeneral.css';
+@import 'productDetail.css';
+@import 'productCart.css';
+@import 'login.css';
