@@ -1,0 +1,10 @@
+marquee {
+  background-color: #000;
+  color: #ffff;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
+nav {
+  margin-top: 0;
+}
