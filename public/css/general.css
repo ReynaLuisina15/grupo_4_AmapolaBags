@@ -9,6 +9,34 @@
   --colorRosa: #FFC9E0;
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+ol,
+ul {
+  padding: 0px;
+}
+
+:root {
+  --font: 'Poppins';
+  --fontTitulos: 'Judson';
+  --colorNegro: #000000;
+  --colorBlanco: #FFFFFF;
+  --colorRosa: #FFC9E0;
+}
+
+
+
 marquee {
   background-color: var(--colorNegro);
   color: var(--colorBlanco);
