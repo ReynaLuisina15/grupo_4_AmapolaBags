@@ -1,0 +1,22 @@
+/* NAV */
+.home__nav {
+  background-color: aqua;
+  display: flex;
+  flex-direction: column;
+}
+
+.home__nav ul {
+  text-decoration: none;
+  border: 1px solid red;
+  padding-left: 0;
+  margin: 0;
+}
+
+.home__nav-iconos {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home__nav-vistas {
+  display: flex;
+}
