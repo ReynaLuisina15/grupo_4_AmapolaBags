@@ -1,22 +1,175 @@
+/* BODY */
+.home__body {
+  background-color: var(--colorBlanco);
+}
+
 /* NAV */
 .home__nav {
-  background-color: aqua;
+  border: 3px solid red;
+  margin-bottom: 20px;
+}
+
+.home__nav-iconos-titulo button {
+  border: none;
+  background-color: var(--colorBlanco);
+  color: var(--colorNegro);
+}
+
+/* MAIN */
+.home__main section {
+  margin: 20px;
+}
+
+.home__main__section-banner {
   display: flex;
   flex-direction: column;
+
 }
 
-.home__nav ul {
-  text-decoration: none;
-  border: 1px solid red;
-  padding-left: 0;
-  margin: 0;
+.home__main__section-banner img {
+  width: 100%;
+
 }
 
-.home__nav-iconos {
+.home__main__section-banner button {
+  border: none;
+  font-family: var(--font);
+  padding: 5px;
+}
+
+.home__main__section-banner-botonNew {
+  background-color: var(--colorBlanco);
+}
+
+.home__main__section-banner-botonShop {
+  background-color: var(--colorNegro);
+  color: var(--colorBlanco);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.home__main__section-carrusel {
+  display: flex;
+}
+
+.home__main__section-carrusel img {
+  width: 50%;
+}
+
+.home__main__section-community {
+  text-align: center;
+}
+
+.home__main__section-community a p {
+  font-family: var(--font);
+  font-weight: bold;
+  font-size: 20px;
+  color: var(--colorNegro);
+  letter-spacing: 21x;
+}
+
+.home__main__section-texto p {
+  font-family: var(--font);
+  color: var(--colorNegro);
+  text-align: center;
+}
+
+.home__main__section-fotos-titulo-book {
+  background-color: var(--colorNegro);
+  color: var(--colorBlanco);
+  display: flex;
+  padding: 5px;
+  font-size: 10px;
+  justify-content: space-between;
+  font-family: var(--font);
+}
+
+.home__main__section-fotos-titulo-book a {
+  font-weight: bold;
+}
+
+.home__main__section-fotos-titulo-book div {
   display: flex;
   justify-content: flex-end;
+  gap: 5px;
 }
 
-.home__nav-vistas {
+.home__main__section-fotos-book {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px;
+}
+
+.home__main__section-fotos-book img {
+  width: 32%;
+}
+
+/* FOOTER */
+.home__footer {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: var(--colorNegro);
+  justify-content: center;
+  color: var(--colorBlanco);
+}
+
+.home__footer-heart {
+  color: var(--colorRosa);
+  font-size: 10px;
+}
+
+.home__footer-newsletter form p {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: var(--font);
+  color: var(--colorBlanco);
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.home__footer-newsletter form p label {
+  width: 100%;
+  font-weight: bold;
+  text-align: justify;
+  font-size: 16px;
+}
+
+.home__footer-newsletter form p input {
+  width: 70%;
+  color: var(--colorNegro);
+  text-align: center;
+  font-size: 10px;
+}
+
+.home__footer-newsletter form p button {
+  width: 30%;
+  font-size: 12px;
+  border: none;
+  background-color: var(--colorNegro);
+  color: var(--colorBlanco);
+}
+
+
+.home__footer-iconos ul {
+  display: flex;
+  justify-content: center;
+}
+
+.home__footer-iconos ul li {
+  padding: 10px;
+}
+
+.home__footer-iconos ul li i {
+  color: var(--colorBlanco);
+}
+
+.home__footer-derechos {
+  font-family: var(--font);
+  font-size: 7px;
+  text-align: center;
 }
