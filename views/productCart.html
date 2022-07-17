@@ -32,22 +32,106 @@
     <!-- INICIO DE MAIN CARRITO  -->
   <main class="main__carrito">
     <h1 class="main__carrito__titulo">CARRITO DE COMPRAS</h1>
-    <h2 class="main__carrito__compra">Mi compra:</h2>
-
+    
+    <!-- INICIO PRODUCTS -->
+  <div class="main__carrito__conteiner">
     <section class="main__carrito__section__products">
+        <h2 class="main__carrito__compra">Mi compra:</h2>
+        <!-- INICIO TITULOS DE PRODUCTOS -->
+        <div class="main__carrito__section__products__titulos">
+          <div class="main__carrito__section__products__titulos__producto">
+            <h4 class="titulo__producto">Producto</h4>
+          </div>
+          <div class="main__carrito__section__products__titulos__restantes">
+            <h4 class="titulo__precio">Precio</h4>
+            <h4 class="titulo__cantidad">Cantidad</h4>
+            <h4 class="titulo__total">Total</h4>
+          </div> 
+        </div>
+        <!-- FIN DE TITULOS DE PRODUCTOS -->
+        <div class="main__producto">
         <article class="main__carrito__section__products__article__compra">
             <h4 class="main__carrito__section__products__article__compra__nombre">Cartera Cecilia</h4>
             <p class="main__carrito__section__products__article__compra__eliminar">X</p>
         </article>
+      
         <article class="main__carrito__section__products__article__product">
-            
+           <div class="main__carrito__producto__cartera"> 
             <img src="/img/Cartera-Cecilia.png" alt="">
-            <p>1</p>
-            <h4>$7290</h4>
-
+            
+           </div>
+        <div class="main__carrito__producto__descripcion">
+            <h4 class="precioUnidad">$7290</h4>
+            <div class="main__carrito__section__products__contador">
+                <button class="mas">-</button>
+                <span class="cantidad">1</span>
+                <button class="mas">+</button>
+            </div>           
+            <h4 class="precioTotal"><strong> $7290</strong></h4>
+        </div>
         </article>
+    </div>
     </section>
+    <!-- FIN PRODUCTS -->
+    <div class="lineaDelMedio">
+        <p> </p>
 
+    </div>
+    <!-- INICIO COMPRA -->
+    <aside class="section__entrega">
+        <h2 class="section__entrega__titulo">Forma de entrega</h2>
+        <!-- INICO ENTREGA -->
+        <article class="section_entrega_article_radio">
+          <form action="" method="POST">
+              <div class="form__radio-container">
+                  <input class="form__radio-input" type="radio" name="envio" value="envio" id="envio">
+                  <label class="form__radio-button" for="envio"></label>
+                  <label class="form__label-radio" for="envio"> <i class="fa-solid fa-truck"></i> Envió</label>
+              </div>
+              <div class="form__radio-container">
+                  <input class="form__radio-input" type="radio" name="envio" value="retiro" id="sucursal">
+                  <label class="form__radio-button" for="sucursal"></label>
+                  <label class="form__label-radio" for="sucursal"> <i class="fa-solid fa-store"></i> Retiro en sucursal</label>
+              </div>
+  
+      </article>
+        <!-- FIN ENTREGA -->
+        <!-- INICIO COMENTARIO -->
+        <article class="section__artiticle__comentario">
+            <form action="" method="post"></form>
+            <label for=""><h2>¿Querés escribir una dedicatoria?</h2></label>
+            <textarea name="comentario" id="comentario" cols="30" rows="6"></textarea>
+            <p>El envío es gratis! Si tenés un código de descuento, podrás añadirlo en el siguiente paso.</p>
+            <button class="buttoFinalizar" type="submit">FINALIZAR</button>
+        </article>
+        <!-- FIN COMENTARIO -->
+        <!-- INICIO COSTO -->
+        <article class="section__artiticle__total">
+            <div class="section__artiticle__total__div__cuotas">
+                <P>Podés pagar en hasta <strong>12 cuotas sin interés de $607,5 </strong>tarjetas Visa, Master y Amex.</P>
+            </div>
+            <div class="section__artiticle__total__div__costo">
+               <div class="subtotal">
+                <h2 class="gris">Subtotal</h2>
+                <h2 class="gris">Evio</h2>
+                <h2 class="negro1">Total</h2>
+                
+               </div>
+               <div class="envio">
+                
+                
+               </div> 
+               <div class="totalFinal">
+                <h2 class="gris">$7290</h2>
+                <h2 class="gris"> -</h2>
+                <h2 class="negro2">$7290</h2>
+               </div>
+            </div>
+        </article>
+        <!-- FIN COSTO -->        
+    </aside>  
+    <!-- FIN COMPRA --> 
+ </div>  
   </main>
     <!-- FIN DE MAIN CARRITO -->
     <!-- INICIO DE FOOTER -->
