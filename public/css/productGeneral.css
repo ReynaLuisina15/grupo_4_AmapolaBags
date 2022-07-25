@@ -20,7 +20,15 @@
 .productCartera__nombre, .productCartera__precio{
     padding-bottom: 10px;
 }
-
+.main__section__products__productCartera, button{
+    border: none;
+    padding-bottom: 10px;
+    border-style: 4px solid;
+}
+.boton-favorito:hover{
+    color: var(--colorRosa); 
+    transition: .5s;
+}
 .productCartera__img{
     width: 320px;
 }
