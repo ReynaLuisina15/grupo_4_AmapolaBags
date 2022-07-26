@@ -37,3 +37,6 @@
     border: 1px solid var(--colorNegro);
     border-radius: 50%;
 }
+.main__carteras{
+    margin-bottom: 40px;
+}
