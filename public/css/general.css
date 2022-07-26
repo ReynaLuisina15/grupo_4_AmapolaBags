@@ -9,6 +9,14 @@
   --colorRosa: #FFC9E0;
 }
 
+:root {
+  --font: 'Poppins';
+  --fontTitulos: 'Judson';
+  --colorNegro: #000000;
+  --colorBlanco: #FFFFFF;
+  --colorRosa: #FFC9E0;
+}
+
 * {
   box-sizing: border-box;
   margin: 0px;
@@ -27,16 +35,6 @@ ul {
   padding: 0px;
 }
 
-:root {
-  --font: 'Poppins';
-  --fontTitulos: 'Judson';
-  --colorNegro: #000000;
-  --colorBlanco: #FFFFFF;
-  --colorRosa: #FFC9E0;
-}
-
-
-
 marquee {
   background-color: var(--colorNegro);
   color: var(--colorBlanco);
@@ -44,4 +42,13 @@ marquee {
   text-transform: uppercase;
   font-family: var(--font);
   width: 100%;
+}
+
+.boton-favorito {
+  border: none;
+  background-color: var(--colorBlanco);
+}
+
+.boton-favorito:focus {
+  color: var(--colorRosa);
 }
