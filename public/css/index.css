@@ -34,6 +34,10 @@
   background-color: var(--colorBlanco);
 }
 
+.home__nav-iconos li a {
+  color: var(--colorNegro);
+}
+
 #burger-menu {
   margin: 0px;
 }
