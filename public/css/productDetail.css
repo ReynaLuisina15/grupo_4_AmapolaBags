@@ -1,0 +1,121 @@
+@media (min-width: 320px) {
+    
+    body {
+    font-family: var(--font)
+    }
+
+    h1 {
+        margin-bottom: 1px;
+    }
+    main{
+        margin: 10px;
+    }
+    .main__section__masProductos{
+        display: none;
+    }
+
+    .main__section__detalles--esp{
+        margin-top: 30px;
+    }
+    .main__section__detalles--esp h2{
+        margin-bottom: 37px;
+        margin-top: 5px;
+    }
+
+    .main__section__button {
+        margin: 0px;
+    }
+
+    .main__section__button h2 {
+        margin-bottom: 20px;
+        margin-top: 0%;
+        width: 50px;
+    }
+
+    button h2 {
+        color: white;
+    }
+
+    .main__section__colores button {
+        background-color: black;
+        color: white;
+        width: 90%;
+        height: 70px;
+        margin-bottom: 25px;
+        margin-left: 5px;
+    }
+     .main__section__colores p{
+        font-size: 20px;
+     }
+    .main__section__detalles--esp img {
+        margin-right: 15px;
+        height: 40px;
+        width: 50px;
+    }
+
+    .main__section__detalles {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .div__imgCartera img {
+        height: 290px;
+        width: 300px;
+    }
+
+    .main__section__masProductos h1 {
+        display: none;
+    }
+}
+
+
+@media(min-width: 768px){
+
+    .main__detail__color{
+        margin-bottom: 0px;
+    }
+    .div__imgCartera img{
+        width: 500px;
+        height: 500px;
+    }
+
+    .main__section__detalles--esp{
+        margin-top: 30px;
+    }
+    .main__section__detalles{
+        flex-direction: row;
+    }
+    .main__section__masProductos{
+     display: inline-block;
+    }
+    .image__none{
+        display: none;
+    }
+    .main__section__masProductos h1 {
+        display: block;
+    }
+    .main__section__masProductos img{
+        width: 170px;
+        height: 170px;
+        margin-left: 65px;
+        margin-bottom: 35px;
+    }
+}
+@media(min-width: 1024px){
+    .div__imgCartera img{
+        width: 700px;
+        height: 700px;
+    }
+    .image__none{
+        display: inline-block;
+        margin-right: 0px;
+    }
+    .main__section__detalles--esp{
+        margin-top: 40px;
+        width: 300px;
+    }
+    .main__section__masProductos img{
+        width: 165px;
+        height: 185px;
+    }
+}
