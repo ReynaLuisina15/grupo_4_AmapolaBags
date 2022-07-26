@@ -96,6 +96,7 @@ width: 60%;
 }
 .main__carrito__section__products__contador{
     display: flex;
+    
     gap: 5px;
 }
 .mas{
