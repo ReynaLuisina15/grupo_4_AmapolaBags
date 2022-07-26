@@ -4,8 +4,9 @@
 }
 
 /* NAV */
-.home__nav {
+.home__nav__container {
   margin-bottom: 20px;
+
 }
 
 .home__nav__container-marquee marquee {
@@ -220,18 +221,20 @@
 }
 
 /* FOOTER */
-.home__footer {
+.home__footer__container {
   display: flex;
   flex-direction: column;
   padding: 10px;
   background-color: var(--colorNegro);
-  justify-content: center;
+  justify-content: space-between;
   color: var(--colorBlanco);
+  height: 200px;
 }
 
 .home__footer-heart {
   color: var(--colorRosa);
-  font-size: 10px;
+  font-size: 20px;
+  padding: 1% 0 0 2%;
 }
 
 .home__footer-newsletter form p {
@@ -240,8 +243,7 @@
   font-family: var(--font);
   color: var(--colorBlanco);
   text-align: center;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding: 0% 6% 0% 7%;
 }
 
 .home__footer-newsletter form p label {
@@ -249,39 +251,43 @@
   font-weight: bold;
   text-align: justify;
   font-size: 16px;
+  letter-spacing: 1px;
+  padding-bottom: 5px;
 }
 
 .home__footer-newsletter form p input {
-  width: 70%;
-  color: var(--colorNegro);
+  width: 80%;
   text-align: center;
   font-size: 10px;
+  padding: 5px;
+  border: none;
 }
 
 .home__footer-newsletter form p button {
-  width: 30%;
+  width: 20%;
   font-size: 12px;
   border: none;
   background-color: var(--colorNegro);
   color: var(--colorBlanco);
 }
 
-.home__footer-iconos ul {
+.home__footer__container-iconos ul {
   display: flex;
   justify-content: center;
 }
 
-.home__footer-iconos ul li {
+.home__footer-iconos {
   padding: 10px;
+  font-size: 25px;
 }
 
-.home__footer-iconos ul li i {
+.home__footer-iconos i {
   color: var(--colorBlanco);
 }
 
 .home__footer-derechos {
   font-family: var(--font);
-  font-size: 7px;
+  font-size: 10px;
   text-align: center;
 }
 
@@ -289,6 +295,14 @@
 @media (min-width:764px) {
 
   /* NAV */
+  .home__nav__container {
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 2%;
+  }
+
   .home__nav__container-marquee marquee {
     font-size: 15px;
     padding: 10px;
@@ -318,6 +332,10 @@
     display: inline-block;
   }
 
+  .home__nav-iconos {
+    font-size: 17px;
+  }
+
   .home__nav__menu-buscador-buscador {
     display: none;
   }
@@ -336,6 +354,7 @@
     font-family: var(--font);
     font-weight: bold;
     padding: 0 25px 0 25px;
+    font-size: 16px;
   }
 
   /* MAIN */
@@ -345,6 +364,7 @@
 
   #home-banner {
     display: flex;
+    margin-top: 5px;
   }
 
   #home-banner img {
@@ -412,11 +432,130 @@
     flex-wrap: wrap;
     justify-content: space-around;
   }
+
+  .home__main__section-fotos-titulo-book {
+    font-size: 13px;
+    padding: 7px;
+  }
+
+  /* FOOTER */
+  .home__footer__container {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .home__footer-heart {
+    font-size: 25px;
+  }
+
+  .home__footer-heart {
+    width: 100%;
+  }
+
+  .home__footer-newsletter {
+    width: 50%;
+  }
+
+  .home__footer__container-iconos {
+    width: 50%;
+  }
+
+  .home__footer__container-iconos ul {
+    justify-content: space-evenly;
+  }
+
+  .home__footer-iconos {
+    font-size: 25px;
+  }
+
+  .home__footer-derechos {
+    font-size: 12px;
+    width: 100%;
+  }
 }
 
 /* DESKTOP */
 @media (min-width:1024px) {
+
+  /* NAV */
+  .home__nav-iconos {
+    font-size: 20px;
+  }
+
+  .home__nav__container-menu-buscador ul {
+    font-size: 20px;
+  }
+
   #title {
-    padding-right: 20%;
+    font-size: 30px;
+  }
+
+  /* MAIN */
+  .home__main__section-fotos-titulo-book {
+    font-size: 15px;
+    padding: 10px;
+  }
+
+  /* FOOTER */
+  .home__footer__container {
+    height: 240px;
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .home__footer-heart {
+    width: 100%;
+  }
+
+  .home__main__section-community-title a p {
+    font-size: 50px;
+  }
+
+  .home__main__section-community-desktop-info {
+    font-size: 21px;
+  }
+
+  .home__main__section-community-desktop {
+    margin-bottom: 50px;
+  }
+
+  .home__footer-newsletter form p input {
+    font-size: 17px;
+    padding: 7px;
+  }
+
+  .home__footer-newsletter form p button {
+    font-size: 20px;
+  }
+
+  .home__footer-newsletter form p label {
+    font-size: 20px;
+  }
+
+  .home__footer__container-iconos {
+    width: 50%;
+  }
+
+  .home__footer-newsletter {
+    width: 50%;
+    padding-left: 20px;
+    margin-bottom: 30px;
+  }
+
+  .home__footer__container-iconos {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+
+  .home__footer__container-iconos ul {
+    justify-content: space-evenly;
+  }
+
+  .home__footer-iconos {
+    font-size: 30px;
+  }
+
+  .home__footer-derechos {
+    width: 100%;
   }
 }
