@@ -1,1 +1,6 @@
-Anotar las principales conclusiones de la retro del primer sprint.
+# RETROSPECTIVAS DEL PROYECTO INTEGRADOR - EQUIPO 4
+
+## SPRINT 1:
+
+![retro 1](./imagenRetro/retros.jpg)
+
