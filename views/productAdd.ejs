@@ -15,13 +15,18 @@
             </article>
             <article class="body__main__login__section1__article2">
                 <form class="body__main__login__section1__article2__form" action="" method="post">
-                    <div>
-                        <label for="text">Nombre</label>
-                        <input type="text" name="text" id="text" required>
-                    </div>
+                
                     <div>
                         <label for="text">Modelo</label>
                         <input type="text" name="text" id="text" required>
+                    </div>
+                    <div>
+                        <label for="category">Cartegoria</label> <br>
+                        <select  name="category" id="category">
+                            <option value="cartera">Cartera</option>
+                            <option value="riñonera">Riñonera</option>
+                            <option value="mochila">Mochila</option>
+                        </select>
                     </div>
                     <div>
                         <label for="img">Imagen</label>
@@ -41,7 +46,8 @@
                         <a href=""></a>
                     </div>
 
-                    <button class="body__main__login__section1__article2__form--button" type="submit">Enviar</button>
+                    <button class="body__main__login__section1__article2__form--button" type="submit">Agregar</button>
+                    <button class="body__main__login__section1__article2__form--button" type="reset">Borrar</button>
                 </form>
             
             </article>
