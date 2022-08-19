@@ -1,14 +1,24 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-const {productCart,productDetail,productGeneral,productAdd,productEdit} = require("../controllers/productsController");
+
+const {cart,detail,general,add,edit,store,update,destroy} = require("../controllers/productsController");
 
 /* products. */
 router
-     .get('/productDetail', productDetail)
-     .get('/productCart', productCart)
-     .get('/productGeneral', productGeneral)
-     .get('/productAdd', productAdd)
-     .get('/productEdit', productEdit);
+     .get('/productAdd', add)
+     .post('/productAdd', store)
+
+     .get('/productDetail', detail)
+
+     .get('/productEdit/:id', edit)
+     .put('/update/:id', update)
+
+     .delete('/destroy/:id', destroy)
+     
+     .get('/productCart', cart)
+     .get('/productGeneral', general) 
+     
      
 module.exports = router;
+     

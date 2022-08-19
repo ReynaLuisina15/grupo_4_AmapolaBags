@@ -40,3 +40,10 @@
 .main__carteras{
     margin-bottom: 40px;
 }
+
+@media (min-width:1024px){
+    .main__section__products__productCartera{
+        width: 32%;
+    }
+
+}
