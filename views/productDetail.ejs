@@ -10,18 +10,15 @@
     <main>
         <section class="main__section__detalles">
             <div class="div__imgCartera">
-                <img src="/img/Cartera-Ventimiglia.png" alt="">
+                <img src="/img/<%= image %> " alt="">
             </div>
             <div class="main__section__detalles--esp">
-                <h2>Marca: Ventimiglia</h2>
-                <h2>Talle: L</h2>
-                <h2>Bolsillos: 5</h2>
-                <h2>Colores:</h2>
-                <img src="/img/Amarillo.png" alt="">
-                <img src="/img/Beige rosado.jpeg" alt="">
+                <h2>Modelo: <%= product.name %> </h2>
+                <h2>Descripcion: <%= product.description %> </h2>
+                <h2>Colores: <%= product.color %> </h2>
                 <div class="main__section__colores">
                     <hr>
-                    <h1>PRECIO: 809.999</h1>
+                    <h1>PRECIO: <%= product.price %> </h1>
                     <button>
                         <p>AGREGAR AL CARRITO</p>
                     </button>

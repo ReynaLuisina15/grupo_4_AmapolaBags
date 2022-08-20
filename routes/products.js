@@ -9,7 +9,7 @@ router
      .get('/productAdd', add)
      .post('/productAdd', store)
 
-     .get('/productDetail', detail)
+     .get('/productDetail/:id', detail)
 
      .get('/productEdit/:id', edit)
      .put('/update/:id', update)
