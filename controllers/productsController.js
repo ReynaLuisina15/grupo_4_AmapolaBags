@@ -20,7 +20,9 @@ const controller = {
 	  detail: (req, res) => {		    
 		const products = loadProducts()
 		const product = products.find(product => product.id === +req.params.id)
-		return res.render("detail",{
+		/*return res.send(product)*/
+
+		return res.render("productDetail",{
 			product,
 			toThousand
 		})
