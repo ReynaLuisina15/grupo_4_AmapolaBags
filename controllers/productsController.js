@@ -9,7 +9,11 @@ const controller = {
         },
     
       general: (req, res) => {
-              return res.render("productGeneral", {title:"Productos"})
+		const products = loadProducts()
+		return res.render("productGeneral",{
+			products,
+			toThousand
+		})
          
         },
 
