@@ -52,41 +52,5 @@
       "color": "Cartera-piel.jpg",
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
       "price": 9490
-   },
-   {
-      "id": 7,
-      "price": null,
-      "image": "default-image.png",
-      "color": "default-image.png"
-   },
-   {
-      "id": 8,
-      "price": null,
-      "image": "default-image.png",
-      "color": "default-image.png"
-   },
-   {
-      "id": 9,
-      "price": null,
-      "image": "default-image.png",
-      "color": "default-image.png"
-   },
-   {
-      "id": 10,
-      "price": null,
-      "image": "default-image.png",
-      "color": "default-image.png"
-   },
-   {
-      "id": 11,
-      "price": null,
-      "image": "default-image.png",
-      "color": "default-image.png"
-   },
-   {
-      "id": 12,
-      "price": null,
-      "image": "default-image.png",
-      "color": "default-image.png"
    }
 ]

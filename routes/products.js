@@ -14,6 +14,7 @@ router
      .get('/productEdit/:id', edit)
      .put('/update/:id', update)
 
+
      .delete('/destroy/:id', destroy)
      
      .get('/productCart', cart)

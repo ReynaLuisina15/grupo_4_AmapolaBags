@@ -66,16 +66,16 @@ const controller = {
 			      if (product.id === +req.params.id) {
 				       return {
 					             ...product,
-					             name : name.trim(),
+					             name : name?.trim(),
 					             price : +price,
-					             description : description.trim(),
+					             description : description?.trim(),
 					             category
 				              }
 			          }
 			            return product
 		            })
 		              storeProducts(productsModify);
-		              return res.redirect("productDetail" + req.params.id)
+		              return res.redirect("/products/productDetail" + req.params.id)
 	         },
 
     destroy: (req, res) => {
