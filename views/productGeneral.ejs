@@ -1,42 +1,43 @@
 <!DOCTYPE html>
 <html lang="es">
-  <%- include("./partials/head",{title : "Productos"}) %>
+<%- include("./partials/head",{title : "Productos" }) %>
 
   <body class="body__home">
     <%- include("./partials/header") %>
 
-    <!-- INICIO MAIN -->
-    <main class="main__carteras">
-      <div class="titulos__products">
-        <h1>CARTERAS</h1>
-      </div>
+      <!-- INICIO MAIN -->
+      <main class="main__carteras">
+        <div class="titulos__products">
+          <h1>CARTERAS</h1>
+        </div>
 
-      <section class="main__section__products">
-        <% products.forEach(({id,name,price,descripcion,image,color}) => { %>
-          <article class="main__section__products__productCartera">
-            <a href="/products/productDetail/<%= id %>">
-            <img
-              class="productCartera__img"
-              src="/img/<%= image %>"
-              alt=""
-            />
-           </a>
-            <h4 class="productCartera__nombre"><%= name %></h4>
-            <h3 class="productCartera__precio"><%= toThousand(price) %></h3>
-            <button class="boton-favorito">
-              <i class="fa-regular fa-heart"></i>
-            </button>
-            <div class="productCartera__imgRadio">
-              <img src="/img/<%= color %> " alt="" />
-            </div>
-          </article>
-        <% }) %>
-      </section>
-    </main>
-    <!-- FIN MAIN -->
+        <section class="main__section__products">
+          <% products.forEach(({id,name,price,descripcion,image,color})=> { %>
+            <article class="main__section__products__productCartera">
+              <a href="/products/productDetail/<%= id %>">
+                <img class="productCartera__img" src="/img/<%= image %>" alt="" />
+              </a>
+              <h4 class="productCartera__nombre">
+                <%= name %>
+              </h4>
+              <h3 class="productCartera__precio">
+                <%= toThousand(+price) %>
+              </h3>
+              <button class="boton-favorito">
+                <i class="fa-regular fa-heart"></i>
+              </button>
+              <div class="productCartera__imgRadio">
+                <img src="/img/<%= color %> " alt="" />
+              </div>
+            </article>
+            <% }) %>
+        </section>
+      </main>
+      <!-- FIN MAIN -->
 
-    <%- include("./partials/footer") %>
+      <%- include("./partials/footer") %>
   </body>
+
 </html>
 
 <!-- 

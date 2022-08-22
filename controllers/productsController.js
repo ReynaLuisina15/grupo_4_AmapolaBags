@@ -1,6 +1,6 @@
 const {loadProducts, storeProducts} = require("../data/produtcsModule");
 const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-const products = require('../data/productsDataBase.json')
+/* const products = require('../data/productsDataBase.json') */
 
 const controller = {
 
@@ -29,9 +29,7 @@ const controller = {
 	      },
        	
 	  add : (req,res) => {
-			return res.render('productAdd',{
-				brands : brands.sort()
-			})
+			return res.render('productAdd')
 		},
 
 	  store: (req, res) => {
@@ -40,18 +38,17 @@ const controller = {
 
 		      const newProduct = {
 			          id : (products[products.length - 1].id + 1),
-			          name : name.trim(),
-			          description : description.trim(),
+			          name : name?.trim(),
+			          description : description?.trim(),
 			          price : +price,
 			          image : "default-image.png",
-                     color : "default-image.png",
+                color :color || "default-image.png",
 			          category
 		      }
 
 		      const productsModify = [...products, newProduct];
 		           storeProducts(productsModify);
-
-		           return res.redirect("productsGeneral");
+		           return res.redirect("/products/productGeneral");
 	        },
 
 	  edit: (req, res) => {
