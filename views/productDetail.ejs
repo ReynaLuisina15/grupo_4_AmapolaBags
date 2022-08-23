@@ -32,12 +32,13 @@
                                 <p>AGREGAR AL CARRITO</p>
                             </button>
                             <button>
-                               <a href="/products/productEdit/<%= product.id %> "><p>Editar producto</p></a> 
-                        
+                               <a style="color: white;" href="/products/productEdit/<%= product.id %>"><p>Editar producto</p></a>
                             </button>
-                            <button>
-                                <p>Eliminar producto</p>
-                            </button>
+                            <form action="/products/delete/<%= product.id %>?_method=DELETE" method="post">                         
+                                <button type="submit">
+                                    <p>Eliminar producto</p>
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </section>

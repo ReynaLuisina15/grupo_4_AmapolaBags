@@ -14,8 +14,8 @@
 
                     </article>
                     <article class="body__main__login__section1__article2">
-                        <form class="body__main__login__section1__article2__form" action=""
-                            enctype="multipart/form-data" method="POST">
+                        <form class="body__main__login__section1__article2__form" action="/products/productAdd"
+                             method="POST">
 
                             <div>
                                 <label for="name">Modelo</label>
@@ -35,8 +35,12 @@
                             </div>
                             <div>
                                 <label for="color">Color</label>
-                                <input type="file" name="color" id="color" required>
+                                <input type="color" name="color" id="color" required>
                             </div>
+                            <!-- <div>
+                                <label for="color">Color</label>
+                                <input type="file" name="color" id="color" required>
+                            </div> -->
                             <div>
                                 <label for="descripcion">descripcion</label> <br>
                                 <textarea name="descripcion" id="descripcion" cols="30" rows="6"></textarea>
@@ -44,7 +48,7 @@
                             <div>
                                 <label for="price">Precio</label>
                                 <input type="number" name="price" id="price" required>
-                                <a href=""></a>
+                                
                             </div>
 
                             <button class="body__main__login__section1__article2__form--button"

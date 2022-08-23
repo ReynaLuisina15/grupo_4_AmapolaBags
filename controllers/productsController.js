@@ -34,6 +34,7 @@ const controller = {
 
 	  store: (req, res) => {
 		      const {name,price,description,category,color} = req.body
+			  return console.log(req.body)
 		      const products = loadProducts()
 
 		      const newProduct = {
@@ -79,11 +80,11 @@ const controller = {
 	         },
 
     destroy: (req, res) => {
-		      const {id} = req.params;
+		      const id = req.params.id;
 		      const products = loadProducts();
 		      const productsModify = products.filter(product => product.id !== +id);
 		              storeProducts(productsModify);
-		              return res.redirect("productGeneral");
+		              return res.redirect("/products/productGeneral");
 	         }
 };
 
