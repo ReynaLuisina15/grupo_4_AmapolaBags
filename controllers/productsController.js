@@ -1,96 +1,91 @@
-const {loadProducts, storeProducts} = require("../data/produtcsModule");
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const { loadProducts, storeProducts } = require("../data/produtcsModule");
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 /* const products = require('../data/productsDataBase.json') */
 
 const controller = {
+  cart: (req, res) => {
+    return res.render("productCart", { title: "Carrito" });
+  },
 
-      cart: (req,res) => {
-              return res.render("productCart", {title:"Carrito"})
-        },
-    
-      general: (req, res) => {
-		const products = loadProducts()
-		return res.render("productGeneral",{
-			products,
-			toThousand
-		})
-         
-        },
+  general: (req, res) => {
+    const products = loadProducts();
+    return res.render("productGeneral", {
+      products,
+      toThousand,
+    });
+  },
 
-	  detail: (req, res) => {		    
-		const products = loadProducts()
-		const product = products.find(product => product.id === +req.params.id)
-		/*return res.send(product)*/
+  detail: (req, res) => {
+    const products = loadProducts();
+    const product = products.find((product) => product.id === +req.params.id);
+    /*return res.send(product)*/
 
-		return res.render("productDetail",{
-			product,
-			toThousand
-		})
-	      },
-       	
-	  add : (req,res) => {
-			return res.render('productAdd')
-		},
+    return res.render("productDetail", {
+      product,
+      toThousand,
+    });
+  },
 
-	  store: (req, res) => {
-		      const {name,price,description,category,color} = req.body
-			  return console.log(req.body)
-		      const products = loadProducts()
+  add: (req, res) => {
+    return res.render("productAdd");
+  },
 
-		      const newProduct = {
-			          id : (products[products.length - 1].id + 1),
-			          name : name?.trim(),
-			          description : description?.trim(),
-			          price : +price,
-			          image : "default-image.png",
-                color :color || "default-image.png",
-			          category
-		      }
+  store: (req, res) => {
+    const { name, price, description, category, color } = req.body;
+    const products = loadProducts();
 
-		      const productsModify = [...products, newProduct];
-		           storeProducts(productsModify);
-		           return res.redirect("/products/productGeneral");
-	        },
+    const newProduct = {
+      id: products[products.length - 1].id + 1,
+      name: name?.trim(),
+      description: description?.trim(),
+      price: +price,
+      image: "default-image.png",
+      color: [color],
+      category,
+    };
 
-	  edit: (req, res) => {
-		      const products = loadProducts()
-		      const product = products.find(product => product.id === +req.params.id);
-		           return res.render("productEdit",{
-			         product
-		          })
-	        },
-    
-	  update: (req, res) => {
-		      const products = loadProducts();
-		      const {name,price,category,description} = req.body
-	        const productsModify = products.map(product => {
-			      if (product.id === +req.params.id) {
-				       return {
-					             ...product,
-					             name : name?.trim(),
-					             price : +price,
-					             description : description?.trim(),
-					             category
-				              }
-			          }
-			            return product
-		            })
-		              storeProducts(productsModify);
-		              return res.redirect("/products/productDetail" + req.params.id)
-	         },
+    const productsModify = [...products, newProduct];
+    storeProducts(productsModify);
+    return res.redirect("/products/productGeneral");
+  },
 
-    destroy: (req, res) => {
-		      const id = req.params.id;
-		      const products = loadProducts();
-		      const productsModify = products.filter(product => product.id !== +id);
-		              storeProducts(productsModify);
-		              return res.redirect("/products/productGeneral");
-	         }
+  edit: (req, res) => {
+    const products = loadProducts();
+    const product = products.find((product) => product.id === +req.params.id);
+    return res.render("productEdit", {
+      product,
+    });
+  },
+
+  update: (req, res) => {
+    const products = loadProducts();
+    const { name, price, category, description } = req.body;
+    const productsModify = products.map((product) => {
+      if (product.id === +req.params.id) {
+        return {
+          ...product,
+          name: name?.trim(),
+          price: +price,
+          description: description?.trim(),
+          category,
+        };
+      }
+      return product;
+    });
+    storeProducts(productsModify);
+    return res.redirect("/products/productDetail/" + req.params.id);
+  },
+
+  destroy: (req, res) => {
+    const id = req.params.id;
+    const products = loadProducts();
+    const productsModify = products.filter((product) => product.id !== +id);
+    storeProducts(productsModify);
+    return res.redirect("/products/productGeneral");
+  },
 };
 
-    module.exports = controller;
-    
-
+module.exports = controller;
 
 /*  ejemplos
 

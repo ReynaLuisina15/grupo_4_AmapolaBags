@@ -14,7 +14,7 @@
                
             </article>
             <article class="body__main__login__section1__article2">
-                <form class="body__main__login__section1__article2__form" action="/products/update/<%= product.id%>?_method=PUT" method="POST">
+                <form class="body__main__login__section1__article2__form" action="/products/update/<%= product.id %>?_method=PUT" method="POST">
                    
                     <div>
                         <label for="name">Modelo</label>
@@ -33,16 +33,16 @@
                         <input type="file" name="img" id="file" required value="<%= product.image %>">
                     </div>
                     <div>
-                        <label for="img">Color</label>
-                        <input type="file" name="img" id="file" required value="<%= product.color %>">
+                        <label for="color">Color</label>
+                        <input type="color" name="color" id="color" required value="<%= product.color %>">
                     </div>
                     <div>
-                        <label for="">Descripcion</label> <br>
-                        <textarea name="descripcion" id="descripcion" cols="30" rows="6"> <%= product.description %></textarea>
+                        <label for="description">Descripcion</label> <br>
+                        <textarea name="description" id="description" cols="30" rows="6"><%= product.description %></textarea>
                     </div>
                     <div>
-                        <label for="password">Precio</label>
-                        <input type="password" name="password" id="password" required>
+                        <label for="price">Precio</label>
+                        <input type="number" name="price" id="price" required value="<%= product.price %>">
                         <a href=""></a>
                     </div>                      
                     <button class="body__main__login__section1__article2__form--button" type="submit">Actulizar</button>
