@@ -23,7 +23,11 @@
                         <h2>Categoria: <%= product.category %>
                         </h2>
                         <h2>Colores: </h2>
-                        <img src="/img/<%= product.color %>" alt="">
+                        <div class="productCartera__imgRadio" style="margin: 0 auto;">
+                            <% product.color.forEach(col => { %>
+                             <span style=<%= "background-color:" + col +";width:20px;height:20px;display:inline-block;border-radius:50%"%>></span>
+                              <% }) %>
+                          </div>
                         <div class="main__section__colores">
                             <hr>
                             <h1>PRECIO: <%= product.price %>

@@ -4,7 +4,10 @@
       "name": "cafa",
       "category": "cartera",
       "image": "Cartera-Martina.png",
-      "color": ["#af2323","#af2387"],
+      "color": [
+         "#af2323",
+         "#af2387"
+      ],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
       "price": 23500
    },
@@ -13,7 +16,10 @@
       "name": "brenda",
       "category": "cartera",
       "image": "Cartera-Brenda.png",
-      "color":["#af2323","#af2387"],
+      "color": [
+         "#af2323",
+         "#af2387"
+      ],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
       "price": 10900
    },
@@ -22,7 +28,10 @@
       "name": "volterra",
       "category": "cartera",
       "image": "Cartera-Volterra.png",
-      "color":["#af2323","#af2387"],
+      "color": [
+         "#af2323",
+         "#af2387"
+      ],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
       "price": 8550
    },
@@ -31,7 +40,10 @@
       "name": "alma",
       "category": "cartera",
       "image": "Cartera-Alma.png",
-      "color":["#e7c296","#af2387"],
+      "color": [
+         "#e7c296",
+         "#af2387"
+      ],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
       "price": 10900
    },
@@ -40,7 +52,10 @@
       "name": "cecilia",
       "category": "cartera",
       "image": "Cartera-Cecilia.png",
-      "color":["#bf9471","#af2387"],
+      "color": [
+         "#bf9471",
+         "#af2387"
+      ],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
       "price": 7290
    },
@@ -49,7 +64,10 @@
       "name": "ventimiglia",
       "category": "cartera",
       "image": "Cartera-Ventimiglia.png",
-      "color":["#af2323","#af2387"],
+      "color": [
+         "#af2323",
+         "#af2387"
+      ],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
       "price": 9490
    }
