@@ -40,7 +40,7 @@ const controller = {
       description: description?.trim(),
       price: +price,
       image: "default-image.png",
-      color: [color],
+      color: [color, "#0f0f0f"],
       category,
     };
 
@@ -59,7 +59,7 @@ const controller = {
 
   update: (req, res) => {
     const products = loadProducts();
-    const { name, price, category, description } = req.body;
+    const { name, price, category, description, color } = req.body;
     const productsModify = products.map((product) => {
       if (product.id === +req.params.id) {
         return {
@@ -68,6 +68,7 @@ const controller = {
           price: +price,
           description: description?.trim(),
           category,
+          color: [color] || product.color,
         };
       }
       return product;

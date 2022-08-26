@@ -70,5 +70,16 @@
       ],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
       "price": 9490
+   },
+   {
+      "id": 7,
+      "name": "facu",
+      "description": "abdjajhcnjancj",
+      "price": 8000,
+      "image": "default-image.png",
+      "color": [
+         "#14c237"
+      ],
+      "category": "riñonera"
    }
 ]
