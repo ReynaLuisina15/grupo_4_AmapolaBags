@@ -1,4 +1,5 @@
-
+const bcryptjs = require('bcryptjs');
+const {validationResult} = require('express-validator');
 
 module.exports = {
   login : (req,res) => {
