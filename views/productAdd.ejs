@@ -1,60 +1,67 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <%- include("./partials/head") %> 
+<%- include("./partials/head", {title: 'Nuevo Producto' }) %>
 
-<body>
-  
-  <%- include("./partials/header") %> 
+    <body>
 
-    <main class="body__main__login">
-        <section class="body__main__login__section1">
-            <article class="body__main__login__section1__article1">
-                <h3>Nuevo producto</h3>
-               
-            </article>
-            <article class="body__main__login__section1__article2">
-                <form class="body__main__login__section1__article2__form" action="" method="post">
-                
-                    <div>
-                        <label for="text">Modelo</label>
-                        <input type="text" name="text" id="text" required>
-                    </div>
-                    <div>
-                        <label for="category">Cartegoria</label> <br>
-                        <select  name="category" id="category">
-                            <option value="cartera">Cartera</option>
-                            <option value="riñonera">Riñonera</option>
-                            <option value="mochila">Mochila</option>
-                        </select>
-                    </div>
-                    <div>
-                        <label for="img">Imagen</label>
-                        <input type="file" name="img" id="file" required>
-                    </div>
-                    <div>
-                        <label for="img">Color</label>
-                        <input type="file" name="img" id="file" required>
-                    </div>
-                    <div>
-                        <label for="">descripcion</label> <br>
-                        <textarea name="descripcion" id="descripcion" cols="30" rows="6"></textarea>
-                    </div>
-                    <div>
-                        <label for="text">Precio</label>
-                        <input type="text" name="text" id="text" required>
-                        <a href=""></a>
-                    </div>
+        <%- include("./partials/header") %>
 
-                    <button class="body__main__login__section1__article2__form--button" type="submit">Agregar</button>
-                    <button class="body__main__login__section1__article2__form--button" type="reset">Borrar</button>
-                </form>
-            
-            </article>
-        </section>
+            <main class="body__main__login">
+                <section class="body__main__login__section1">
+                    <article class="body__main__login__section1__article1">
+                        <h3>Nuevo producto</h3>
 
-    </main>
-    
-    <%- include("./partials/footer") %> 
+                    </article>
+                    <article class="body__main__login__section1__article2">
+                        <form class="body__main__login__section1__article2__form" action="/products/productAdd"
+                             method="POST">
 
-</body>
+                            <div>
+                                <label for="name">Modelo</label>
+                                <input type="text" name="name" id="name" required>
+                            </div>
+                            <div>
+                                <label for="category">Cartegoria</label> <br>
+                                <select name="category" id="category">
+                                    <option value="cartera">Cartera</option>
+                                    <option value="riñonera">Riñonera</option>
+                                    <option value="mochila">Mochila</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="img">Imagen</label>
+                                <input type="file" name="img" id="img" required>
+                            </div>
+                            <div>
+                                <label for="color">Color</label>
+                                <input type="color" name="color" id="color" required>
+                            </div>
+                            <!-- <div>
+                                <label for="color">Color</label>
+                                <input type="file" name="color" id="color" required>
+                            </div> -->
+                            <div>
+                                <label for="description">descripcion</label> <br>
+                                <textarea name="description" id="description" cols="30" rows="6"></textarea>
+                            </div>
+                            <div>
+                                <label for="price">Precio</label>
+                                <input type="number" name="price" id="price" required>
+                                
+                            </div>
+
+                            <button class="body__main__login__section1__article2__form--button"
+                                type="submit">Agregar</button>
+                            <button class="body__main__login__section1__article2__form--button"
+                                type="reset">Borrar</button>
+                        </form>
+
+                    </article>
+                </section>
+
+            </main>
+
+            <%- include("./partials/footer") %>
+
+    </body>
