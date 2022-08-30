@@ -28,7 +28,7 @@ module.exports = [
           }
           /* return !!req.file */
         })
-        .withMessage("la imagen del producto es obligatorio")
+        .withMessage("la imagen del producto es obligatoria")
         .custom((value,{req}) => {
           const regImg = /(.jpg|.png|.jpeg|.webp)$/
        /*    req.files?.forEach(file => {
