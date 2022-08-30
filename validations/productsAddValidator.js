@@ -11,7 +11,7 @@ module.exports = [
 
     check("category")
         .notEmpty()
-        .withMessage("la categoria del producto es obligatorio"),
+        .withMessage("la categoria del producto es obligatoria"),
     
     body("img")
         .custom((value,{req}) => {
