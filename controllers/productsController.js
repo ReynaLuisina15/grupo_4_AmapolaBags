@@ -70,22 +70,50 @@ const controller = {
 
   update: (req, res) => {
     const products = loadProducts();
-    const { name, price, category, description, color } = req.body;
-    const productsModify = products.map((product) => {
-      if (product.id === +req.params.id) {
-        return {
-          ...product,
-          name: name?.trim(),
-          price: +price,
-          description: description?.trim(),
-          category,
-          color: [color] || product.color,
-        };
-      }
-      return product;
-    });
-    storeProducts(productsModify);
-    return res.redirect("/products/productDetail/" + req.params.id);
+    const errors = validationResult(req);
+
+    if (errors.isEmpty()) {
+      const { name, price, category, description, color } = req.body;
+
+      const productsModify = products.map((product) => {
+		
+        if (product.id === +req.params.id) {
+
+           /* if (product.id === +req.params.id) {
+                if(req.files.length){
+                  product.image?.forEach(img => {  
+                    fs.unlinkSync("./public/img/" + img);
+                  })
+            } */
+
+          if (req.file) {
+            fs.unlinkSync("./public/img/" + product.image);
+          }
+
+          /* req.file && fs.unlinkSync("./public/img/" + product.image); */
+
+          return {
+            ...product,
+            name: name?.trim(),
+            price: +price,
+            description: description?.trim(),
+            category,
+            image: req.file?.filename || product.image,
+            color: [color],
+          };
+        }
+        return product;
+      });
+
+      storeProducts(productsModify);
+      return res.redirect("/products/productDetail/" + req.params.id);
+    } else {
+      return res.render("productEdit", {
+        product: req.body,
+        id: req.params.id,
+        errors: errors.mapped(),
+      });
+    }
   },
 
   destroy: (req, res) => {

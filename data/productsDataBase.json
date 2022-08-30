@@ -75,10 +75,10 @@
       "id": 7,
       "name": "facu",
       "description": "abdjajhcnjancj",
-      "price": 8000,
-      "image": "default-image.png",
+      "price": 8500,
+      "image": "product-1661882065189.jpg",
       "color": [
-         "#14c237"
+         "#b8b8b7"
       ],
       "category": "riñonera"
    },
@@ -86,8 +86,8 @@
       "id": 8,
       "name": "Melii",
       "description": "adjanjcjakmckas",
-      "price": 8000,
-      "image": "product-1661871506958.webp",
+      "price": 9000,
+      "image": "product-1661881910201.jpg",
       "color": [
          "#787878"
       ],
