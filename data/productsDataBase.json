@@ -81,5 +81,16 @@
          "#14c237"
       ],
       "category": "riñonera"
+   },
+   {
+      "id": 8,
+      "name": "Melii",
+      "description": "adjanjcjakmckas",
+      "price": 8000,
+      "image": "product-1661871506958.webp",
+      "color": [
+         "#787878"
+      ],
+      "category": "cartera"
    }
 ]

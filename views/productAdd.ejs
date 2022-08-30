@@ -15,7 +15,7 @@
                     </article>
                     <article class="body__main__login__section1__article2">
                         <form class="body__main__login__section1__article2__form" action="/products/productAdd"
-                             method="POST">
+                             method="POST" enctype="multipart/form-data">
 
                             <div>
                                 <label for="name">Modelo</label>
@@ -31,7 +31,7 @@
                             </div>
                             <div>
                                 <label for="img">Imagen</label>
-                                <input type="file" name="img" id="img" required>
+                                <input type="file" name="img" id="img" accept="image/*" required>
                             </div>
                             <div>
                                 <label for="color">Color</label>

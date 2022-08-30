@@ -1,5 +1,6 @@
 const { loadProducts, storeProducts } = require("../data/produtcsModule");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const fs = require("fs");
 /* const products = require('../data/productsDataBase.json') */
 
 const controller = {
@@ -39,8 +40,8 @@ const controller = {
       name: name?.trim(),
       description: description?.trim(),
       price: +price,
-      image: "default-image.png",
-      color: [color, "#0f0f0f"],
+	  image: req.file ? req.file.filename : "default-image.png",
+      color: [color],
       category,
     };
 

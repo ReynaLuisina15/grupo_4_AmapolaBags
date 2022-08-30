@@ -4,10 +4,12 @@ const router = express.Router();
 
 const {cart,detail,general,add,edit,store,update,destroy} = require("../controllers/productsController");
 
+const {uploadImageProduct} = require("../middlewares/upLoadFiles")
+
 /* products. */
 router
      .get('/productAdd', add)
-     .post('/productAdd', store)
+     .post('/productAdd',uploadImageProduct.single("img"), store)
 
      .get('/productDetail/:id', detail)
 
