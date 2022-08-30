@@ -92,5 +92,16 @@
          "#787878"
       ],
       "category": "cartera"
+   },
+   {
+      "id": 9,
+      "name": "caleb",
+      "description": "facherita",
+      "price": 7000,
+      "image": "product-1661875647169.jpg",
+      "color": [
+         "#eb1414"
+      ],
+      "category": "riñonera"
    }
 ]

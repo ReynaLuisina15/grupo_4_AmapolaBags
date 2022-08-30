@@ -3,6 +3,8 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const fs = require("fs");
 /* const products = require('../data/productsDataBase.json') */
 
+const { validationResult } = require("express-validator");
+
 const controller = {
   cart: (req, res) => {
     return res.render("productCart", { title: "Carrito" });
@@ -32,22 +34,30 @@ const controller = {
   },
 
   store: (req, res) => {
-    const { name, price, description, category, color } = req.body;
-    const products = loadProducts();
+    const errors = validationResult(req);
+    if (errors.isEmpty()) {
+      const { name, price, description, category, color } = req.body;
+      const products = loadProducts();
 
-    const newProduct = {
-      id: products[products.length - 1].id + 1,
-      name: name?.trim(),
-      description: description?.trim(),
-      price: +price,
-	  image: req.file ? req.file.filename : "default-image.png",
-      color: [color],
-      category,
-    };
+      const newProduct = {
+        id: products[products.length - 1].id + 1,
+        name: name?.trim(),
+        description: description?.trim(),
+        price: +price,
+        image: req.file ? req.file.filename : "default-image.png",
+        color: [color],
+        category,
+      };
 
-    const productsModify = [...products, newProduct];
-    storeProducts(productsModify);
-    return res.redirect("/products/productGeneral");
+      const productsModify = [...products, newProduct];
+      storeProducts(productsModify);
+      return res.redirect("/products/productGeneral");
+    } else {
+      return res.render("productAdd", {
+        errors: errors.mapped(),
+        old: req.body,
+      });
+    }
   },
 
   edit: (req, res) => {
