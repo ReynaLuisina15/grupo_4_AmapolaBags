@@ -11,7 +11,7 @@ module.exports = [
 
     check("category")
         .notEmpty()
-        .withMessage("la categoria del producto es obligatorio"),
+        .withMessage("la categoria del producto es obligatoria"),
     
     body("img")
         .custom((value,{req}) => {
@@ -28,7 +28,7 @@ module.exports = [
           }
           /* return !!req.file */
         })
-        .withMessage("la imagen del producto es obligatorio")
+        .withMessage("la imagen del producto es obligatoria")
         .custom((value,{req}) => {
           const regImg = /(.jpg|.png|.jpeg|.webp)$/
        /*    req.files?.forEach(file => {
