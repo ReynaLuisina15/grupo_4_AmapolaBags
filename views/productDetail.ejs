@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("./partials/head", {title: 'Dettale producto'}) %>
+<%- include("./partials/head", {title: 'Dettale producto' }) %>
 
     <body>
 
@@ -11,9 +11,9 @@
                 <section class="main__section__detalles">
 
                     <div class="div__imgCartera">
-                      
-                            <img src="/img/<%= product.image %>" alt="">
-                        
+
+                        <img src="/img/<%= product.image %>" alt="">
+
                     </div>
                     <div class="main__section__detalles--esp">
                         <h2>Marca: <%= product.name %>
@@ -24,10 +24,11 @@
                         </h2>
                         <h2>Colores: </h2>
                         <div class="productCartera__imgRadio" style="margin: 0 auto;">
-                            <% product.color.forEach(col => { %>
-                             <span style=<%= "background-color:" + col +";width:20px;height:20px;display:inline-block;border-radius:50%"%>></span>
-                              <% }) %>
-                          </div>
+                            <% product.color.forEach(col=> { %>
+                                <span style=<%="background-color:" + col
+                                    +";width:20px;height:20px;display:inline-block;border-radius:50%"%>></span>
+                                <% }) %>
+                        </div>
                         <div class="main__section__colores">
                             <hr>
                             <h1>PRECIO: <%= toThousand(product.price) %>
@@ -36,7 +37,9 @@
                                 <p>AGREGAR AL CARRITO</p>
                             </button>
                             <button>
-                                <p>Editar producto</p>
+                                <a style="color: white;" href="/products/productEdit/<%= product.id %>">
+                                    <p>Editar producto</p>
+                                </a>
                             </button>
                             <button>
                                 <p>Eliminar producto</p>

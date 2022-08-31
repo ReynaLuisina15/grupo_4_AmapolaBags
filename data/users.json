@@ -1,9 +1,20 @@
 [
-    {
-        "id": 1,
-        "name": "",
-        "surname": "",
-        "email": "",
-        "password": ""
-    }
+   {
+      "id": 1,
+      "name": "",
+      "surname": "",
+      "email": "",
+      "password": "",
+      "rol": "admin",
+      "avatar": "avatar.png"
+   },
+   {
+      "id": 2,
+      "name": "Luisina",
+      "surname": "Reyna",
+      "email": "reyna.luisina@gmail.com",
+      "password": "$2a$12$k.16mW.ZhBjHvSuOt.kVjO7eynd0phBXAQlozaF2jsOabkYhQAcRq",
+      "rol": "user",
+      "avatar": "avatar.png"
+   }
 ]
