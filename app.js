@@ -3,7 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
 
 const session = require('express-session');
 var indexRouter = require('./routes/index');
@@ -12,7 +12,7 @@ var productsRouter = require('./routes/products');
 
 var app = express();
 
-// view engine setup
+// view engine setup0 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
