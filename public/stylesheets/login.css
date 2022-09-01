@@ -98,6 +98,7 @@
 }
 
 .body__main__login__section1__article2__checkbox input {
+    display: inline-block;
     height: 11px;
     width: 11px;
 }

@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {login, register, proccesLogin, processRegister, processProfile} = require("../controllers/userController");
+const {login, register, proccesLogin, processRegister, profile} = require("../controllers/userController");
 const {loginValidator, registerValidator} = require('../validations');
 
 /* user. */
@@ -16,6 +16,6 @@ router
 
 
      /* USER PROFILE */
-     .get('/profile', processProfile)
+     .get('/profile', profile)
 
 module.exports = router;

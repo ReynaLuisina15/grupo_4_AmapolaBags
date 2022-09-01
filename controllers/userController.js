@@ -46,7 +46,7 @@ module.exports = {
       old: req.body})
     }
   },
-  processProfile : (req,res) => {
+  profile : (req,res) => {
      return res.render("profile", { title: "Profile" })
   }
 }

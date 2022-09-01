@@ -42,14 +42,19 @@
                             <div>
                                 <label for="password">contraseña</label>
                                 <input type="password" name="password" id="password">
-                                <a href="">¿Olvidaste tu contraseña?</a>
+                                
                                 <p class="text-danger">
                                     <%= locals.errors && errors.password ? errors.password.msg : null %>
                                 </p>
+                                <a href="">¿Olvidaste tu contraseña?</a>
+                            </div>
+                            <div>
+                                <label for="img">Avatar</label>
+                                <input type="file" name="img" id="img" accept="image/*" ><!-- multiple -->
                             </div>
                             <div class="body__main__login__section1__article2__checkbox">
-                                <label for="terms">Acepto terminos y condiciones</label><br>
                                 <input type="checkbox" name="terms" id="terms">
+                                <label for="terms">Acepto terminos y condiciones</label><br>
                                 <p class="text-danger">
                                     <%= locals.errors && errors.terms ? errors.terms.msg : null %>
                                 </p>
