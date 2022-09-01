@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {login, register, proccesLogin, processRegister} = require("../controllers/userController");
+const {login, register, proccesLogin, processRegister, processProfile} = require("../controllers/userController");
 
 /* user. */
 router
@@ -12,5 +12,8 @@ router
      /* user Login. */
      .get('/login', login)
      .post('/login', proccesLogin)
+
+     /* USER PROFILE */
+     .get('/profile', processProfile)
 
 module.exports = router;

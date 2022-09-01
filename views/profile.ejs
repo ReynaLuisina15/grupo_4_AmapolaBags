@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <%- include("./partials/head") %> 
+
 <body>
-    <h1>PERFILL</h1>
+    <%- include("./partials/header") %>
+
+   
+        <section class="body__section__profile" >
+            <form class="body__main__register__section1__article2__form" method="POST" action="/users/register">
+            <div class="body__section__profile--img">
+                <img src="/img/avatar/avatar.png.jpeg" width="130px" height="130px" alt="">
+            </div>
+            <div>
+                <label for="name">nombre</label> <br>
+                <input type="text" name="name" id="name" >
+            </div>
+            <div>
+                <label for="surname">apellido</label> <br>
+                <input type="text" name="surname" id="surname" >
+            </div>
+            <div>
+                <label for="email">correo electronico</label> <br>
+                <input type="email" name="email" id="email" >
+            </div>
+            <div class="body__section__profile--password">
+                <label for="password">contraseña</label> <br>
+                <input  type="password" name="password" id="password" >
+        
+            </div>
+            <button class="body__main__register__section1__article2__form--button" type="submit">Actualizar</button>
+        </form>
+        </section>
+        
 </body>
 </html>

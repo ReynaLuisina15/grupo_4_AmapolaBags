@@ -31,5 +31,8 @@ module.exports = {
     
     storeUsers(usersModify);
     return res.redirect('/users/login');
+  },
+  processProfile : (req,res) => {
+     return res.render("profile", { title: "Profile" })
   }
 }
