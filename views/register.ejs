@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <%- include("./partials/head") %> 
+<%- include("./partials/head") %>
 
 <body>
   
@@ -14,10 +14,6 @@
             </article>
             <article class="body__main__register__section1__article2">
                 <form class="body__main__register__section1__article2__form" method="POST" action="/users/register">
-                    <div>
-                        <label for="img">Imagen de Usuario</label>
-                        <input type="file" name="img" id="img" accept="image/*" ><!-- multiple --> 
-                    </div>
                     <div>
                         <label for="name">nombre</label>
                         <input type="text" name="name" id="name" required>
@@ -37,17 +33,18 @@
                     </div>
                     
 
-                    <button class="body__main__register__section1__article2__form--button" type="submit">crear cuenta</button>
-                </form>
-                <div class="body__main__register__section1__article2__div">
-                    <a href="">Login  <i class="fa-brands fa-facebook-square"></i></a>
-                    <a href="">Login  <i class="fa-brands fa-google"></i></a>
-                </div>
-                <form class="body__main__register__section1__article2__checkbox" action="">
-                    <input type="checkbox" name="terminos" id="terminos">
-                    <label for="terminos">By clicking of the social
-                        login buttonsyou agree to the terms of privacity
-                        policy described <a href="">here</a> </label>
+                            <button class="body__main__register__section1__article2__form--button" type="submit">crear
+                                cuenta</button>
+                        </form>
+                        <div class="body__main__register__section1__article2__div">
+                            <a href="">Login <i class="fa-brands fa-facebook-square"></i></a>
+                            <a href="">Login <i class="fa-brands fa-google"></i></a>
+                        </div>
+                        <form class="body__main__register__section1__article2__checkbox" action="">
+                            <input type="checkbox" name="terminos" id="terminos">
+                            <label for="terminos">By clicking of the social
+                                login buttonsyou agree to the terms of privacity
+                                policy described <a href="">here</a> </label>
 
                 </form>
             </article>
@@ -93,4 +90,4 @@
    
     <%- include("./partials/footer") %>
 
-</body>
+    </body>
