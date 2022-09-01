@@ -1,92 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <%- include("./partials/head") %> 
+<%- include("./partials/head") %>
 
-<body>
-  
-  <%- include("./partials/header") %>
+    <body>
 
-    <main class="body__main__register">
-        <section class="body__main__register__section1">
-            <article class="body__main__register__section1__article1">
-                <h3>¡que lindo que te nos unas!</h3>
-            </article>
-            <article class="body__main__register__section1__article2">
-                <form class="body__main__register__section1__article2__form" method="POST" action="/users/register">
-                    <div>
-                        <label for="name">nombre</label>
-                        <input type="text" name="name" id="name" required>
+        <%- include("./partials/header") %>
+
+            <main class="body__main__register">
+                <section class="body__main__register__section1">
+                    <article class="body__main__register__section1__article1">
+                        <h3>¡que lindo que te nos unas!</h3>
+                    </article>
+                    <article class="body__main__register__section1__article2">
+                        <form class="body__main__register__section1__article2__form" method="POST"
+                            action="/users/register">
+                            <div>
+                                <label for="name">nombre</label>
+                                <input type="text" name="name" id="name"
+                                    value="<%= locals.old && old.name ? old.name : null %>">
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.name ? errors.name.msg : null %>
+                                </p>
+                            </div>
+                            <div>
+                                <label for="surname">apellido</label>
+                                <input type="text" name="surname" id="surname"
+                                    value="<%= locals.old && old.surname ? old.surname : null %>">
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.surname ? errors.surname.msg : null %>
+                                </p>
+                            </div>
+                            <div>
+                                <label for="email">correo electronico</label>
+                                <input type="email" name="email" id="email"
+                                    value="<%= locals.old && old.email ? old.email : null %>">
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.email ? errors.email.msg : null %>
+                                </p>
+                            </div>
+                            <div>
+                                <label for="password">contraseña</label>
+                                <input type="password" name="password" id="password">
+                                <a href="">¿Olvidaste tu contraseña?</a>
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.password ? errors.password.msg : null %>
+                                </p>
+                            </div>
+                            <div class="body__main__login__section1__article2__checkbox">
+                                <label for="terms">Acepto terminos y condiciones</label><br>
+                                <input type="checkbox" name="terms" id="terms">
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.terms ? errors.terms.msg : null %>
+                                </p>
+                            </div>
+
+                            <button class="body__main__register__section1__article2__form--button" type="submit">crear
+                                cuenta</button>
+                        </form>
+                        <div class="body__main__register__section1__article2__div">
+                            <a href="">Login <i class="fa-brands fa-facebook-square"></i></a>
+                            <a href="">Login <i class="fa-brands fa-google"></i></a>
+                        </div>
+                        <form class="body__main__register__section1__article2__checkbox" action="">
+                            <input type="checkbox" name="terminos" id="terminos">
+                            <label for="terminos">By clicking of the social
+                                login buttonsyou agree to the terms of privacity
+                                policy described <a href="">here</a> </label>
+
+                        </form>
+                    </article>
+                </section>
+                <section class="body__main__register__section2">
+                    <div class="body__main__section2--divlinea"></div>
+                    <article class="body__main__register__section2__article1">
+                        <h3>¿primera vez en <br> amapola bags?</h3>
+                        <p>Creá tu cuenta, es grátis y podrás ganar puntos Amapola de muchas maneras, que luego
+                            canjearás por
+                            descuentos.</p>
+                    </article>
+                    <article class="body__main__register__section2__article2">
+                        <div class="body__main__register__section2__article2__div">
+                            <i class="fa-solid fa-truck"></i>
+                            <p>envios sin cargo a todo el pais</p>
+                        </div>
+                        <div class="body__main__register__section2__article2__div">
+                            <i class="fa-regular fa-credit-card"></i>
+                            <p class="body__main__register__section2__article2__div--p1">¡3,6 y 12 cuotas sin interés
+                                todos los dias!</p>
+                        </div>
+                        <div class="body__main__register__section2__article2__div">
+                            <i class="fa-regular fa-face-laugh-beam"></i>
+                            <p>amapola club</p>
+                        </div>
+                        <div class="body__main__register__section2__article2__div">
+                            <i class="fa-solid fa-store"></i>
+                            <p class="body__main__register__section2__article2__div--p2">¡retiro en tienda en 2 hs!</p>
+                        </div>
+                        <div class="body__main__register__section2__article2__div">
+                            <i class="fa-solid fa-arrow-right-arrow-left"></i>
+                            <p>cambios y devoluciones sin cargo</p>
+                        </div>
+                        <div class="body__main__register__section2__article2__div">
+                            <i class="fa-regular fa-heart"></i>
+                            <p class="body__main__register__section2__article2__div--p3">wishlist</p>
+                        </div>
+                    </article>
+                    <div class="body__main__register__section2__div">
+                        <a href="/register"> iniciar sesión</a>
                     </div>
-                    <div>
-                        <label for="surname">apellido</label>
-                        <input type="text" name="surname" id="surname" required>
-                    </div>
-                    <div>
-                        <label for="email">correo electronico</label>
-                        <input type="email" name="email" id="email" required>
-                    </div>
-                    <div>
-                        <label for="password">contraseña</label>
-                        <input type="password" name="password" id="password" required>
-                        <a href="">¿Olvidaste tu contraseña?</a>
-                    </div>
-                    
+                </section>
+            </main>
 
-                    <button class="body__main__register__section1__article2__form--button" type="submit">crear cuenta</button>
-                </form>
-                <div class="body__main__register__section1__article2__div">
-                    <a href="">Login  <i class="fa-brands fa-facebook-square"></i></a>
-                    <a href="">Login  <i class="fa-brands fa-google"></i></a>
-                </div>
-                <form class="body__main__register__section1__article2__checkbox" action="">
-                    <input type="checkbox" name="terminos" id="terminos">
-                    <label for="terminos">By clicking of the social
-                        login buttonsyou agree to the terms of privacity
-                        policy described <a href="">here</a> </label>
+            <%- include("./partials/footer") %>
 
-                </form>
-            </article>
-        </section>
-        <section class="body__main__register__section2">
-<div class="body__main__section2--divlinea"></div>
-            <article class="body__main__register__section2__article1">
-                <h3>¿primera vez en <br> amapola bags?</h3>
-                <p>Creá tu cuenta, es grátis y podrás ganar puntos Amapola de muchas maneras, que luego canjearás por
-                    descuentos.</p>
-            </article>
-            <article class="body__main__register__section2__article2">
-                <div class="body__main__register__section2__article2__div">
-                    <i class="fa-solid fa-truck"></i>
-                    <p>envios sin cargo a todo el pais</p>
-                </div>
-                <div class="body__main__register__section2__article2__div">
-                    <i class="fa-regular fa-credit-card"></i>
-                    <p class="body__main__register__section2__article2__div--p1">¡3,6 y 12 cuotas sin interés todos los dias!</p>
-                </div>
-                <div class="body__main__register__section2__article2__div">
-                    <i class="fa-regular fa-face-laugh-beam"></i>
-                    <p>amapola club</p>
-                </div>
-                <div class="body__main__register__section2__article2__div">
-                    <i class="fa-solid fa-store"></i>
-                    <p class="body__main__register__section2__article2__div--p2">¡retiro en tienda en 2 hs!</p>
-                </div>
-                <div class="body__main__register__section2__article2__div">
-                    <i class="fa-solid fa-arrow-right-arrow-left"></i>
-                    <p>cambios y devoluciones sin cargo</p>
-                </div>
-                <div class="body__main__register__section2__article2__div">
-                    <i class="fa-regular fa-heart"></i>
-                    <p class="body__main__register__section2__article2__div--p3">wishlist</p>
-                </div>
-            </article>
-            <div class="body__main__register__section2__div">
-                <a href="/register"> iniciar sesión</a>
-            </div>
-        </section>
-    </main>
-   
-    <%- include("./partials/footer") %>
-
-</body>
+    </body>
