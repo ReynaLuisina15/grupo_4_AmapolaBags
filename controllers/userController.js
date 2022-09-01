@@ -39,7 +39,7 @@ module.exports = {
       let usersModify = [...users, newUser];
       storeUsers(usersModify);
 
-      return res.redirect('/users/login',{ title: "Ingrese al perfil" });
+      return res.redirect('/users/login');
 
     }else{
       return res.render("register", {
