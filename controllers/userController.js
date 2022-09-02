@@ -33,7 +33,7 @@ module.exports = {
       email: email?.trim(),
       password: bcryptjs.hashSync(password, 12),
       rol: 'user',
-      avatar: "avatar.png"
+      avatar : req.file ? req.file.filename : "avatar.png",
     }
     let usersModify = [...users, newUser];
     

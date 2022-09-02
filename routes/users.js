@@ -3,12 +3,13 @@ var router = express.Router();
 
 const {login, register, proccesLogin, processRegister, profile} = require("../controllers/userController");
 const {loginValidator, registerValidator} = require('../validations');
+const {uploadImageUser} = require("../middlewares/upLoadFiles");
 
 /* user. */
 router
       /*USER REGISTER */
      .get('/register', register)
-     .post('/register', registerValidator, processRegister)
+     .post('/register', uploadImageUser.single("img"), registerValidator, processRegister)
 
      /* user Login. */
      .get('/login', login)

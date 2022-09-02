@@ -49,8 +49,10 @@
                                 <a href="">¿Olvidaste tu contraseña?</a>
                             </div>
                             <div>
-                                <label for="img">Avatar</label>
+                                <label for="img">Imagen</label>
                                 <input type="file" name="img" id="img" accept="image/*" ><!-- multiple -->
+                                <p class="text-danger"><%= locals.errors && errors.img ? errors.img.msg : null %></p>
+                                
                             </div>
                             <div class="body__main__login__section1__article2__checkbox">
                                 <input type="checkbox" name="terms" id="terms">

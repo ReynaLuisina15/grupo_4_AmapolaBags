@@ -16,5 +16,23 @@
       "password": "$2a$12$k.16mW.ZhBjHvSuOt.kVjO7eynd0phBXAQlozaF2jsOabkYhQAcRq",
       "rol": "user",
       "avatar": "avatar.png"
+   },
+   {
+      "id": 3,
+      "name": "Melina",
+      "surname": "Gimenez",
+      "email": "melgimenez@gmail.com",
+      "password": "$2a$12$JqrobtDsLlLKxPE2//0t9.3gOu7zY.aNFILr2mw6WFRWhpcuoe2s.",
+      "rol": "user",
+      "avatar": "avatar.png"
+   },
+   {
+      "id": 4,
+      "name": "Caleb",
+      "surname": "romano",
+      "email": "calebpollo@gmail.com",
+      "password": "$2a$12$sYAWO/A6Y7qJumvEWJCV0ONxGVeFp6zQMGqXo0lgYN4BD8GeDvLS.",
+      "rol": "user",
+      "avatar": "avatar.png"
    }
 ]
