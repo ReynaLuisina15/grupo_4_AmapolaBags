@@ -17,7 +17,7 @@ const uploadImageProduct = multer({
 
 const storageImageUser = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, './public/img/avatars' )
+        callback(null, './public/img/avatar' )
     },
     filename : (req,file,callback) => {
         callback(null,'user-' + Date.now() + path.extname(file.originalname))
