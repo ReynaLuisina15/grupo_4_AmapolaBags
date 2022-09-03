@@ -36,14 +36,16 @@
                             <button>
                                 <p>AGREGAR AL CARRITO</p>
                             </button>
-                            <button>
-                                <a style="color: white;" href="/products/productEdit/<%= product.id %>">
-                                    <p>Editar producto</p>
-                                </a>
-                            </button>
-                            <button>
-                                <p>Eliminar producto</p>
-                            </button>
+                            <% if (locals.userLogin && userLogin.rol === "admin") { %>
+                                <button>
+                                   <a style="color: white;" href="/products/productEdit/<%= product.id %>"><p>Editar producto</p></a>
+                                </button>
+                                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="post">                         
+                                    <button type="submit">
+                                        <p>Eliminar producto</p>
+                                    </button>
+                            </form>
+                                <% } %> 
                         </div>
                     </div>
                 </section>

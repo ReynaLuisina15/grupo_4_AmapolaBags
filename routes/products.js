@@ -9,6 +9,8 @@ const {productsAddValidator,productsEditValidator} = require("../validations")
 
 const {uploadImageProduct} = require("../middlewares/upLoadFiles")
 
+
+
 /* products. */
 router
      .get('/productAdd', add)

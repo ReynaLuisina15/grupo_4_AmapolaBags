@@ -11,24 +11,24 @@
         <section class="body__section__profile" >
             <form class="body__main__register__section1__article2__form" method="POST" action="/users/register">
             <div class="body__section__profile--img">
-                <img src="/img/avatar/avatar.png.jpeg" width="130px" height="130px" alt="">
+                <img src="/img/avatar/<%= user.avatar ? user.avatar : 'avatar.png' %>"width="130px" height="130px" alt="">
             </div>
             <div>
                 <label for="name">nombre</label> <br>
-                <input type="text" name="name" id="name" >
+                <input type="text" name="name" id="name"  value="<%= user.name %>">
             </div>
             <div>
                 <label for="surname">apellido</label> <br>
-                <input type="text" name="surname" id="surname" >
+                <input type="text" name="surname" id="surname" value="<%= user.surname %>">
             </div>
             <div class="body__section__profile--password">
                 <label for="rol">Rol</label> <br>
-                <input  type="text" name="rol" id="rol" >
+                <input  type="text" name="rol" id="rol" value="<%= user.rol %>">
         
             </div>
             <div>
                 <label for="email">correo electronico</label> <br>
-                <input type="email" name="email" id="email" >
+                <input type="email" name="email" id="email" value="<%= user.email %>">
             </div>
             <div class="body__section__profile--password">
                 <label for="password">contraseña</label> <br>

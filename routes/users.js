@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {login, register, proccesLogin, processRegister, profile} = require("../controllers/userController");
+const {login, register, proccesLogin, processRegister, profile,logout} = require("../controllers/userController");
 const {loginValidator, registerValidator} = require('../validations');
 const {uploadImageUser} = require("../middlewares/upLoadFiles");
 
@@ -18,5 +18,6 @@ router
 
      /* USER PROFILE */
      .get('/profile', profile)
+     .get("/logout", logout)
 
 module.exports = router;

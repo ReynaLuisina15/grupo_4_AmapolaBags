@@ -9,7 +9,15 @@ module.exports = {
   proccesLogin: (req, res) => {
     let errors = validationResult(req);
     if(errors.isEmpty()){
-    return res.redirect("/users/register") /* cambiar le vista register por la de profile */
+      let {id,name,rol,avatar} = loadUsers().find(user => user.email === req.body.email);
+
+      req.session.userLogin = {
+        id,
+        name,
+        rol,
+        avatar     
+      };
+    return res.redirect("/users/profile") /* cambiar le vista register por la de profile */
     }else{
       return res.render("login", {
         title: "Entra al perfil",
@@ -47,6 +55,16 @@ module.exports = {
     }
   },
   profile : (req,res) => {
-     return res.render("profile", { title: "Profile" })
+    let user = loadUsers().find(user =>user.id === req.session.userLogin.id)
+    
+     return res.render("profile", { 
+      title: "Profile",
+      user
+     })
+  },
+  logout : (req,res) => {
+    req.session.destroy();
+    res.cookie('amapola',null,{maxAge: -1});
+    return res.redirect("/")
   }
 }
