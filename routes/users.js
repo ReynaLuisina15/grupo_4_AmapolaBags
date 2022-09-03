@@ -5,6 +5,8 @@ const {login, register, proccesLogin, processRegister, profile,logout} = require
 const {loginValidator, registerValidator} = require('../validations');
 const {uploadImageUser} = require("../middlewares/upLoadFiles");
 
+const userSessionCheck =  require('../middlewares/userSessionCheck');
+
 /* user. */
 router
       /*USER REGISTER */
@@ -17,7 +19,7 @@ router
 
 
      /* USER PROFILE */
-     .get('/profile', profile)
+     .get('/profile', userSessionCheck, profile)
      .get("/logout", logout)
 
 module.exports = router;

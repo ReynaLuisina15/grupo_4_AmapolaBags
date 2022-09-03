@@ -17,6 +17,11 @@ module.exports = {
         rol,
         avatar     
       };
+      if (req.body.remember){
+        res.cookie('amapola', req.session.userLogin,{
+          maxAge : 1000 * 60
+        })
+      }
     return res.redirect("/users/profile") /* cambiar le vista register por la de profile */
     }else{
       return res.render("login", {

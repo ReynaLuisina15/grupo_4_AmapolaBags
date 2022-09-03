@@ -6,7 +6,7 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 const session = require('express-session');
 const localsUserCheck = require("./middlewares/localsUserCheck");
-
+const cookieCheck = require('./middlewares/cookieCheck');
 
 
 /* const cookie */
@@ -26,7 +26,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 app.use(session({
   secret : "amapola",
   resave : false,
@@ -34,12 +34,12 @@ app.use(session({
 }));;
 
 /* app.use cookie */
-
-app.use(localsUserCheck)
+app.use(cookieCheck);
+app.use(localsUserCheck);
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/products', productsRouter)
+app.use('/products', productsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
