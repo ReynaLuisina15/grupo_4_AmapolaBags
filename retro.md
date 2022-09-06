@@ -15,3 +15,7 @@
 ## SPRINT 4:
 
 ![retro 4](./imagenRetro/retros_3.jpg)
+
+## SPRINT 5:
+
+![retro 5](./imagenRetro/retros_5.png)
