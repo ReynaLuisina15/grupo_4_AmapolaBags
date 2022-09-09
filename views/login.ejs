@@ -33,6 +33,11 @@
                                     <%= locals.errors && errors.password ? errors.password.msg : null %>
                                 </p>
                             </div>
+                            <div class="body__main__login__section1__article2__checkbox">
+                                <input type="checkbox" name="remember" id="recordame">
+                                <label for="recordame">Recordame</label><br>
+                                <p class="text-danger"><%= locals.errors && errors.terms ? errors.terms.msg : null %></p>
+                            </div> 
 
                             <button class="body__main__login__section1__article2__form--button"
                                 type="submit">Ingresa</button>
