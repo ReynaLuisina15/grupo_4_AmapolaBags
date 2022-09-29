@@ -15,27 +15,30 @@
                         <img src="/img/<%= product.image %>" alt="">
 
                     </div>
+
                     <div class="main__section__detalles--esp">
-                        <h2>Marca: <%= product.name %>
+                        <h2>Nombre: <%= product.name %>
                         </h2>
                         <h2>Descripcion: <%= product.description %>
                         </h2>
                         <h2>Categoria: <%= product.category %>
                         </h2>
-                        <h2>Colores: </h2>
+                        <div class="main__section__detalle--colores-txt"><h2>Colores: </h2></div>
                         <div class="productCartera__imgRadio" style="margin: 0 auto;">
                             <% product.color.forEach(col=> { %>
-                                <span style=<%="background-color:" + col
-                                    +";width:20px;height:20px;display:inline-block;border-radius:50%"%>></span>
+                                <span class="span_color" style=<%="background-color:" + col
+                                    +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
                                 <% }) %>
                         </div>
+
                         <div class="main__section__colores">
                             <hr>
-                            <h1>PRECIO: <%= toThousand(product.price) %>
-                            </h1>
+                            <h1>PRECIO: <%= toThousand(product.price) %></h1>
+
                             <button>
-                                <p>AGREGAR AL CARRITO</p>
+                                <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
                             </button>
+
                             <% if (locals.userLogin && userLogin.rol === "admin") { %>
                                 <button>
                                    <a style="color: white;" href="/products/productEdit/<%= product.id %>"><p>Editar producto</p></a>
@@ -47,15 +50,20 @@
                             </form>
                                 <% } %> 
                         </div>
+
                     </div>
                 </section>
+
+                <h1 class="mas_productos_txt">MAS PRODUCTOS</h1>
+
                 <section class="main__section__masProductos">
-                    <h1>MAS PRODUCTOS</h1>
-                    <img src="/img/Cartera-Martina.png" alt="">
-                    <img src="/img/Cartera-Brenda.png" alt="">
-                    <img src="/img/Cartera-Alma.png" alt="">
-                    <img class="image__none" src="/img/Cartera-Cecilia2.png" alt="">
+                    <div><img src="/img/Cartera-Martina.png" alt=""></div>
+                    <div><img src="/img/Cartera-Brenda.png" alt=""></div>
+                    <div> <img src="/img/Cartera-Alma.png" alt=""></div>
+                    <div><img src="/img/Cartera-Cecilia2.png" alt=""></div>
+                    <img class="image__none" src="/img/Cartera-mobile.jpg" alt="">
                 </section>
+
             </main>
 
             <%- include("./partials/footer") %>
