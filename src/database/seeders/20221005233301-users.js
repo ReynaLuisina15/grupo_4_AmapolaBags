@@ -1,6 +1,6 @@
 'use strict';
 
-const usersDB = require('../../data/users.json');
+const usersDB = require('../../data/users1.json');
  
 const users = usersDB.map(user => {
   return{

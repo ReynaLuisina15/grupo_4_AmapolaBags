@@ -1,0 +1,42 @@
+[
+   {
+      "name": "",
+      "surname": "",
+      "email": "",
+      "password": "",
+      "rolId": 2,
+      "avatar": "avatar.png"
+   },
+   {
+      "name": "Luisina",
+      "surname": "Reyna",
+      "email": "reyna.luisina@gmail.com",
+      "password": "$2a$12$k.16mW.ZhBjHvSuOt.kVjO7eynd0phBXAQlozaF2jsOabkYhQAcRq",
+      "rolId": 1,
+      "avatar": "avatar.png"
+   },
+   {
+      "name": "Melina",
+      "surname": "Gimenez",
+      "email": "melgimenez@gmail.com",
+      "password": "$2a$12$JqrobtDsLlLKxPE2//0t9.3gOu7zY.aNFILr2mw6WFRWhpcuoe2s.",
+      "rolId": 1,
+      "avatar": "avatar.png"
+   },
+   {
+      "name": "Caleb",
+      "surname": "romano",
+      "email": "calebpollo@gmail.com",
+      "password": "$2a$12$sYAWO/A6Y7qJumvEWJCV0ONxGVeFp6zQMGqXo0lgYN4BD8GeDvLS.",
+      "rolId": 2,
+      "avatar": "avatar.png"
+   },
+   {
+      "name": "Greta",
+      "surname": "Graciano",
+      "email": "yohannagraciano@gmail.com",
+      "password": "$2a$12$84FSDA4.cR0mL8w0WqABoOj/Whav2u.2V5v7eVKkjzyHZK8DURouG",
+      "rolId": 2,
+      "avatar": "user-1662145317041.jpeg"
+   }
+]
