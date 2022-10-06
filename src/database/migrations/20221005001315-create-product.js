@@ -15,7 +15,7 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
-      prince: {
+      price: {
         type: Sequelize.INTEGER
       },
       categoryId: {

@@ -1,0 +1,56 @@
+[
+  {
+     "name": "cafa",
+     "categoryId": 3,
+     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+     "price": 23500
+  },
+  {
+     "name": "brenda",
+     "categoryId": 3,
+     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+     "price": 10900
+  },
+  {
+     "name": "volterra",
+     "categoryId": 3,
+     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+     "price": 8550
+  },
+  {
+     "name": "alma",
+     "categoryId": 3,
+     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+     "price": 10900
+  },
+  {
+     "name": "cecilia",
+     "categoryId": 3,
+     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+     "price": 7290
+  },
+  {
+     "name": "ventimiglia",
+     "categoryId": 3,
+     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+     "price": 9490
+  },
+  {
+     "name": "facu",
+     "categoryId": 2,
+     "description": "abdjajhcnjancj",
+     "price": 8500
+  },
+  {
+     "name": "Melii",
+     "categoryId": 3,
+     "description": "adjanjcjakmckas",
+     "price": 9000
+  },
+  {
+     "name": "Meli",
+     "categoryId": 3,
+     "description": "facheritaaaaa",
+     "price": 15000
+  }
+]

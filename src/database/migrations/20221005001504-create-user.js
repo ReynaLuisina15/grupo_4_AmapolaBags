@@ -21,7 +21,7 @@ module.exports = {
       password: {
         type: Sequelize.STRING,
       },
-      image: {
+      avatar: {
         type: Sequelize.STRING,
       },
       rolId: {
