@@ -26,9 +26,12 @@ module.exports = {
       },
       rolId: {
         type: Sequelize.INTEGER,
-      },
-      addressId: {
-        type: Sequelize.INTEGER,
+        references:{
+          model:{
+            tableName : "Rols"
+          },
+          key: "id"
+        }
       },
       createdAt: {
         allowNull: false,

@@ -14,9 +14,21 @@ module.exports = {
       },
       colorId: {
         type: Sequelize.INTEGER,
+        references:{
+          model:{
+            tableName : "Products"
+          },
+          key : "id"
+        }
       },
       productId: {
         type: Sequelize.INTEGER,
+        references : {
+          model : {
+            tableName : "Colors"
+          },
+          key : "id"
+        }
       },
       createdAt: {
         allowNull: false,

@@ -15,13 +15,16 @@
                     </article>
                     <article class="body__main__login__section1__article2">
                         <form class="body__main__login__section1__article2__form" action="/products/productAdd"
-                             method="POST" enctype="multipart/form-data">
+                            method="POST" enctype="multipart/form-data">
 
-                             <div>
+                            <div>
                                 <label for="name">Modelo</label>
-                                <input type="text" name="name" id="name" value="<%= locals.old && old.name ? old.name : null %>">
-                                <p class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></p>
-                                  
+                                <input type="text" name="name" id="name"
+                                    value="<%= locals.old && old.name ? old.name : null %>">
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.name ? errors.name.msg : null %>
+                                </p>
+
                             </div>
                             <div>
                                 <label for="category">Cartegoria</label> <br>
@@ -31,17 +34,24 @@
                                     <option value="riñonera">Riñonera</option>
                                     <option value="mochila">Mochila</option>
                                 </select>
-                                <p class="text-danger"><%= locals.errors && errors.category ? errors.category.msg : null %></p>
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.category ? errors.category.msg : null %>
+                                </p>
                             </div>
                             <div>
                                 <label for="img">Imagen</label>
-                                <input type="file" name="img" id="img" accept="image/*" ><!-- multiple -->
-                                <p class="text-danger"><%= locals.errors && errors.img ? errors.img.msg : null %></p> 
+                                <input type="file" name="img" id="img" accept="image/*"><!-- multiple -->
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.img ? errors.img.msg : null %>
+                                </p>
                             </div>
                             <div>
                                 <label for="color">Color</label>
-                                <input type="color" name="color" id="color" value="<%= locals.old && old.color ? old.color : null %>">
-                                <p class="text-danger"><%= locals.errors && errors.color ? errors.color.msg : null %></p>
+                                <input type="color" name="color" id="color"
+                                    value="<%= locals.old && old.color ? old.color : null %>">
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.color ? errors.color.msg : null %>
+                                </p>
                             </div>
                             <!-- <div>
                                 <label for="color">Color</label>
@@ -49,17 +59,23 @@
                             </div> -->
                             <div>
                                 <label for="description">descripcion</label> <br>
-                                <textarea name="description" id="description" cols="60" rows="6" ><%= locals.old && old.description ? old.description : null %></textarea>
-                                <p class="text-danger"><%= locals.errors && errors.description ? errors.description.msg : null %></p>
-                               
+                                <textarea name="description" id="description" cols="60"
+                                    rows="6"><%= locals.old && old.description ? old.description : null %></textarea>
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.description ? errors.description.msg : null %>
+                                </p>
+
                             </div>
                             <div>
                                 <label for="price">Precio</label>
-                                <input type="number" name="price" id="price" value="<%= locals.old && old.price ? old.price : null %>">
-                                <p class="text-danger"><%= locals.errors && errors.price ? errors.price.msg : null %></p>
+                                <input type="number" name="price" id="price"
+                                    value="<%= locals.old && old.price ? old.price : null %>">
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.price ? errors.price.msg : null %>
+                                </p>
                             </div>
                             <div>
-                                <label for=""></label>  
+                                <label for=""></label>
                             </div>
 
                             <button class="body__main__login__section1__article2__form--button"

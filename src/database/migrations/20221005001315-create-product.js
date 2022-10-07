@@ -19,18 +19,23 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       categoryId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "Categories"
+          },
+          key : "id"
+        }
       },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
       },
       updatedAt: {
-        
+
         type: Sequelize.DATE
       },
-      deletedAt:{
-
+      deletedAt: {
         type: Sequelize.DATE
       }
     });

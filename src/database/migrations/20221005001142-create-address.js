@@ -25,7 +25,13 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       userId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        refences :{
+          model:{
+            tableName : "Users"
+          },
+          key : "id"
+        }
       },
       createdAt: {
         allowNull: false,

@@ -1,4 +1,5 @@
 'use strict';
+const { CustomValidation } = require('express-validator/src/context-items');
 const {
   Model
 } = require('sequelize');
@@ -9,7 +10,15 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate(models){
+      Product.belongsTo(models.Category,{
+        as : "category",
+        foreignKey : "categoryId"
+      })
+      Product.hasMany(models.Image,{
+        as : "images",
+        foreignKey : "productId"
+      })
       // define association here
     }
   }
@@ -24,3 +33,4 @@ module.exports = (sequelize, DataTypes) => {
   });
   return Product;
 };
+

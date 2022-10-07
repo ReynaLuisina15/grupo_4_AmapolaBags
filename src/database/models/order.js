@@ -13,13 +13,16 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
+
   Order.init({
     date: DataTypes.INTEGER,
     total: DataTypes.INTEGER,
     userId: DataTypes.INTEGER
-  }, {
+  }, 
+  {
     sequelize,
     modelName: 'Order',
   });
+
   return Order;
 };
