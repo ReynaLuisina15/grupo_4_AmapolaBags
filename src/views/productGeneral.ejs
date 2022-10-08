@@ -12,10 +12,10 @@
         </div>
 
         <section class="main__section__products">
-          <% products.forEach(({id,name,price,descripcion,image,color})=> { %>
+          <% products.forEach(({id,name,price,descripcion,images,color})=> { %>
             <article class="main__section__products__productCartera">
               <a href="/products/productDetail/<%= id %>">
-                <img class="productCartera__img" src="/img/<%= image %>" alt="" />
+                <img class="productCartera__img" src="/img/<%= images[0].file %>" alt="" />
               </a>
               <h4 class="productCartera__nombre">
                 <%= name %>

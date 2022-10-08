@@ -19,7 +19,6 @@ module.exports = (sequelize, DataTypes) => {
         as : "images",
         foreignKey : "productId"
       })
-      // define association here
     }
   }
   Product.init({

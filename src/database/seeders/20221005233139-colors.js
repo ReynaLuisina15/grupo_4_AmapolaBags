@@ -2,10 +2,9 @@
 
 const colorsDB = require('../../data/colors.json');
  
-const colors = colorsDB.map(({color},index) => {
+const colors = colorsDB.map(({name},index) => {
   return{
-    name : color,
-    productId : index + 1,
+    name, 
     createdAt : new Date()
   }
 })

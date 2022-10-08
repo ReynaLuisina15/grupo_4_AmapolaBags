@@ -1,3 +1,4 @@
+const db = require('../database/models')
 const { loadProducts, storeProducts } = require("../data/produtcsModule");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const fs = require("fs");
@@ -11,11 +12,19 @@ const controller = {
   },
 
   general: (req, res) => {
-    const products = loadProducts();
-    return res.render("productGeneral", {
-      products,
-      toThousand,
-    });
+    /* const products = loadProducts();
+    ); */
+    db.Product.findAll({
+      include : ["images", "category"]
+    })
+    .then( products => {
+      return res.render("productGeneral", {
+        products,
+        toThousand,
+      })
+      .catch(error => console.log(error))
+    }
+  )
   },
 
   detail: (req, res) => {
