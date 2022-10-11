@@ -43,14 +43,32 @@
   },
   {
      "name": "Melii",
-     "categoryId": 3,
+     "categoryId": 2,
      "description": "adjanjcjakmckas",
      "price": 9000
   },
   {
      "name": "Meli",
-     "categoryId": 3,
+     "categoryId": 2,
      "description": "facheritaaaaa",
      "price": 15000
-  }
+  },
+  {
+   "name": "serena",
+   "price": 14900,
+   "description": "Mochila mediana de cuero",
+   "categoryId": 1
+},
+{
+   "name": "serena Blanca",
+   "price": 14900,
+   "description": "Mochila mediana de cuero blanco",
+   "categoryId": 1
+},
+{
+   "name": "serena Negra",
+   "price": 14900,
+   "description": "Mochila mediana de cuero negro",
+   "categoryId": 1
+}
 ]

@@ -15,16 +15,83 @@ const controller = {
     /* const products = loadProducts();
     ); */
     db.Product.findAll({
-      include : ["images", "category"]
+      include: ["images", {
+        association: "stock",
+        attributes: ["quantity", "productId", "colorId"],
+        include: [
+          {
+            association: "color",
+            attributes: [
+              "name"
+            ]
+          }
+        ]
+      }]
     })
-    .then( products => {
-      return res.render("productGeneral", {
-        products,
-        toThousand,
+      .then((products) => {
+        /*return res.send(products) */
+        return res.render("productGeneral", {
+          products,
+          toThousand,
+        })
+      }
+      )
+  },
+
+  purse: (req, res) => {
+
+    let purse = db.Category.findByPk(3, {
+      include: [
+        {
+          association: "products",
+          include: ["images", "stock"],
+        },
+      ],
+    })
+      .then((purse) => {
+              /* return res.send(purse)  */ 
+        return res.render("productPurse", {
+          purse,
+          toThousand,
+        });
       })
-      .catch(error => console.log(error))
-    }
-  )
+      .catch((error) => console.log(error))
+  },
+
+
+  fannyPack: (req, res) => {
+    let fannyPack = db.Category.findByPk(2, {
+      include: [
+        {
+          association: "products",
+          include: ["images"],
+        },
+      ],
+    })
+      .then((fannyPack) => {
+        return res.render("productfannyPack", {
+          fannyPack,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error))
+  },
+  backpack: (req, res) => {
+    let backpack = db.Category.findByPk(1, {
+      include: [
+        {
+          association: "products",
+          include: ["images"],
+        },
+      ],
+    })
+      .then((backpack) => {
+        return res.render("productbackpack", {
+          backpack,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error))
   },
 
   detail: (req, res) => {
@@ -85,15 +152,15 @@ const controller = {
       const { name, price, category, description, color } = req.body;
 
       const productsModify = products.map((product) => {
-		
+
         if (product.id === +req.params.id) {
 
-           /* if (product.id === +req.params.id) {
-                if(req.files.length){
-                  product.image?.forEach(img => {  
-                    fs.unlinkSync("./public/img/" + img);
-                  })
-            } */
+          /* if (product.id === +req.params.id) {
+               if(req.files.length){
+                 product.image?.forEach(img => {  
+                   fs.unlinkSync("./public/img/" + img);
+                 })
+           } */
 
           if (req.file) {
             fs.unlinkSync("./public/img/" + product.image);

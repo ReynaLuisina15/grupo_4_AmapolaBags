@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      stock: {
+      quantity: {
         type: Sequelize.INTEGER,
       },
       colorId: {

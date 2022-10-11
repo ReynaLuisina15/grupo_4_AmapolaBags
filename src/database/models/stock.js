@@ -19,7 +19,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Stock.init({
-    stock: DataTypes.INTEGER,
+    quantity: DataTypes.INTEGER,
     colorId: DataTypes.INTEGER,
     productId: DataTypes.INTEGER
   }, {

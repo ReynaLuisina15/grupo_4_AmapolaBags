@@ -11,8 +11,7 @@
             </li>
             <li id="location"><a><i class="fa-solid fa-location-dot"></i></a></li>
             <li id="search"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
-            <% if (locals.userLogin) { %>
-              
+            <% if (locals.userLogin) { %>             
               <li id="user"><a href="/users/profile"><i class="fa-regular fa-user"></i></a></li>
               <li id="user"><a href="/users/logout"><i class="fa"></i>salir</a></li>
              <% }else{ %>   
@@ -26,9 +25,9 @@
           <ul>
             <li class="home__nav__menu-buscador-opciones"><a href="/">home</a></li>
             <li class="home__nav__menu-buscador-opciones"><a href="/products/productGeneral">productos</a></li>
-            <li class="home__nav__menu-buscador-opciones"><a href="/products/productGeneral">carteras</a></li>
-            <li class="home__nav__menu-buscador-opciones"><a href="/products/productGeneral">riñoneras</a></li>
-            <li class="home__nav__menu-buscador-opciones"><a href="#">mochilas</a></li>
+            <li class="home__nav__menu-buscador-opciones"><a href="/products/productPurse">carteras</a></li>
+            <li class="home__nav__menu-buscador-opciones"><a href="/products/productFannyPack">riñoneras</a></li>
+            <li class="home__nav__menu-buscador-opciones"><a href="/products/productBackpack">mochilas</a></li>
                <% if (locals.userLogin && userLogin.rol === "admin") { %>
             <li class="home__nav__menu-buscador-opciones"><a href="/products/productAdd">Nuevo</a></li>
             <% } %> 
