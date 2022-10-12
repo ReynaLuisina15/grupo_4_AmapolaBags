@@ -5,11 +5,14 @@
       "category": "cartera",
       "image": "Cartera-Martina.png",
       "color": [
-         "#af2323",
-         "#af2387"
+         [
+            "#000000",
+            "#000000",
+            "#000000"
+         ]
       ],
       "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-      "price": 23500
+      "price": 25000
    },
    {
       "id": 2,

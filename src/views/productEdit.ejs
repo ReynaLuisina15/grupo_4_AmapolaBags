@@ -34,9 +34,12 @@
                         <input type="file" name="img" id="file">
                     </div>
                     <div>
-                        <label for="color">Color</label>
+                        <label for="color">Color</label>       
+                        <input type="color" name="color" id="color" value="<%= product.color %>">  
+                        <input type="color" name="color" id="color" value="<%= product.color %>">
                         <input type="color" name="color" id="color" value="<%= product.color %>">
                         <p class="text-danger"><%= locals.errors && errors.color ? errors.color.msg : null %></p>
+                        
                     </div>
                     <div>
                         <label for="description">Descripcion</label> <br>

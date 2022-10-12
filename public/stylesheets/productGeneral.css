@@ -31,6 +31,8 @@
 }
 .productCartera__img{
     width: 320px;
+    height: 320px;
+    object-fit: scale-down;   /* no se pierde relación aspecto de la imagen*/
 }
 .productCartera__imgRadio img{
     width: 30px;

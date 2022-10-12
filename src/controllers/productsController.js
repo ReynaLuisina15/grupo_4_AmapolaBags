@@ -95,14 +95,36 @@ const controller = {
   },
 
   detail: (req, res) => {
-    const products = loadProducts();
+   /*  const products = loadProducts();
     const product = products.find((product) => product.id === +req.params.id);
-    /*return res.send(product)*/
+    
 
     return res.render("productDetail", {
       product,
       toThousand,
-    });
+    }); */
+    db.Product.findByPk(req.params.id, {
+       include: ["images", {
+        association: "stock",
+        attributes: ["quantity", "productId", "colorId"],
+        include: [
+          {
+            association: "color",
+            attributes: [
+              "name"
+            ]
+          }
+        ]
+      }]
+    })
+      .then((product) => {
+        /* return res.send(product) */
+        res.render("productDetail", {
+          product,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
   },
 
   add: (req, res) => {
@@ -136,16 +158,25 @@ const controller = {
     }
   },
 
-  edit: (req, res) => {
-    const products = loadProducts();
-    const product = products.find((product) => product.id === +req.params.id);
-    return res.render("productEdit", {
-      product,
+  edit: async (req, res) => {
+    const categories = await db.Category.findAll({
+      attributes: ["id", "name"],
+      order: ["name"],
     });
+    const product = await db.Product.findByPk(req.params.id);
+    Promise.all([categories, product])
+      .then(([categories, product]) => {
+        return res.render("productEdit", {
+          product,
+          categories,
+        });
+      })
+      .catch((error) => console.log(error));
+  
   },
 
   update: (req, res) => {
-    const products = loadProducts();
+ /*    const products = loadProducts();
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
@@ -153,7 +184,7 @@ const controller = {
 
       const productsModify = products.map((product) => {
 
-        if (product.id === +req.params.id) {
+        if (product.id === +req.params.id) { */
 
           /* if (product.id === +req.params.id) {
                if(req.files.length){
@@ -162,13 +193,13 @@ const controller = {
                  })
            } */
 
-          if (req.file) {
+         /*  if (req.file) {
             fs.unlinkSync("./public/img/" + product.image);
-          }
+          } */
 
           /* req.file && fs.unlinkSync("./public/img/" + product.image); */
 
-          return {
+         /*  return {
             ...product,
             name: name?.trim(),
             price: +price,
@@ -189,7 +220,21 @@ const controller = {
         id: req.params.id,
         errors: errors.mapped(),
       });
-    }
+    } */
+    db.Product.update(
+      {
+        ...req.body,
+        name : req.body.name.trim(),
+        description : req.body.description.trim()
+      },
+      {
+        where : {
+          id : req.params.id
+        }
+      }
+    )
+      .then( () => res.redirect("/products/productDetail/" + req.params.id))
+      .catch(error => console.error(error))
   },
 
   destroy: (req, res) => {

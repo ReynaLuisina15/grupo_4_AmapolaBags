@@ -12,7 +12,7 @@
 
                     <div class="div__imgCartera">
 
-                        <img src="/img/<%= product.image %>" alt="">
+                        <img src="/img/<%= product.images[0].file %>" alt="">
 
                     </div>
 
@@ -24,12 +24,12 @@
                         <h2>Categoria: <%= product.category %>
                         </h2>
                         <div class="main__section__detalle--colores-txt"><h2>Colores: </h2></div>
-                        <div class="productCartera__imgRadio" style="margin: 0 auto;">
-                            <% product.color.forEach(col=> { %>
-                                <span class="span_color" style=<%="background-color:" + col
-                                    +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
-                                <% }) %>
-                        </div>
+                        <% product.stock.forEach(item=> { %>
+                           
+                              <span class="span_color" style=<%="background-color:" + item.color.name
+                                +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
+                          
+                            <% }) %>
 
                         <div class="main__section__colores">
                             <hr>
