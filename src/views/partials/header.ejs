@@ -1,41 +1,41 @@
 <header>
-    <nav class="home__nav__container">
-        <div class="home__nav__container-marquee">
-          <marquee>ENVIOS GRATIS A TODO EL PAIS | 12 CUOTAS SIN INTERÉS</marquee>
-        </div>
-        <div class="home__nav__containter-iconos">
-          <ul class="home__nav-iconos">
-            <li id="burger-menu"><button><i class="fa-solid fa-bars"></i></button></li>
-            <li id="title">
-              <h1>amapola bags</h1>
-            </li>
-            <li id="location"><a><i class="fa-solid fa-location-dot"></i></a></li>
-            <li id="search"><button><i class="fa-solid fa-magnifying-glass"></i></button></li>
-            <% if (locals.userLogin) { %>             
-              <li id="user"><a href="/users/profile"><i class="fa-regular fa-user"></i></a></li>
-              <li id="user"><a href="/users/logout"><i class="fa"></i>salir</a></li>
-             <% }else{ %>   
+  <nav class="home__nav__container">
+    <div class="home__nav__container-marquee">
+      <marquee>ENVIOS GRATIS A TODO EL PAIS | 12 CUOTAS SIN INTERÉS</marquee>
+    </div>
+    <div class="home__nav__containter-iconos">
+      <ul class="home__nav-iconos">
+        <li id="burger-menu"><button><i class="fa-solid fa-bars"></i></button></li>
+        <li id="title">
+          <h1>amapola bags</h1>
+        </li>
+        <li id="location"><a><i class="fa-solid fa-location-dot"></i></a></li>
+        <li id="search"><a><i class="fa-solid fa-magnifying-glass"></i></a></li>
+        <% if (locals.userLogin) { %>
+          <li id="user"><a href="/users/profile"><i class="fa-regular fa-user"></i></a></li>
+          <li id="user"><a href="/users/logout"><i class="fa"></i>salir</a></li>
+          <% }else{ %>
             <li id="user"><a href="/users/login"><i class="fa-regular fa-user"></i></a></li>
-            <% } %>  
-            <li id="heart"><a href=""><i class="fa-regular fa-heart"></i></a></li>
-            <li id="bag"><a href="/products/productCart"><i class="fa-solid fa-bag-shopping"></i></a></li>
-          </ul>
-        </div>
-        <div class="home__nav__container-menu-buscador">
-          <ul>
-            <li class="home__nav__menu-buscador-opciones"><a href="/">home</a></li>
-            <li class="home__nav__menu-buscador-opciones"><a href="/products/productGeneral">productos</a></li>
-            <li class="home__nav__menu-buscador-opciones"><a href="/products/productPurse">carteras</a></li>
-            <li class="home__nav__menu-buscador-opciones"><a href="/products/productFannyPack">riñoneras</a></li>
-            <li class="home__nav__menu-buscador-opciones"><a href="/products/productBackpack">mochilas</a></li>
-               <% if (locals.userLogin && userLogin.rol === "admin") { %>
-            <li class="home__nav__menu-buscador-opciones"><a href="/products/productAdd">Nuevo</a></li>
-            <% } %> 
+            <% } %>
+              <li id="heart"><a href=""><i class="fa-regular fa-heart"></i></a></li>
+              <li id="bag"><a href="/products/productCart"><i class="fa-solid fa-bag-shopping"></i></a></li>
+      </ul>
+    </div>
+    <div class="home__nav__container-menu-buscador">
+      <ul>
+        <li class="home__nav__menu-buscador-opciones"><a href="/">home</a></li>
+        <li class="home__nav__menu-buscador-opciones"><a href="/products/productGeneral">productos</a></li>
+        <li class="home__nav__menu-buscador-opciones"><a href="/products/productPurse">carteras</a></li>
+        <li class="home__nav__menu-buscador-opciones"><a href="/products/productFannyPack">riñoneras</a></li>
+        <li class="home__nav__menu-buscador-opciones"><a href="/products/productBackpack">mochilas</a></li>
+        <% if (locals.userLogin && userLogin.rol==="admin" ) { %>
+          <li class="home__nav__menu-buscador-opciones"><a href="/products/productAdd">Nuevo</a></li>
+          <% } %>
             <li class="home__nav__menu-buscador-buscador">
               <label><i class="fa-solid fa-magnifying-glass"></i></label>
               <input type="search" placeholder="¿Que estás buscando?">
             </li>
-          </ul>
-        </div>
-      </nav>
+      </ul>
+    </div>
+  </nav>
 </header>
