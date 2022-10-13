@@ -20,7 +20,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Color.init({
-    name: DataTypes.INTEGER
+    name: DataTypes.INTEGER,
+    hexa: DataTypes.STRING,
   }, {
     sequelize,
     modelName: 'Color',

@@ -19,7 +19,7 @@ module.exports = {
       };
       if (req.body.remember){
         res.cookie('amapola', req.session.userLogin,{
-          maxAge : 1000 * 60
+          maxAge : 1000 * 60 * 60
         })
       }
     return res.redirect("/users/profile") /* cambiar le vista register por la de profile */

@@ -22,14 +22,14 @@ const controller = {
           {
             association: "color",
             attributes: [
-              "name"
+              "name","hexa"
             ]
           }
         ]
       }]
     })
       .then((products) => {
-        /*return res.send(products) */
+       /*  return res.send(products)  */
         return res.render("productGeneral", {
           products,
           toThousand,
@@ -111,7 +111,7 @@ const controller = {
           {
             association: "color",
             attributes: [
-              "name"
+              "name", "hexa"
             ]
           }
         ]
@@ -158,83 +158,100 @@ const controller = {
     }
   },
 
-  edit: async (req, res) => {
-    const categories = await db.Category.findAll({
+  edit: (req, res) => {
+    const categories = db.Category.findAll({
       attributes: ["id", "name"],
       order: ["name"],
     });
-    const product = await db.Product.findByPk(req.params.id);
-    Promise.all([categories, product])
-      .then(([categories, product]) => {
+    const colors = db.Color.findAll({
+      order: ["name"],
+    })
+    const product = db.Product.findByPk(req.params.id);
+    Promise.all([categories, product, colors])
+      .then(([categories, product, colors]) => {
         return res.render("productEdit", {
           product,
           categories,
+          colors
         });
       })
       .catch((error) => console.log(error));
   
   },
 
-  update: (req, res) => {
- /*    const products = loadProducts();
-    const errors = validationResult(req);
+  update: async (req, res) => {
+    try {
+      const errors = validationResult(req);
 
-    if (errors.isEmpty()) {
-      const { name, price, category, description, color } = req.body;
+      if (errors.isEmpty()) {
+        const {
+          name,
+          price,
+          category,
+          description,
+          color,
+          quantity = 10,
+        } = req.body;
 
-      const productsModify = products.map((product) => {
+        let product = await db.Product.findByPk(req.params.id, {
+          include: ["images"],
+        });
+        let stock = await db.Stock.findOne({
+          where: {
+            productId: product.id,
+          },
+        });
 
-        if (product.id === +req.params.id) { */
+        product.name = name.trim();
+        product.price = price;
+        product.description = description.trim();
+        product.categoryId = category;
 
-          /* if (product.id === +req.params.id) {
-               if(req.files.length){
-                 product.image?.forEach(img => {  
-                   fs.unlinkSync("./public/img/" + img);
-                 })
-           } */
+        await product.save();
 
-         /*  if (req.file) {
-            fs.unlinkSync("./public/img/" + product.image);
-          } */
+        stock.quantity = quantity;
+        stock.colorId = color;
 
-          /* req.file && fs.unlinkSync("./public/img/" + product.image); */
+        await stock.save();
 
-         /*  return {
-            ...product,
-            name: name?.trim(),
-            price: +price,
-            description: description?.trim(),
-            category,
-            image: req.file?.filename || product.image,
-            color: [color],
-          };
+        // si se cargan nuevas imagenes
+        if (req.files.length) {
+          let imagesNew = req.files.map((image) => {
+            return {
+              file: image.filename,
+              productId: product.id,
+            };
+          });
+
+          // Se borran las images anteriores
+          product.images.forEach(async (image) => {
+            fs.unlink(`./public/img/${image.file}`);
+
+            await db.Image.destroy({
+              where: {
+                file: image.file,
+              },
+            });
+          });
+
+          // guardo en db las nuevas imagenes
+          await db.Image.bulkCreate(imagesNew);
         }
-        return product;
-      });
-
-      storeProducts(productsModify);
-      return res.redirect("/products/productDetail/" + req.params.id);
-    } else {
-      return res.render("productEdit", {
-        product: req.body,
-        id: req.params.id,
-        errors: errors.mapped(),
-      });
-    } */
-    db.Product.update(
-      {
-        ...req.body,
-        name : req.body.name.trim(),
-        description : req.body.description.trim()
-      },
-      {
-        where : {
-          id : req.params.id
-        }
+        return res.redirect("/products/productDetail/" + req.params.id);
+      } else {
+        db.Color.findAll({
+          order: ["name"],
+        }).then((colors) => {
+          res.render("productAdd", {
+            errors: errors.mapped(),
+            old: req.body,
+            colors,
+          });
+        });
       }
-    )
-      .then( () => res.redirect("/products/productDetail/" + req.params.id))
-      .catch(error => console.error(error))
+    } catch (error) {
+      console.log(error);
+    }
   },
 
   destroy: (req, res) => {
