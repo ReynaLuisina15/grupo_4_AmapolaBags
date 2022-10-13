@@ -19,7 +19,7 @@ router
      .get('/productDetail/:id', detail)
 
      .get('/productEdit/:id',adminUserCheck, edit)
-     .put('/update/:id',adminUserCheck, uploadImageProduct.single("img"),productsEditValidator, update)
+     .put('/update/:id',adminUserCheck, uploadImageProduct.array("img"),productsEditValidator, update)
 
 
      .delete('/delete/:id',adminUserCheck, destroy)
