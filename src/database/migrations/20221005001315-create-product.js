@@ -31,7 +31,6 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-
         type: Sequelize.DATE
       },
       deletedAt: {
@@ -39,7 +38,7 @@ module.exports = {
       },
       productId :{
         type : Sequelize.INTEGER
-      }
+      } 
     });
   },
   async down(queryInterface, Sequelize) {

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const {cart,detail,general,add,edit,store,update,destroy,purse, fannyPack, backpack} = require("../controllers/productsController");
+const {cart,detail,general,add,edit,store,update,destroy,purse,fannyPack, backpack} = require("../controllers/productsController");
 
 const {productsAddValidator,productsEditValidator} = require("../validations")
 const adminUserCheck = require("../middlewares/adminUserCheck")
