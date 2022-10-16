@@ -36,9 +36,6 @@ module.exports = {
       },
       deletedAt: {
         type: Sequelize.DATE
-      },
-      productId :{
-        type : Sequelize.INTEGER
       }
     });
   },

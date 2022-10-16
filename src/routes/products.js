@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
-const {cart,detail,general,add,edit,store,update,destroy,purse, fannyPack, backpack} = require("../controllers/productsController");
+const {cart,detail,general,add,edit,store,update,productDelete,destroy,purse, fannyPack, backpack} = require("../controllers/productsController");
 
 const {productsAddValidator,productsEditValidator} = require("../validations")
 const adminUserCheck = require("../middlewares/adminUserCheck")
@@ -22,7 +22,9 @@ router
      .put('/update/:id',adminUserCheck, uploadImageProduct.single("img"),productsEditValidator, update)
 
 
-     .delete('/delete/:id',adminUserCheck, destroy)
+     .get('/delete', adminUserCheck, productDelete)
+     .delete('/delete', adminUserCheck, productDelete)
+     .delete('/delete/:id', adminUserCheck, destroy)
      
      .get('/productCart', cart)
      .get('/productGeneral', general) 

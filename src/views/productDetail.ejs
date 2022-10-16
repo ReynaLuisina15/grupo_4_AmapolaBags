@@ -23,33 +23,39 @@
                         </h2>
                         <h2>Categoria: <%= product.category %>
                         </h2>
-                        <div class="main__section__detalle--colores-txt"><h2>Colores: </h2></div>
+                        <div class="main__section__detalle--colores-txt">
+                            <h2>Colores: </h2>
+                        </div>
                         <% product.stock.forEach(item=> { %>
-                           
-                              <span class="span_color" style=<%="background-color:" + item.color.name
+
+                            <span class="span_color" style=<%="background-color:" + item.color.name
                                 +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
-                          
+
                             <% }) %>
 
-                        <div class="main__section__colores">
-                            <hr>
-                            <h1>PRECIO: <%= toThousand(product.price) %></h1>
+                                <div class="main__section__colores">
+                                    <hr>
+                                    <h1>PRECIO: <%= toThousand(product.price) %>
+                                    </h1>
 
-                            <button>
-                                <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
-                            </button>
-
-                            <% if (locals.userLogin && userLogin.rol === "admin") { %>
-                                <button>
-                                   <a style="color: white;" href="/products/productEdit/<%= product.id %>"><p>Editar producto</p></a>
-                                </button>
-                                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="post">                         
-                                    <button type="submit">
-                                        <p>Eliminar producto</p>
+                                    <button>
+                                        <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
                                     </button>
-                            </form>
-                                <% } %> 
-                        </div>
+
+                                    <% if (locals.userLogin && userLogin.rol==="admin" ) { %>
+                                        <button>
+                                            <a style="color: white;" href="/products/productEdit/<%= product.id %>">
+                                                <p>Editar producto</p>
+                                            </a>
+                                        </button>
+                                        <form action="/products/productDelete<%= product.id %>?_method=DELETE"
+                                            method="post">
+                                            <a href="/products/delete?id=<%=product.id%>&name=<%=product.name%> ">
+                                                <p>Eliminar producto</p>
+                                            </a>
+                                        </form>
+                                        <% } %>
+                                </div>
 
                     </div>
                 </section>

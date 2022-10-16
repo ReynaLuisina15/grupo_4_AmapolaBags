@@ -17,7 +17,8 @@ module.exports = (sequelize, DataTypes) => {
       })
       Product.hasMany(models.Image,{
         as : "images",
-        foreignKey : "productId"
+        foreignKey : "productId",
+        onDelete : 'cascade'
       })
       Product.belongsToMany(models.Color,{
         foreignKey : "productsId",
@@ -27,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
       })
       Product.hasMany(models.Stock,{
         as : "stock",
-        foreignKey : "productId"
+        foreignKey : "productId",
+        onDelete : 'cascade'
       })
     }
   }

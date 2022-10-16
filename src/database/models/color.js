@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey : "colorId",
         otherKey : "productId",
         through : "Stocks",
-        as : "products"
+        as : "products",
+        onDelete : 'cascade'
       })
     }
   }

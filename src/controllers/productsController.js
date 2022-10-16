@@ -237,13 +237,33 @@ const controller = {
       .catch(error => console.error(error))
   },
 
-  destroy: (req, res) => {
+ /*  destroy: (req, res) => {
     const id = req.params.id;
     const products = loadProducts();
     const productsModify = products.filter((product) => product.id !== +id);
     storeProducts(productsModify);
     return res.redirect("/products/productGeneral");
+  }, */
+
+  productDelete : (req, res) => {
+    const Product = req.query;
+    return res.render('productDelete', {Product});
   },
+  destroy : (req, res) => {
+    const {id} = req.params;
+    db.Product.destroy({
+      where : {id}
+    })
+
+    .then((product) => {
+      return res.redirect('product/General')
+    })
+    .catch (error => {
+      console.log(error)
+    })
+    
+  }
+
 };
 
 module.exports = controller;
