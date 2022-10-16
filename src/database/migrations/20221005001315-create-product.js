@@ -31,12 +31,14 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-
         type: Sequelize.DATE
       },
       deletedAt: {
         type: Sequelize.DATE
-      }
+      },
+      productId :{
+        type : Sequelize.INTEGER
+      } 
     });
   },
   async down(queryInterface, Sequelize) {
