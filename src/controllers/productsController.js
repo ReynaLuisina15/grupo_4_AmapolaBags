@@ -1,10 +1,11 @@
-const db = require('../database/models')
+const db = require("../database/models");
 const { loadProducts, storeProducts } = require("../data/produtcsModule");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const fs = require("fs");
 /* const products = require('../data/productsDataBase.json') */
 
 const { validationResult } = require("express-validator");
+const { traceDeprecation } = require("process");
 
 const controller = {
   cart: (req, res) => {
@@ -15,31 +16,29 @@ const controller = {
     /* const products = loadProducts();
     ); */
     db.Product.findAll({
-      include: ["images", {
-        association: "stock",
-        attributes: ["quantity", "productId", "colorId"],
-        include: [
-          {
-            association: "color",
-            attributes: [
-              "name"
-            ]
-          }
-        ]
-      }]
-    })
-      .then((products) => {
-        /*return res.send(products) */
-        return res.render("productGeneral", {
-          products,
-          toThousand,
-        })
-      }
-      )
+      include: [
+        "images",
+        {
+          association: "stock",
+          attributes: ["quantity", "productId", "colorId"],
+          include: [
+            {
+              association: "color",
+              attributes: ["name"],
+            },
+          ],
+        },
+      ],
+    }).then((products) => {
+      /*return res.send(products) */
+      return res.render("productGeneral", {
+        products,
+        toThousand,
+      });
+    });
   },
 
   purse: (req, res) => {
-
     let purse = db.Category.findByPk(3, {
       include: [
         {
@@ -49,15 +48,14 @@ const controller = {
       ],
     })
       .then((purse) => {
-              /* return res.send(purse)  */ 
+        /* return res.send(purse)  */
         return res.render("productPurse", {
           purse,
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
-
 
   fannyPack: (req, res) => {
     let fannyPack = db.Category.findByPk(2, {
@@ -74,7 +72,7 @@ const controller = {
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
   backpack: (req, res) => {
     let backpack = db.Category.findByPk(1, {
@@ -91,11 +89,11 @@ const controller = {
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
 
   detail: (req, res) => {
-   /*  const products = loadProducts();
+    /*  const products = loadProducts();
     const product = products.find((product) => product.id === +req.params.id);
     
 
@@ -104,18 +102,19 @@ const controller = {
       toThousand,
     }); */
     db.Product.findByPk(req.params.id, {
-       include: ["images", {
-        association: "stock",
-        attributes: ["quantity", "productId", "colorId"],
-        include: [
-          {
-            association: "color",
-            attributes: [
-              "name"
-            ]
-          }
-        ]
-      }]
+      include: [
+        "images",
+        {
+          association: "stock",
+          attributes: ["quantity", "productId", "colorId"],
+          include: [
+            {
+              association: "color",
+              attributes: ["name"],
+            },
+          ],
+        },
+      ],
     })
       .then((product) => {
         /* return res.send(product) */
@@ -128,10 +127,94 @@ const controller = {
   },
 
   add: (req, res) => {
-    return res.render("productAdd");
+    const categories = db.Categories.findAll({
+      attributes: ["id", "nombre"],
+      order: ["name"],
+    });
+    const colors = db.Color.findAll({
+      order: ["name"],
+    });
+    const product = db.Product.findByPk(req.params.id);
+    Promise.all([categories, colors, product]).then(
+      ([categories, colors, product]) => {
+        return res.render("productAdd", {
+          product,
+          categories,
+          colors,
+        });
+      }
+    );
   },
 
-  store: (req, res) => {
+  store: async (req, res) => {
+    /* CREAR */
+    const imagesMulter = req.files;
+
+    try {
+      const error = validationResult(req);
+      if (errors.isEmpty()) {
+        const {
+          name,
+          price,
+          description,
+          category,
+          color,
+          quantity = 10,
+        } = req.body;
+        const product = await db.Product.create({
+          name,
+          price,
+          description,
+          categoryId: category,
+        });
+        const stock = await db.Stock.create({
+          quantity,
+          colorId: color,
+          productId: product.id,
+        });
+        if (imagesMulter.lenght) {
+          const images = imagesMulter.map((image) => {
+            return {
+              file: image.filename,
+              productId: product.id,
+            };
+          });
+          await db.Image.bulkCreate(images, {
+            validate: true,
+          });
+        }
+        return res.redirect("/products/productGeneral");
+      } else {
+        db.Color.findAll({
+          order: ["name"],
+        }).then((colors) => {
+          res.render("productAdd", {
+            errors: errors.mapped(),
+            old: req.body,
+            colors,
+          });
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  /* const { name, description, price, categoryId } = req.body;
+    db.Product.create({
+      name: name.trim(),
+      description: description.trim(),
+      price,
+      categoryId, 
+    })
+      .then((product) => {
+        console.log(product);
+        return res.redirect("/products");  
+      })
+      .catch((error) => {
+        console.log(error);
+      }); */
+
+  /* store: (req, res) => {
     const errors = validationResult(req);
     if (errors.isEmpty()) {
       const { name, price, description, category, color } = req.body;
@@ -156,7 +239,7 @@ const controller = {
         old: req.body,
       });
     }
-  },
+  }, */
 
   edit: async (req, res) => {
     const categories = await db.Category.findAll({
@@ -172,11 +255,10 @@ const controller = {
         });
       })
       .catch((error) => console.log(error));
-  
   },
 
   update: (req, res) => {
- /*    const products = loadProducts();
+    /*    const products = loadProducts();
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
@@ -186,20 +268,20 @@ const controller = {
 
         if (product.id === +req.params.id) { */
 
-          /* if (product.id === +req.params.id) {
+    /* if (product.id === +req.params.id) {
                if(req.files.length){
                  product.image?.forEach(img => {  
                    fs.unlinkSync("./public/img/" + img);
                  })
            } */
 
-         /*  if (req.file) {
+    /*  if (req.file) {
             fs.unlinkSync("./public/img/" + product.image);
           } */
 
-          /* req.file && fs.unlinkSync("./public/img/" + product.image); */
+    /* req.file && fs.unlinkSync("./public/img/" + product.image); */
 
-         /*  return {
+    /*  return {
             ...product,
             name: name?.trim(),
             price: +price,
@@ -224,17 +306,17 @@ const controller = {
     db.Product.update(
       {
         ...req.body,
-        name : req.body.name.trim(),
-        description : req.body.description.trim()
+        name: req.body.name.trim(),
+        description: req.body.description.trim(),
       },
       {
-        where : {
-          id : req.params.id
-        }
+        where: {
+          id: req.params.id,
+        },
       }
     )
-      .then( () => res.redirect("/products/productDetail/" + req.params.id))
-      .catch(error => console.error(error))
+      .then(() => res.redirect("/products/productDetail/" + req.params.id))
+      .catch((error) => console.error(error));
   },
 
   destroy: (req, res) => {
@@ -244,8 +326,38 @@ const controller = {
     storeProducts(productsModify);
     return res.redirect("/products/productGeneral");
   },
+  productSearch: (req, res) => {
+    return res.render("initSearch", { title: "initSearch" });
+  },
+   resultsearch: (req, res) => {
+    return res.render("ViewSearch", { title : ""});
+  },  
+  search: (req, res) => {
+    const { keywords } = req.query;
+    db.Product.findAll({
+      include: ["images", "category"],
+      where: {
+        [Op.or]: [
+          // operador Op que nos deja buscar mas de una palabra en el buscador
+          {
+            name: {
+              [Op.substring]: keywords, // busca en el keywords name
+            },
+          },
+          
+        ],
+      },
+    })
+      .then((products) => {
+       
+        return res.render("results", { title : "results",
+          products,
+          keywords,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
+  },
 };
 
 module.exports = controller;
-
-

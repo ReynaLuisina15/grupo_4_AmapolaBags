@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+
+  <%- include("./partials/head") %>
+
+<body class="body__home">
+    <!-- INICIO DE NAV -->
+
+    <%- include("./partials/header") %>
+
+    <!-- FIN DE NAV  -->
+    <!-- INICIO DE MAIN CARRITO  -->
+  <main class="main__carrito">
+    <form action="/search" method="GET" class="search-form">
+        <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+        <input type="text" name="keywords" placeholder="Buscar productos" class="search-form_input">
+      </form>
+  </main>
+    <!-- FIN DE MAIN CARRITO -->
+    <!-- INICIO DE FOOTER -->
+
+    <%- include("./partials/footer") %>  
+
+    <!-- FIN DE FOOTER -->
+</body>
+
+</html>

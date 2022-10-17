@@ -47,8 +47,13 @@
                             </div>
                             <div>
                                 <label for="color">Color</label>
-                                <input type="color" name="color" id="color"
-                                    value="<%= locals.old && old.color ? old.color : null %>">
+                                <select  name="color" id="color">
+                                    <% colors.forEach(color => { %>
+                                        <!-- colocar selec -->
+                                        <option value="<%= color.id %>"  ><%= color.name %></option>
+                                    <% }) %>
+                                </select>
+                                   
                                 <p class="text-danger">
                                     <%= locals.errors && errors.color ? errors.color.msg : null %>
                                 </p>

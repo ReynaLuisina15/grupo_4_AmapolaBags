@@ -9,15 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       name: {
+        allowNull: false,
         type: Sequelize.STRING
       },
       description: {
+        allowNull: false,
         type: Sequelize.TEXT
       },
       price: {
+        allowNull: false,
         type: Sequelize.INTEGER
       },
       categoryId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: {
@@ -37,8 +41,8 @@ module.exports = {
       deletedAt: {
         type: Sequelize.DATE
       },
-      productId :{
-        type : Sequelize.INTEGER
+      productId:{
+        type: Sequelize.INTEGER
       }
     });
   },
