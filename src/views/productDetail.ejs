@@ -39,7 +39,7 @@
                                 <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
                             </button>
 
-                            <% if (locals.userLogin && userLogin.rol === "admin") { %>
+                            <% if (locals.userLogin && userLogin.rol === 1) { %>
                                 <button>
                                    <a style="color: white;" href="/products/productEdit/<%= product.id %>"><p>Editar producto</p></a>
                                 </button>
