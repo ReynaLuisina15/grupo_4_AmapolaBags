@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include("./partials/head") %>
+
+  <body>
+    <%- include("./partials/header") %>
+
+      <main>
+        <section class="body__section__profile">
+          <form class="body__main__register__section1__article2__form" method="POST"
+            action="/users/userEdit?_method=PUT">
+            <div class="body__section__profile--img">
+              <img src="<%= /http/.test(user.avatar) ? user.avatar : " /img/avatar/" + user.avatar %>"
+              width="130px" height="130px" alt="">
+            </div>
+            <div>
+              <label for="name">nombre</label> <br>
+              <input type="text" name="name" id="name" value="<%= user.name %>">
+            </div>
+            <div>
+              <label for="surname">apellido</label> <br>
+              <input type="text" name="surname" id="surname" value="<%= user.surname %>">
+            </div>
+            <div>
+              <label for="email">correo electronico</label> <br>
+              <input type="email" name="email" id="email" value="<%= user.email %>">
+            </div>
+            <button class="body__main__register__section1__article2__form--button" type="submit">Actualizar
+            </button>
+          </form>
+        </section>
+      </main>
+      <%- include("./partials/footer") %>
+  </body>
+
+</html>

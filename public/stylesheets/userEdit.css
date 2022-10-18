@@ -1,29 +1,29 @@
-/* .body__section__profile {
-    text-align: center;
+.body__section__profile {
+  text-align: center;
 }
 
 .body__section__profile input {
-    width: 50%;
+  width: 50%;
 }
 
 .body__section__profile label {
-    font-size: 18px;
+  font-size: 18px;
 }
 
 .body__section__profile a {
-    width: 50%;
+  width: 50%;
 
-    margin: auto;
+  margin: auto;
 }
 
 .body__section__profile--img {
-    margin: 30px;
+  margin: 30px;
 }
 
 .body__section__profile--img img {
-    border-radius: 40%;
+  border-radius: 40%;
 }
 
 .body__section__profile--password {
-    margin-bottom: 15px;
-} */
+  margin-bottom: 15px;
+}
