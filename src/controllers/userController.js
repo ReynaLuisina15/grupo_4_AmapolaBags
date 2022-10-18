@@ -23,7 +23,7 @@ module.exports = {
           id,
           name,
           rol: rolId,
-          avatar
+          avatar : avatar
         };
         if (req.body.remember) {
           res.cookie('amapola', req.session.userLogin, {
@@ -50,19 +50,19 @@ module.exports = {
 
     const { name, surname, email, password } = req.body
 
+   
     db.User.create({
       name: name.trim(),
       surname: surname.trim(),
       email: email.trim(),
       password: bcryptjs.hashSync(password, 12),
-      rolId: 1
+      rolId: 2,
+      avatar : req.file?.filename || "avatar.png"
 
     }).then((user) => {
       return res.redirect('/users/login')
     }
     ).catch(error => console.log(error))
-
-
 
   },
   profile: (req, res) => {

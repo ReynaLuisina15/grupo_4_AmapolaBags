@@ -1,6 +1,7 @@
 const path = require('path');
 const multer = require('multer');
 
+
 const storageImageProduct = multer.diskStorage({
     destination: (req, file, callback) => {
         callback(null, './public/img' )
@@ -20,8 +21,7 @@ const storageImageUser = multer.diskStorage({
         callback(null, './public/img/avatar' )
     },
     filename : (req,file,callback) => {
-        callback(null,'user-' + Date.now() + path.extname(file.originalname))
-       
+        callback(null,'user-' + Date.now() + path.extname(file.originalname))      
     }
 });
 

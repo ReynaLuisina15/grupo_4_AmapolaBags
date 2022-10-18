@@ -11,7 +11,7 @@
         <section class="body__section__profile" >
             <form class="body__main__register__section1__article2__form" method="POST" action="/users/register">
             <div class="body__section__profile--img">
-                <img src="<%= /http/.test(user.avatar) ? user.avatar : "/img/avatar/" + user.avatar %>"
+                <img src="<%=/http/.test(user.avatar) ? user.avatar : "/img/avatar/" + user.avatar %>"
                 width="130px" height="130px" alt="">
             </div>
             <div>
