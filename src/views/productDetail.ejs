@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("./partials/head", {title: 'Dettale producto' }) %>
+<%- include("./partials/head", {title: 'Detalle del producto' }) %>
 
     <body>
 
@@ -42,17 +42,16 @@
                                         <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
                                     </button>
 
-                                    <% if (locals.userLogin && userLogin.rol==="admin" ) { %>
+                                    <% if (locals.userLogin && userLogin.rol===1) { %>
                                         <button>
                                             <a style="color: white;" href="/products/productEdit/<%= product.id %>">
                                                 <p>Editar producto</p>
                                             </a>
                                         </button>
-                                        <form action="/products/productDelete<%= product.id %>?_method=DELETE"
-                                            method="post">
-                                            <a href="/products/delete?id=<%=product.id%>&name=<%=product.name%> ">
+                                        <form action="/products/delete/<%= product.id %>?_method=DELETE" method="post">
+                                            <button type="submit">
                                                 <p>Eliminar producto</p>
-                                            </a>
+                                            </button>
                                         </form>
                                         <% } %>
                                 </div>
