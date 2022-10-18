@@ -1,4 +1,4 @@
-const db = require('../database/models')
+const db = require("../database/models");
 const { loadProducts, storeProducts } = require("../data/produtcsModule");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const fs = require("fs");
@@ -15,31 +15,29 @@ const controller = {
     /* const products = loadProducts();
     ); */
     db.Product.findAll({
-      include: ["images", {
-        association: "stock",
-        attributes: ["quantity", "productId", "colorId"],
-        include: [
-          {
-            association: "color",
-            attributes: [
-              "name"
-            ]
-          }
-        ]
-      }]
-    })
-      .then((products) => {
-        /*return res.send(products) */
-        return res.render("productGeneral", {
-          products,
-          toThousand,
-        })
-      }
-      )
+      include: [
+        "images",
+        {
+          association: "stock",
+          attributes: ["quantity", "productId", "colorId"],
+          include: [
+            {
+              association: "color",
+              attributes: ["name"],
+            },
+          ],
+        },
+      ],
+    }).then((products) => {
+      /*return res.send(products) */
+      return res.render("productGeneral", {
+        products,
+        toThousand,
+      });
+    });
   },
 
   purse: (req, res) => {
-
     let purse = db.Category.findByPk(3, {
       include: [
         {
@@ -49,15 +47,14 @@ const controller = {
       ],
     })
       .then((purse) => {
-              /* return res.send(purse)  */ 
+        /* return res.send(purse)  */
         return res.render("productPurse", {
           purse,
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
-
 
   fannyPack: (req, res) => {
     let fannyPack = db.Category.findByPk(2, {
@@ -74,7 +71,7 @@ const controller = {
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
   backpack: (req, res) => {
     let backpack = db.Category.findByPk(1, {
@@ -91,11 +88,11 @@ const controller = {
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
 
   detail: (req, res) => {
-   /*  const products = loadProducts();
+    /*  const products = loadProducts();
     const product = products.find((product) => product.id === +req.params.id);
     
 
@@ -104,18 +101,19 @@ const controller = {
       toThousand,
     }); */
     db.Product.findByPk(req.params.id, {
-       include: ["images", {
-        association: "stock",
-        attributes: ["quantity", "productId", "colorId"],
-        include: [
-          {
-            association: "color",
-            attributes: [
-              "name"
-            ]
-          }
-        ]
-      }]
+      include: [
+        "images",
+        {
+          association: "stock",
+          attributes: ["quantity", "productId", "colorId"],
+          include: [
+            {
+              association: "color",
+              attributes: ["name"],
+            },
+          ],
+        },
+      ],
     })
       .then((product) => {
         /* return res.send(product) */
@@ -172,11 +170,10 @@ const controller = {
         });
       })
       .catch((error) => console.log(error));
-  
   },
 
   update: (req, res) => {
- /*    const products = loadProducts();
+    /*    const products = loadProducts();
     const errors = validationResult(req);
 
     if (errors.isEmpty()) {
@@ -186,20 +183,20 @@ const controller = {
 
         if (product.id === +req.params.id) { */
 
-          /* if (product.id === +req.params.id) {
+    /* if (product.id === +req.params.id) {
                if(req.files.length){
                  product.image?.forEach(img => {  
                    fs.unlinkSync("./public/img/" + img);
                  })
            } */
 
-         /*  if (req.file) {
+    /*  if (req.file) {
             fs.unlinkSync("./public/img/" + product.image);
           } */
 
-          /* req.file && fs.unlinkSync("./public/img/" + product.image); */
+    /* req.file && fs.unlinkSync("./public/img/" + product.image); */
 
-         /*  return {
+    /*  return {
             ...product,
             name: name?.trim(),
             price: +price,
@@ -224,20 +221,20 @@ const controller = {
     db.Product.update(
       {
         ...req.body,
-        name : req.body.name.trim(),
-        description : req.body.description.trim()
+        name: req.body.name.trim(),
+        description: req.body.description.trim(),
       },
       {
-        where : {
-          id : req.params.id
-        }
+        where: {
+          id: req.params.id,
+        },
       }
     )
-      .then( () => res.redirect("/products/productDetail/" + req.params.id))
-      .catch(error => console.error(error))
+      .then(() => res.redirect("/products/productDetail/" + req.params.id))
+      .catch((error) => console.error(error));
   },
 
- /*  destroy: (req, res) => {
+  /*  destroy: (req, res) => {
     const id = req.params.id;
     const products = loadProducts();
     const productsModify = products.filter((product) => product.id !== +id);
@@ -245,27 +242,23 @@ const controller = {
     return res.redirect("/products/productGeneral");
   }, */
 
-  productDelete : (req, res) => {
+  productDelete: (req, res) => {
     const Product = req.query;
-    return res.render('productDelete', {Product});
+    return res.render("productDelete", { Product });
   },
-  destroy : (req, res) => {
-    const {id} = req.params;
+  destroy: (req, res) => {
+    const { id } = req.params;
     db.Product.destroy({
-      where : {id}
+      where: { id },
     })
+      .then(() => {
+        return res.redirect("product/General");
+      })
 
-    .then((product) => {
-      return res.redirect('product/General')
-    })
-    .catch (error => {
-      console.log(error)
-    })
-    
-  }
-
+      .catch((error) => {
+        console.log(error);
+      });
+  },
 };
 
 module.exports = controller;
-
-
