@@ -47,7 +47,6 @@ router
   )
 
   .get("/delete", adminUserCheck, productDelete)
-  .delete("/delete", adminUserCheck, productDelete)
   .delete("/delete/:id", adminUserCheck, destroy)
 
   .get("/productCart", cart)
