@@ -18,14 +18,10 @@ const controller = {
       include: [
         "images",
         {
-          association: "stock",
-          attributes: ["quantity", "productId", "colorId"],
-          include: [
-            {
-              association: "color",
-              attributes: ["name"],
-            },
-          ],
+          association: "colors",
+          attributes: {
+            exclude: ["createdAt", "updatedAt"],
+          },
         },
       ],
     }).then((products) => {
@@ -42,7 +38,7 @@ const controller = {
       include: [
         {
           association: "products",
-          include: ["images", "stock"],
+          include: ["images", "colors"],
         },
       ],
     })
@@ -104,19 +100,19 @@ const controller = {
       include: [
         "images",
         {
-          association: "stock",
-          attributes: ["quantity", "productId", "colorId"],
-          include: [
-            {
-              association: "color",
-              attributes: ["name"],
-            },
-          ],
+          association: "colors",
+          attributes: {
+            exclude: ["createdAt", "updatedAt"],
+          },
+          through: {
+            attributes: ["quantity"],
+          },
         },
       ],
     })
       .then((product) => {
         /* return res.send(product) */
+        console.log(product);
         res.render("productDetail", {
           product,
           toThousand,
@@ -248,16 +244,16 @@ const controller = {
   },
   destroy: (req, res) => {
     const { id } = req.params;
-    db.Product.destroy({
-      where: { id },
-    })
-      .then(() => {
-        return res.redirect("product/General");
-      })
 
-      .catch((error) => {
-        console.log(error);
-      });
+    const images = db.Image.destroy({ where: { productId: id } });
+
+    const product = db.Product.destroy({ where: { id } });
+
+    Promise.all([images, product])
+      .then(() => {
+        return res.redirect("/products/productGeneral");
+      })
+      .catch((err) => console.log(err));
   },
 };
 
