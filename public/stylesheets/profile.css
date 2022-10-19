@@ -67,10 +67,6 @@
 @media (min-width: 764px) {
 
     .profile__container {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        flex-direction: column;
         margin: 30px;
         /*     border: 2px solid rgb(6, 233, 55); */
     }
