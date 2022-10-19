@@ -206,48 +206,6 @@ const controller = {
       console.log(error);
     }
   },
-  /* const { name, description, price, categoryId } = req.body;
-    db.Product.create({
-      name: name.trim(),
-      description: description.trim(),
-      price,
-      categoryId, 
-    })
-      .then((product) => {
-        console.log(product);
-        return res.redirect("/products");  
-      })
-      .catch((error) => {
-        console.log(error);
-      }); */
-
-  /* store: (req, res) => {
-    const errors = validationResult(req);
-    if (errors.isEmpty()) {
-      const { name, price, description, category, color } = req.body;
-      const products = loadProducts();
-
-      const newProduct = {
-        id: products[products.length - 1].id + 1,
-        name: name?.trim(),
-        description: description?.trim(),
-        price: +price,
-        image: req.file ? req.file.filename : "default-image.png",
-        color: [color],
-        category,
-      };
-
-      const productsModify = [...products, newProduct];
-      storeProducts(productsModify);
-      return res.redirect("/products/productGeneral");
-    } else {
-      return res.render("productAdd", {
-        errors: errors.mapped(),
-        old: req.body,
-      });
-    }
-  }, */
-
   edit: (req, res) => {
     let categories = db.Category.findAll({
       attributes: ["id", "name"],
@@ -343,67 +301,7 @@ const controller = {
     } catch (error) {
       console.log(error);
     }
-    /*    const products = loadProducts();
-    const errors = validationResult(req);
-
-    if (errors.isEmpty()) {
-      const { name, price, category, description, color } = req.body;
-
-      const productsModify = products.map((product) => {
-
-        if (product.id === +req.params.id) { */
-
-    /* if (product.id === +req.params.id) {
-               if(req.files.length){
-                 product.image?.forEach(img => {  
-                   fs.unlinkSync("./public/img/" + img);
-                 })
-           } */
-
-    /*  if (req.file) {
-            fs.unlinkSync("./public/img/" + product.image);
-          } */
-
-    /* req.file && fs.unlinkSync("./public/img/" + product.image); */
-
-    /*  return {
-            ...product,
-            name: name?.trim(),
-            price: +price,
-            description: description?.trim(),
-            category,
-            image: req.file?.filename || product.image,
-            color: [color],
-          };
-        }
-        return product;
-      });
-
-      storeProducts(productsModify);
-      return res.redirect("/products/productDetail/" + req.params.id);
-    } else {
-      return res.render("productEdit", {
-        product: req.body,
-        id: req.params.id,
-        errors: errors.mapped(),
-      });
-    } */
-    /* db.Product.update(
-      {
-        ...req.body,
-        name: req.body.name.trim(),
-        description: req.body.description.trim(),
-      },
-      {
-        where: {
-          id: req.params.id,
-        },
-      }
-    )
-      .then(() => res.redirect("/products/productDetail/" + req.params.id))
-      .catch((error) => console.error(error)); */
   },
-
   destroy: (req, res) => {
     const id = req.params.id;
     const products = loadProducts();
@@ -411,9 +309,6 @@ const controller = {
     storeProducts(productsModify);
     return res.redirect("/products/productGeneral");
   },
-  /*  productSearch: (req, res) => {
-    return res.render("initSearch", { title: "initSearch" });
-  }, */
   search: (req, res) => {
     const { keywords } = req.query;
     db.Product.findAll({
@@ -440,7 +335,6 @@ const controller = {
     })
 
       .then((products) => {
-       
         return res.render("productGeneral", {
           title: "initSearch",
           products,
