@@ -49,6 +49,17 @@
     text-transform: none;
 }
 
+.profile__editar-perfil {
+    display: flex;
+    padding: 1%;
+    width: 35%;
+    justify-content: center;
+    color: var(--colorBlanco);
+    text-transform: uppercase;
+    background-color: black;
+    /*  border: 2px solid red; */
+}
+
 .profile__editar-perfil:hover {
     color: var(--colorRosa);
 }
@@ -75,19 +86,14 @@
         text-align: end;
         /* border: 2px solid rgb(195, 0, 255); */
     }
+
+    .profile__editar-perfil {
+        width: 30%;
+    }
 }
 
 @media (min-width : 1024px) {
-
     .profile__editar-perfil {
-        display: flex;
-        padding: 1%;
         width: 20%;
-        justify-content: center;
-        color: var(--colorBlanco);
-        text-transform: uppercase;
-        background-color: black;
-        /*  border: 2px solid red; */
     }
-
 }
