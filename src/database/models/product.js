@@ -1,5 +1,4 @@
 'use strict';
-const { CustomValidation } = require('express-validator/src/context-items');
 const {
   Model
 } = require('sequelize');

@@ -1,5 +1,6 @@
 const path = require('path');
 const multer = require('multer');
+const db = require("../database/models");
 
 const storageImageProduct = multer.diskStorage({
     destination: (req, file, callback) => {

@@ -11,11 +11,18 @@
           <h1>CARTERAS</h1>
         </div>
 
+        <% if (locals.keywords) { %>
+         <h2>Resultado de: <strong><%= keywords %></strong></h2>
+        <% } %>
+
+        <% if(!products.length){ %> 
+          <h2>No existe ningun producto con la palabra <strong><%= keywords %></strong></h2>
+        <% }else{ %>
         <section class="main__section__products">
           <% products.forEach(({id,name,price,descripcion,images,color,stock})=> { %>
             <article class="main__section__products__productCartera">
               <a href="/products/productDetail/<%= id %>">
-                <img class="productCartera__img" src="/img/<%= images[0].file %>" alt="" />
+                <img class="productCartera__img" src="/img/<%= images[0]?.file %>" alt="" />
               </a>
               <h4 class="productCartera__nombre">
                 <%= name %>
@@ -26,7 +33,7 @@
               <ul>
                 <% stock.forEach(item=> { %>
                   <li>
-                    <span class="span_color" style=<%="background-color:" + item.color.name
+                    <span class="span_color" style=<%="background-color:" + item.color?.name
                       +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
                   </li>
                   <% }) %>
@@ -38,6 +45,7 @@
             </article>
             <% }) %>
         </section>
+        <% } %>
       </main>
       <!-- FIN MAIN -->
 

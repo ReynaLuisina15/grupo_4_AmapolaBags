@@ -35,7 +35,6 @@ module.exports = {
         type: Sequelize.DATE
       },
       updatedAt: {
-
         type: Sequelize.DATE
       },
       deletedAt: {

@@ -27,12 +27,12 @@
 
                             </div>
                             <div>
-                                <label for="category">Cartegoria</label> <br>
+                                <label for="category">Categoria</label> <br>
                                 <select name="category" id="category">
                                     <option value="" selected hidden></option>
-                                    <option value="cartera">Cartera</option>
-                                    <option value="riñonera">Riñonera</option>
-                                    <option value="mochila">Mochila</option>
+                                    <option value= 1>Cartera</option>
+                                    <option value= 3>Riñonera</option>
+                                    <option value= 2>Mochila</option>
                                 </select>
                                 <p class="text-danger">
                                     <%= locals.errors && errors.category ? errors.category.msg : null %>
@@ -40,7 +40,7 @@
                             </div>
                             <div>
                                 <label for="img">Imagen</label>
-                                <input type="file" name="img" id="img" accept="image/*"><!-- multiple -->
+                                <input type="file" name="img" id="img" accept="image/*" multiple><!-- multiple -->
                                 <p class="text-danger">
                                     <%= locals.errors && errors.img ? errors.img.msg : null %>
                                 </p>

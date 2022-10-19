@@ -28,7 +28,7 @@
         <li class="home__nav__menu-buscador-opciones"><a href="/products/productPurse">carteras</a></li>
         <li class="home__nav__menu-buscador-opciones"><a href="/products/productFannyPack">riñoneras</a></li>
         <li class="home__nav__menu-buscador-opciones"><a href="/products/productBackpack">mochilas</a></li>
-        <% if (locals.userLogin && userLogin.rol==="admin" ) { %>
+        <% if (locals.userLogin && userLogin.rol=== 1 ) { %>
           <li class="home__nav__menu-buscador-opciones"><a href="/products/productAdd">Nuevo</a></li>
           <% } %>
             <li class="home__nav__menu-buscador-buscador">
@@ -38,4 +38,8 @@
       </ul>
     </div>
   </nav>
+  <form action="/products/initSearch" method="GET" class="search-form"><!-- /products/initSearch?keywords=cartera -->
+    <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+    <input type="text" name="keywords" placeholder="Buscar productos" class="search-form_input">
+  </form>
 </header>
