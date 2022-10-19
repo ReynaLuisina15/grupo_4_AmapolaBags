@@ -26,9 +26,9 @@
                         <div class="main__section__detalle--colores-txt">
                             <h2>Colores: </h2>
                         </div>
-                        <% product.stock.forEach(item=> { %>
+                        <% product.colors.forEach(color=> { %>
 
-                            <span class="span_color" style=<%="background-color:" + item.color.name
+                            <span class="span_color" style=<%="background-color:" + color.name
                                 +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
 
                             <% }) %>

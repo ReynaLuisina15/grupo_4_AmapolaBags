@@ -12,7 +12,7 @@
         </div>
 
         <section class="main__section__products">
-          <% products.forEach(({id,name,price,descripcion,images,color,stock})=> { %>
+          <% products.forEach(({id,name,price,descripcion,images,colors})=> { %>
             <article class="main__section__products__productCartera">
               <a href="/products/productDetail/<%= id %>">
                 <img class="productCartera__img" src="/img/<%= images[0].file %>" alt="" />
@@ -24,9 +24,9 @@
                 <%= toThousand(+price) %>
               </h3>
               <ul>
-                <% stock.forEach(item=> { %>
+                <% colors.forEach(color=> { %>
                   <li>
-                    <span class="span_color" style=<%="background-color:" + item.color.name
+                    <span class="span_color" style=<%="background-color:" + color.name
                       +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
                   </li>
                   <% }) %>
@@ -34,7 +34,6 @@
               <button class="boton-favorito">
                 <i class="fa-regular fa-heart"></i>
               </button>
-
             </article>
             <% }) %>
         </section>
