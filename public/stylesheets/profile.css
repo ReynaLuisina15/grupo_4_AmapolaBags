@@ -1,29 +1,93 @@
-/* .body__section__profile {
-    text-align: center;
+.profile__container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    height: 650px;
+    margin: 10px;
+    /*     border: 2px solid rgb(6, 233, 55); */
 }
 
-.body__section__profile input {
-    width: 50%;
+.profile__img {
+    display: flex;
 }
 
-.body__section__profile label {
-    font-size: 18px;
-}
-
-.body__section__profile a {
-    width: 50%;
-
-    margin: auto;
-}
-
-.body__section__profile--img {
-    margin: 30px;
-}
-
-.body__section__profile--img img {
+.profile__img img {
+    width: 100%;
     border-radius: 40%;
 }
 
-.body__section__profile--password {
-    margin-bottom: 15px;
-} */
+.profile__dates {
+    display: flex;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* border: 2px solid red; */
+}
+
+.profile__dates p {
+    display: flex;
+    font-family: var(--font);
+    text-transform: capitalize;
+    color: var(--colorNegro);
+    /*  border: 2px solid rgb(0, 217, 255); */
+}
+
+.profile__dates div {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    /* border: 2px solid rgb(195, 0, 255); */
+}
+
+.profile__dates div p {
+    text-transform: uppercase;
+    justify-content: center;
+}
+
+#profile__dates-email {
+    text-transform: none;
+}
+
+.profile__editar-perfil:hover {
+    color: var(--colorRosa);
+}
+
+@media (min-width: 764px) {
+
+    .profile__container {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        margin: 30px;
+        /*     border: 2px solid rgb(6, 233, 55); */
+    }
+
+    .profile__dates {
+        justify-content: flex-start;
+    }
+
+    .profile__dates div {
+        width: 48%;
+        justify-content: end;
+        margin: 0px 5% 0 0%;
+        text-align: end;
+        /* border: 2px solid rgb(195, 0, 255); */
+    }
+}
+
+@media (min-width : 1024px) {
+
+    .profile__editar-perfil {
+        display: flex;
+        padding: 1%;
+        width: 20%;
+        justify-content: center;
+        color: var(--colorBlanco);
+        text-transform: uppercase;
+        background-color: black;
+        /*  border: 2px solid red; */
+    }
+
+}

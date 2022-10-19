@@ -8,30 +8,36 @@
         <%- include("./partials/header") %>
 
             <main>
-                <section class="body__section__profile">
-                    <div class="body__section__profile--img">
+                <section class="profile__container">
+                    <div class="profile__img">
                         <img src="<%= /http/.test(user.avatar) ? user.avatar : " /img/avatar/" + user.avatar %>"
                         width="130px" height="130px" alt="">
                     </div>
-                    <div>
-                        <label for="name">nombre</label> <br>
+                    <div class="profile__dates">
+                        <div>
+                            <p class="profile__dates-preg">nombre:</p>
+                        </div>
                         <p>
                             <%= user.name %>
                         </p>
                     </div>
-                    <div>
-                        <label for="surname">apellido</label> <br>
+                    <div class="profile__dates">
+                        <div>
+                            <p class="profile__dates-preg">apellido:</p>
+                        </div>
                         <p>
                             <%= user.surname %>
                         </p>
                     </div>
-                    <div>
-                        <p>correo electronico :</p>
-                        <p>
+                    <div class="profile__dates">
+                        <div>
+                            <p class="profile__dates-preg">correo electronico:</p>
+                        </div>
+                        <p id="profile__dates-email">
                             <%= user.email %>
                         </p>
                     </div>
-                    <a href="/users/userEdit">Editar Perfil
+                    <a class="profile__editar-perfil" href="/users/userEdit">Editar Perfil
                     </a>
                 </section>
             </main>
