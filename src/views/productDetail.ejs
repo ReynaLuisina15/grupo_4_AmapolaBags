@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<%- include("./partials/head", {title: 'Dettale producto' }) %>
+<%- include("./partials/head", {title: 'Detalle del producto' }) %>
 
     <body>
 
@@ -28,28 +28,29 @@
                            
                               <span class="span_color" style=<%="background-color:" + item.color.hexa
                                 +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
-                          
+
                             <% }) %>
 
-                        <div class="main__section__colores">
-                            <hr>
-                            <h1>PRECIO: <%= toThousand(product.price) %></h1>
+                                <div class="main__section__colores">
+                                    <hr>
+                                    <h1>PRECIO: <%= toThousand(product.price) %>
+                                    </h1>
 
-                            <button>
-                                <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
-                            </button>
-
-                            <% if (locals.userLogin && userLogin.rol === "admin") { %>
-                                <button>
-                                   <a style="color: white;" href="/products/productEdit/<%= product.id %>"><p>Editar producto</p></a>
-                                </button>
-                                <form action="/products/delete/<%= product.id %>?_method=DELETE" method="post">                         
-                                    <button type="submit">
-                                        <p>Eliminar producto</p>
+                                    <button>
+                                        <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
                                     </button>
-                            </form>
-                                <% } %> 
-                        </div>
+
+                                    <% if (locals.userLogin && userLogin.rol===1) { %>
+                                        <button>
+                                            <a style="color: white;" href="/products/productEdit/<%= product.id %>">
+                                                <p>Editar producto</p>
+                                            </a>
+                                        </button>
+                                        <a href="/products/delete?id=<%=product.id%>&name=<%=product.name%> ">
+                                            <p>Eliminar producto</p>
+                                        </a>
+                                        <% } %>
+                                </div>
 
                     </div>
                 </section>

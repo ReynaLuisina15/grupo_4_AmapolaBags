@@ -1,4 +1,4 @@
-const db = require('../database/models')
+const db = require("../database/models");
 const { loadProducts, storeProducts } = require("../data/produtcsModule");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const fs = require("fs");
@@ -15,49 +15,42 @@ const controller = {
     /* const products = loadProducts();
     ); */
     db.Product.findAll({
-      include: ["images", {
-        association: "stock",
-        attributes: ["quantity", "productId", "colorId"],
-        include: [
-          {
-            association: "color",
-            attributes: [
-              "name","hexa"
-            ]
-          }
-        ]
-      }]
-    })
-      .then((products) => {
-       /*  return res.send(products)  */
-        return res.render("productGeneral", {
-          products,
-          toThousand,
-        })
-      }
-      )
+      include: [
+        "images",
+        {
+          association: "colors",
+          attributes: {
+            exclude: ["createdAt", "updatedAt"],
+          },
+        },
+      ],
+    }).then((products) => {
+      /*return res.send(products) */
+      return res.render("productGeneral", {
+        products,
+        toThousand,
+      });
+    });
   },
 
   purse: (req, res) => {
-
     let purse = db.Category.findByPk(3, {
       include: [
         {
           association: "products",
-          include: ["images", "stock"],
+          include: ["images", "colors"],
         },
       ],
     })
       .then((purse) => {
-              /* return res.send(purse)  */ 
+        /* return res.send(purse)  */
         return res.render("productPurse", {
           purse,
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
-
 
   fannyPack: (req, res) => {
     let fannyPack = db.Category.findByPk(2, {
@@ -74,7 +67,7 @@ const controller = {
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
   backpack: (req, res) => {
     let backpack = db.Category.findByPk(1, {
@@ -91,11 +84,11 @@ const controller = {
           toThousand,
         });
       })
-      .catch((error) => console.log(error))
+      .catch((error) => console.log(error));
   },
 
   detail: (req, res) => {
-   /*  const products = loadProducts();
+    /*  const products = loadProducts();
     const product = products.find((product) => product.id === +req.params.id);
     
 
@@ -104,21 +97,22 @@ const controller = {
       toThousand,
     }); */
     db.Product.findByPk(req.params.id, {
-       include: ["images", {
-        association: "stock",
-        attributes: ["quantity", "productId", "colorId"],
-        include: [
-          {
-            association: "color",
-            attributes: [
-              "name", "hexa"
-            ]
-          }
-        ]
-      }]
+      include: [
+        "images",
+        {
+          association: "colors",
+          attributes: {
+            exclude: ["createdAt", "updatedAt"],
+          },
+          through: {
+            attributes: ["quantity"],
+          },
+        },
+      ],
     })
       .then((product) => {
         /* return res.send(product) */
+        console.log(product);
         res.render("productDetail", {
           product,
           toThousand,
@@ -176,7 +170,6 @@ const controller = {
         });
       })
       .catch((error) => console.log(error));
-  
   },
 
   update: async (req, res) => {
@@ -254,15 +247,31 @@ const controller = {
     }
   },
 
-  destroy: (req, res) => {
+  /*  destroy: (req, res) => {
     const id = req.params.id;
     const products = loadProducts();
     const productsModify = products.filter((product) => product.id !== +id);
     storeProducts(productsModify);
     return res.redirect("/products/productGeneral");
+  }, */
+
+  productDelete: (req, res) => {
+    const Product = req.query;
+    return res.render("productDelete", { Product });
+  },
+  destroy: (req, res) => {
+    const { id } = req.params;
+
+    const images = db.Image.destroy({ where: { productId: id } });
+
+    const product = db.Product.destroy({ where: { id } });
+
+    Promise.all([images, product])
+      .then(() => {
+        return res.redirect("/products/productGeneral");
+      })
+      .catch((err) => console.log(err));
   },
 };
 
 module.exports = controller;
-
-

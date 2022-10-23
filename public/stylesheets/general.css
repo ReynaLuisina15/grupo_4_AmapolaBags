@@ -9,14 +9,6 @@
   --colorRosa: #FFC9E0;
 }
 
-:root {
-  --font: 'Poppins';
-  --fontTitulos: 'Judson';
-  --colorNegro: #000000;
-  --colorBlanco: #FFFFFF;
-  --colorRosa: #FFC9E0;
-}
-
 * {
   box-sizing: border-box;
   margin: 0px;

@@ -1,45 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include("./partials/head") %> 
+<%- include("./partials/head") %>
 
 
-<body>
-    <%- include("./partials/header") %>
+    <body>
+        <%- include("./partials/header") %>
 
-   
-        <section class="body__section__profile" >
-            <form class="body__main__register__section1__article2__form" method="POST" action="/users/register">
-            <div class="body__section__profile--img">
-                <img src="<%= /http/.test(user.avatar) ? user.avatar : "/img/avatar/" + user.avatar %>"
-                width="130px" height="130px" alt="">
-            </div>
-            <div>
-                <label for="name">nombre</label> <br>
-                <input type="text" name="name" id="name"  value="<%= user.name %>">
-            </div>
-            <div>
-                <label for="surname">apellido</label> <br>
-                <input type="text" name="surname" id="surname" value="<%= user.surname %>">
-            </div>
-            <div class="body__section__profile--password">
-                <label for="rol">Rol</label> <br>
-                <input  type="text" name="rol" id="rol" value="<%= user.rol %>">
-        
-            </div>
-            <div>
-                <label for="email">correo electronico</label> <br>
-                <input type="email" name="email" id="email" value="<%= user.email %>">
-            </div>
-            <div class="body__section__profile--password">
-                <label for="password">contraseña</label> <br>
-                <input  type="password" name="password" id="password" >
-        
-            </div>
-            <button class="body__main__register__section1__article2__form--button" type="submit">Actualizar</button>
-        </form>
-        </section>
-        
-</body>
+            <main>
+                <section class="profile__container">
+                    <div class="profile__img">
+                        <img src="<%= /http/.test(user.avatar) ? user.avatar : " /img/avatar/" + user.avatar %>"
+                        width="130px" height="130px" alt="">
+                    </div>
+                    <div class="profile__dates">
+                        <div>
+                            <p class="profile__dates-preg">nombre:</p>
+                        </div>
+                        <p>
+                            <%= user.name %>
+                        </p>
+                    </div>
+                    <div class="profile__dates">
+                        <div>
+                            <p class="profile__dates-preg">apellido:</p>
+                        </div>
+                        <p>
+                            <%= user.surname %>
+                        </p>
+                    </div>
+                    <div class="profile__dates">
+                        <div>
+                            <p class="profile__dates-preg">correo electronico:</p>
+                        </div>
+                        <p id="profile__dates-email">
+                            <%= user.email %>
+                        </p>
+                    </div>
+                    <a class="profile__editar-perfil" href="/users/userEdit">Editar Perfil
+                    </a>
+                </section>
+            </main>
+            <%- include("./partials/footer") %>
+    </body>
 
 </html>

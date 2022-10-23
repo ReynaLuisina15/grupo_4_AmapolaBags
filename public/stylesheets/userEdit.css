@@ -1,0 +1,86 @@
+.userEdit__container__form {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 650px;
+}
+
+.form__dates {
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form__dates label {
+  display: flex;
+  width: 100%;
+  font-family: var(--font);
+  text-transform: uppercase;
+  color: var(--colorNegro);
+  justify-content: center;
+  text-align: center;
+}
+
+.form__dates input {
+  display: flex;
+  width: 80%;
+  height: 30px;
+  font-family: var(--font);
+  text-transform: capitalize;
+  color: var(--colorNegro);
+  text-align: center;
+  border: 2px solid var(--colorRosa);
+}
+
+#form__dates-email {
+  text-transform: none;
+}
+
+.userEdit__form--img img {
+  border-radius: 40%;
+}
+
+.userEdit__form--button {
+  display: flex;
+  padding: 1%;
+  width: 35%;
+  justify-content: center;
+  color: var(--colorBlanco);
+  text-transform: uppercase;
+  background-color: black;
+}
+
+.userEdit__form--button:hover {
+  color: var(--colorRosa);
+}
+
+@media (min-width: 764px) {
+  .form__dates label {
+    width: 50%;
+  }
+
+  .form__dates input {
+    width: 50%;
+  }
+
+  .form__dates {
+    width: 70%;
+  }
+
+  .userEdit__form--button {
+    width: 30%;
+  }
+}
+
+@media (min-width:1024px) {
+  .userEdit__form--button {
+    width: 20%;
+  }
+
+  .form__dates {
+    width: 60%;
+  }
+
+}

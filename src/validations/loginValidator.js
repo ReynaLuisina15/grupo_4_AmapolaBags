@@ -1,4 +1,5 @@
-const {check,body} = require("express-validator");
+const db = require('../database/models')
+const { check, body } = require("express-validator");
 const users = require('../data/db').loadUsers();
 const bcryptjs = require('bcryptjs');
 
@@ -9,8 +10,15 @@ module.exports = [
 
   body("password")
     .notEmpty().withMessage('la contraseña es obligatoria').bail()
-    .custom((value, {req}) => {
-      let user = users.find(user => user.email === req.body.email.trim() && bcryptjs.compareSync(value, user.password));
-      return !!user
+    .custom((value, { req }) => {
+      return db.User.findOne({
+        where: {
+          email: req.body.email
+        }
+      }).then(user => {
+        if (!user || !bcryptjs.compareSync(value, user.password)) {
+          return Promise.reject()
+        }
+      }).catch(() => Promise.reject('Credenciales inválidas'))
     }).withMessage('credenciales invalidas').bail()
 ]
