@@ -41,6 +41,7 @@ module.exports = {
         errors: errors.mapped(),
       });
     }
+
   },
   register: (req, res) => {
     return res.render("register", { title: "Registro" });

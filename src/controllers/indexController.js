@@ -3,4 +3,5 @@ module.exports = {
         return res.render("index",{
             title : "Home"})
       },
+     
 }

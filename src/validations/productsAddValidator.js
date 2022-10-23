@@ -13,39 +13,39 @@ module.exports = [
         .notEmpty()
         .withMessage("la categoria del producto es obligatoria"),
     
-    body("img")
+    /*body("img")
         .custom((value,{req}) => {
-         /*  if(req.files?.length){
+          if(req.files?.length){
             return true
           }else{
             return false
-          } */
+          } 
   
           if(req.file){
             return true
           }else{
             return false
           }
-          /* return !!req.file */
+          return !!req.file 
         })
         .withMessage("la imagen del producto es obligatoria")
         .custom((value,{req}) => {
           const regImg = /(.jpg|.png|.jpeg|.webp)$/
-       /*    req.files?.forEach(file => {
+         req.files?.forEach(file => {
             if(regImg.test(file.filename)){ 
               return true
             }else{
               return false
             }
-          }) */
+          }) 
           if(regImg.test(req.file?.filename)){ 
             return true
           }else{
             return false
           }
-          /*return !!regImg.test(req.file?.filename) */
+          return !!regImg.test(req.file?.filename) 
         })
-        .withMessage("formato invalido"),
+        .withMessage("formato invalido"),*/
 
     check("color")
         .notEmpty()

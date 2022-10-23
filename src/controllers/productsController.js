@@ -2,6 +2,7 @@ const db = require("../database/models");
 const { loadProducts, storeProducts } = require("../data/produtcsModule");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const fs = require("fs");
+const { Op } = require("sequelize");
 /* const products = require('../data/productsDataBase.json') */
 
 const { validationResult } = require("express-validator");
@@ -122,33 +123,83 @@ const controller = {
   },
 
   add: (req, res) => {
-    return res.render("productAdd");
+    let categories = db.Category.findAll({
+      attributes: ["id", "name"],
+      order: ["name"],
+    });
+    let colors = db.Color.findAll({
+      order: ["name"],
+    });
+    let product = db.Product.findByPk(req.params.id);
+    Promise.all([categories, colors, product]).then(
+      ([categories, colors, product]) => {
+        return res.render("productAdd", {
+          product,
+          categories,
+          colors,
+        });
+      }
+    );
   },
 
-  store: (req, res) => {
-    const errors = validationResult(req);
-    if (errors.isEmpty()) {
-      const { name, price, description, category, color } = req.body;
-      const products = loadProducts();
+  store: async (req, res) => {
+    /* CREAR */
+    const imagesMulter = req.files;
+    /*return res.send(imagesMulter)*/
+    try {
+      const errors = validationResult(req);
 
-      const newProduct = {
-        id: products[products.length - 1].id + 1,
-        name: name?.trim(),
-        description: description?.trim(),
-        price: +price,
-        image: req.file ? req.file.filename : "default-image.png",
-        color: [color],
-        category,
-      };
+      if (errors.isEmpty()) {
+        const {
+          name,
+          price,
+          description,
+          category,
+          color,
+          quantity = 10,
+        } = req.body;
 
-      const productsModify = [...products, newProduct];
-      storeProducts(productsModify);
-      return res.redirect("/products/productGeneral");
-    } else {
-      return res.render("productAdd", {
-        errors: errors.mapped(),
-        old: req.body,
-      });
+        let product = await db.Product.create({
+          name,
+          price,
+          description,
+          categoryId: category,
+        });
+        let stock = await db.Stock.create({
+          quantity,
+          colorId: color,
+          productId: product.id,
+        });
+
+        let images = [{ file: "default.png", productId: product.id }];
+
+        if (imagesMulter.length) {
+          images = imagesMulter.map((image) => {
+            return {
+              file: image.filename,
+              productId: product.id,
+            };
+          });
+        }
+
+        await db.Image.bulkCreate(images, {
+          validate: true,
+        });
+        /* return res.send(req.files) */
+        return res.redirect("/products/productGeneral");
+      } else {
+        db.Color.findAll({
+          order: ["name"],
+        }).then((colors) => {
+          res.render("productAdd", {
+            errors: errors.mapped(),
+            old: req.body,
+            colors,
+          });
+        });
+      }
+    } catch (error) {
+      console.log(error);
     }
   },
 
@@ -262,6 +313,41 @@ const controller = {
         return res.redirect("/products/productGeneral");
       })
       .catch((err) => console.log(err));
+  },
+  search: (req, res) => {
+    const { keywords } = req.query;
+    db.Product.findAll({
+      include: ["images", "category"],
+      where: {
+        [Op.or]: [
+          {
+            name: {
+              [Op.substring]: keywords,
+            },
+          },
+          {
+            description: {
+              [Op.substring]: keywords,
+            },
+          },
+          {
+            "$category.name$": {
+              [Op.substring]: keywords,
+            },
+          },
+        ],
+      },
+    })
+
+      .then((products) => {
+        return res.render("productGeneral", {
+          title: "initSearch",
+          products,
+          keywords,
+          toThousand,
+        });
+      })
+      .catch((error) => console.log(error));
   },
 };
 
