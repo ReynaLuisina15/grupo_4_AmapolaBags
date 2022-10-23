@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 
-const {cart,detail,general,add,edit,store,update,destroy,purse, fannyPack, backpack} = require("../controllers/productsController");
+const {cart,detail,general,add,edit,store,update,destroy,purse, fannyPack, backpack, productDelete, search} = require("../controllers/productsController");
 
 const {
   productsAddValidator,
@@ -36,9 +36,14 @@ router
   .get("/delete", adminUserCheck, productDelete)
   .delete("/delete/:id", adminUserCheck, destroy)
 
+  .get('/productCart', cart)
+  .get('/productGeneral', general)
+
      .get('/productPurse', purse) /* carteras */
      .get('/productFannyPack', fannyPack) /* riñoneras */
      .get('/productBackpack', backpack)
+
+     .get('/initSearch', search) /* Como va a ser la logica de buscar */
      
      
 module.exports = router;

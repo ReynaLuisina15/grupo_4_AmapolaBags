@@ -259,7 +259,7 @@ const controller = {
         await stock.save();
 
         // si se cargan nuevas imagenes
-        if (req.files.length) {
+         if (req.files?.length) {
           let imagesNew = req.files.map((image) => {
             return {
               file: image.filename,
@@ -280,13 +280,14 @@ const controller = {
 
           // guardo en db las nuevas imagenes
           await db.Image.bulkCreate(imagesNew);
-        }
+        } 
+        
         return res.redirect("/products/productDetail/" + req.params.id);
       } else {
         db.Color.findAll({
           order: ["name"],
         }).then((colors) => {
-          res.render("productAdd", {
+          res.render("productEdit", {
             errors: errors.mapped(),
             old: req.body,
             colors,
@@ -317,7 +318,7 @@ const controller = {
   search: (req, res) => {
     const { keywords } = req.query;
     db.Product.findAll({
-      include: ["images", "category"],
+      include: ["images","colors", "category"],
       where: {
         [Op.or]: [
           {
@@ -330,11 +331,11 @@ const controller = {
               [Op.substring]: keywords,
             },
           },
-          {
+        /*   {
             "$category.name$": {
               [Op.substring]: keywords,
             },
-          },
+          }, */
         ],
       },
     })

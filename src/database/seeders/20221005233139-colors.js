@@ -18,7 +18,7 @@ const colors = [
   },
   {
     name: "Negro",
-    hexa: "#dbb6b0",
+    hexa: "#000000",
     createdAt : new Date()
   },
   {
