@@ -246,15 +246,6 @@ const controller = {
       console.log(error);
     }
   },
-
-  /*  destroy: (req, res) => {
-    const id = req.params.id;
-    const products = loadProducts();
-    const productsModify = products.filter((product) => product.id !== +id);
-    storeProducts(productsModify);
-    return res.redirect("/products/productGeneral");
-  }, */
-
   productDelete: (req, res) => {
     const Product = req.query;
     return res.render("productDelete", { Product });
