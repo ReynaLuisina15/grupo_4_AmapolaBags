@@ -18,14 +18,12 @@ module.exports = (sequelize, DataTypes) => {
       });
     }
   }
-  Color.init(
-    {
-      name: DataTypes.INTEGER,
-    },
-    {
-      sequelize,
-      modelName: "Color",
-    }
-  );
+  Color.init({
+    name: DataTypes.INTEGER,
+    hexa: DataTypes.STRING,
+  }, {
+    sequelize,
+    modelName: 'Color',
+  });
   return Color;
 };

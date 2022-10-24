@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./src/bin/www",
     "reset-db": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
-    "dev": "nodemon node ./src/bin/www"
+    "dev": "nodemon ./src/bin/www"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

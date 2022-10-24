@@ -9,15 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       name: {
-        type: Sequelize.STRING,
+        allowNull: false,
+        type: Sequelize.STRING
       },
       description: {
-        type: Sequelize.TEXT,
+        allowNull: false,
+        type: Sequelize.TEXT
       },
       price: {
-        type: Sequelize.INTEGER,
+        allowNull: false,
+        type: Sequelize.INTEGER
       },
       categoryId: {
+        allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: {

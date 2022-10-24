@@ -6,7 +6,6 @@ const stocks = stocksDB.map(({quantity},index) => {
   return{
     quantity : quantity,
     productId : index + 1,
-    colorId : index + 1,
     createdAt : new Date()
   }
 })

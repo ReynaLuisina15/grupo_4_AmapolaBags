@@ -23,12 +23,10 @@
                         </h2>
                         <h2>Categoria: <%= product.category %>
                         </h2>
-                        <div class="main__section__detalle--colores-txt">
-                            <h2>Colores: </h2>
-                        </div>
+                        <div class="main__section__detalle--colores-txt"><h2>Colores: </h2></div>
                         <% product.colors.forEach(color=> { %>
-
-                            <span class="span_color" style=<%="background-color:" + color.name
+                           
+                              <span class="span_color" style=<%="background-color:" + color.hexa
                                 +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
 
                             <% }) %>

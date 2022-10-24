@@ -24,21 +24,23 @@
                     <div>
                         <label for="category">Categoria</label> <br>
                         <select  name="category" id="category">
-                            <option value="cartera"<%= product.category === "cartera" && "selected" %> >cartera</option>
-                            <option value="riñonera"<%= product.category === "riñonera" && "selected" %> >riñonera</option>
-                            <option value="mochila"<%= product.category === "mochila" && "selected" %> >mochila</option>
+                            <option value=3 <%= product.categoryId === 3 && "selected" %> >cartera</option>
+                            <option value=2 <%= product.categoryId === 2 && "selected" %> >riñonera</option>
+                            <option value=1 <%= product.categoryId === 1 && "selected" %> >mochila</option>
                         </select>
                     </div>
                     <div>
                         <label for="img">Imagen</label>
                         <input type="file" name="img" id="file">
                     </div>
+                    <label for="color">Color</label>
                     <div>
-                        <label for="color">Color</label>       
-                        <input type="color" name="color" id="color" value="<%= product.color %>">  
-                        <input type="color" name="color" id="color" value="<%= product.color %>">
-                        <input type="color" name="color" id="color" value="<%= product.color %>">
-                        <p class="text-danger"><%= locals.errors && errors.color ? errors.color.msg : null %></p>
+                        <select  name="color" id="color">
+                            <% colors.forEach(color => { %>
+                                <!-- colocar selec -->
+                                <option value="<%= color.id %>"  ><%= color.name %></option>
+                            <% }) %>
+                        </select>
                         
                     </div>
                     <div>
@@ -52,7 +54,7 @@
                         <a href=""></a>
                         <p class="text-danger"><%= locals.errors && errors.price ? errors.price.msg : null %></p>
                     </div>                      
-                    <button class="body__main__login__section1__article2__form--button" type="submit">Actulizar</button>
+                    <button class="body__main__login__section1__article2__form--button" type="submit">Actualizar</button>
                     <button class="body__main__login__section1__article2__form--button" type="reset">Borrar</button>
                 </form>           
             </article>

@@ -13,8 +13,7 @@
 }
 
 .profile__img img {
-    width: 100%;
-    border-radius: 40%;
+    border-radius: 20%;
 }
 
 .profile__dates {
