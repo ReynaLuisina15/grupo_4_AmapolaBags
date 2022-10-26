@@ -3,6 +3,7 @@ const { loadProducts, storeProducts } = require("../data/produtcsModule");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const fs = require("fs");
 const { Op } = require("sequelize");
+const path = require('path')
 /* const products = require('../data/productsDataBase.json') */
 
 const { validationResult } = require("express-validator");
@@ -211,9 +212,13 @@ const controller = {
     const colors = db.Color.findAll({
       order: ["name"],
     })
-    const product = db.Product.findByPk(req.params.id);
+    const product = db.Product.findByPk(req.params.id,{
+      include:["colors"]
+    } );
     Promise.all([categories, product, colors])
       .then(([categories, product, colors]) => {
+       /*  return res.send(product) */
+        
         return res.render("productEdit", {
           product,
           categories,
@@ -226,6 +231,7 @@ const controller = {
   update: async (req, res) => {
     try {
       const errors = validationResult(req);
+     
 
       if (errors.isEmpty()) {
         const {
@@ -259,7 +265,7 @@ const controller = {
         await stock.save();
 
         // si se cargan nuevas imagenes
-         if (req.files?.length) {
+         if (req.files.length) {
           let imagesNew = req.files.map((image) => {
             return {
               file: image.filename,
@@ -268,8 +274,22 @@ const controller = {
           });
 
           // Se borran las images anteriores
+
+          
+          //return res.send(file)
+          
           product.images.forEach(async (image) => {
-            fs.unlink(`./public/img/${image.file}`);
+            
+            const file = path.join(__dirname,`../../public/img/${image.file}` )
+             //fs.unlinkSync(file);
+            
+
+            if(fs.existsSync(file)){
+              fs.unlinkSync(`./public/img/${image.file}`);          
+            } 
+            
+            
+            
 
             await db.Image.destroy({
               where: {

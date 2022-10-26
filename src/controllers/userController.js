@@ -27,7 +27,7 @@ module.exports = {
           };
           if (req.body.remember) {
             res.cookie("amapola", req.session.userLogin, {
-              maxAge: 1000 * 60,
+              maxAge: 1000 * 60 * 60 * 24,
             });
           }
           return res.redirect("/users/profile");
