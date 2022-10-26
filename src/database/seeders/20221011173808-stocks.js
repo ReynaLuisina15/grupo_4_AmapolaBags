@@ -1,25 +1,21 @@
-'use strict';
+"use strict";
 
-const stocksDB = require('../../data/stock.json');
- 
-const stocks = stocksDB.map(({quantity},index) => {
-  return{
-    quantity : quantity,
-    productId : index + 1,
-    createdAt : new Date()
-  }
-})
+const stocksDB = require("../../data/stock.json");
+
+const stocks = stocksDB.map(({ stock }, index) => {
+  return {
+    ...stock,
+    productId: index + 1,
+    createdAt: new Date(),
+  };
+});
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-
-     await queryInterface.bulkInsert('Stocks', stocks, {});
-   
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert("Stocks", stocks, {});
   },
 
-  async down (queryInterface, Sequelize) {
- 
-     await queryInterface.bulkDelete('Stocks', null, {});
-     
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete("Stocks", null, {});
+  },
 };
