@@ -23,10 +23,12 @@
                         </h2>
                         <h2>Categoria: <%= product.category %>
                         </h2>
-                        <div class="main__section__detalle--colores-txt"><h2>Colores: </h2></div>
+                        <div class="main__section__detalle--colores-txt">
+                            <h2>Colores: </h2>
+                        </div>
                         <% product.colors.forEach(color=> { %>
-                           
-                              <span class="span_color" style=<%="background-color:" + color.hexa
+
+                            <span class="span_color" style=<%="background-color:" + color.hexa
                                 +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
 
                             <% }) %>
@@ -42,13 +44,15 @@
 
                                     <% if (locals.userLogin && userLogin.rol===1) { %>
                                         <button>
-                                            <a style="color: white;" href="/products/productEdit/<%= product.id %>">
-                                                <p>Editar producto</p>
-                                            </a>
+                                            <a href="/products/productEdit/<%= product.id %>"
+                                                class="agregar_carrito-button">EDITAR PRODUCTO</a>
                                         </button>
-                                        <a href="/products/delete?id=<%=product.id%>&name=<%=product.name%> ">
-                                            <p>Eliminar producto</p>
-                                        </a>
+                                        <button>
+                                            <a href="/products/delete?id=<%=product.id%>&name=<%=product.name%>"
+                                                class="agregar_carrito-button">ELIMINAR PRODUCTO</a>
+                                        </button>
+
+                                        </a> -->
                                         <% } %>
                                 </div>
 
