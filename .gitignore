@@ -4,3 +4,5 @@ old
 .env
 carouser_detail
 usersList.ejs
+glider.css
+javascripts

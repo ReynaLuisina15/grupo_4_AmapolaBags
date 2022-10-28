@@ -22,7 +22,15 @@
               </h4>
               <h3 class="productCartera__precio">
                 <%= toThousand(+price) %>
-              </h3>            
+              </h3>     
+              <ul>
+                <% colors.forEach(color=> { %>
+                  <li>
+                    <span class="span_color" style=<%="background-color:" + color.hexa
+                      +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
+                  </li>
+                  <% }) %>
+              </ul>       
               <button class="boton-favorito">
                 <i class="fa-regular fa-heart"></i>
               </button>
