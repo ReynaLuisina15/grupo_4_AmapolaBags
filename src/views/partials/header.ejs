@@ -31,15 +31,17 @@
         <% if (locals.userLogin && userLogin.rol===1 ) { %>
           <li class="home__nav__menu-buscador-opciones"><a href="/products/productAdd">Nuevo</a></li>
           <% } %>
-            <li class="home__nav__menu-buscador-buscador">
+            <!-- <li class="home__nav__menu-buscador-buscador">
               <label><i class="fa-solid fa-magnifying-glass"></i></label>
               <input type="search" placeholder="¿Que estás buscando?">
-            </li>
+            </li> -->
+            <form class="home__nav__menu-buscador-buscador" action="/products/initSearch" method="GET"
+              class="search-form">
+              <!-- /products/initSearch?keywords=cartera -->
+              <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+              <input type="text" name="keywords" placeholder="Buscar productos" class="search-form_input">
+            </form>
       </ul>
     </div>
   </nav>
-  <form action="/products/initSearch" method="GET" class="search-form"><!-- /products/initSearch?keywords=cartera -->
-    <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-    <input type="text" name="keywords" placeholder="Buscar productos" class="search-form_input">
-  </form>
 </header>
