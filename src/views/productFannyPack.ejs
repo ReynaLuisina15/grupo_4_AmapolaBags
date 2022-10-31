@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include("./partials/head",{title : "Productos" }) %>
+<%- include("./partials/head",{title : "Riñoneras" }) %>
 
   <body class="body__home">
     <%- include("./partials/header") %>
@@ -15,18 +15,18 @@
           <% fannyPack.products.forEach(({id,name,price,descripcion,images,colors})=> { %>
             <article class="main__section__products__productCartera">
               <a href="/products/productDetail/<%= id %>">
-                <img class="productCartera__img" src="/img/<%= images[0].file %>" alt=""/>
+                <img class="productCartera__img" src="/img/<%= images[0].file %>" alt="" />
               </a>
               <h4 class="productCartera__nombre">
                 <%= name %>
               </h4>
               <h3 class="productCartera__precio">
                 <%= toThousand(+price) %>
-              </h3>            
+              </h3>
               <button class="boton-favorito">
                 <i class="fa-regular fa-heart"></i>
               </button>
-              
+
             </article>
             <% }) %>
         </section>
