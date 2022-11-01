@@ -6,7 +6,6 @@
 /* NAV */
 .home__nav__container {
   margin-bottom: 20px;
-
 }
 
 .home__nav__container-marquee marquee {
@@ -76,7 +75,6 @@
 }
 
 .home__nav__menu-buscador-buscador {
-  width: 100%;
   display: flex;
   justify-content: flex-start;
   margin: 0 20px 0 20px;
@@ -309,12 +307,20 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 2%;
+    margin-bottom: 5px;
+    transition: 3.5s margin-bottom;
+  }
+
+  .home__nav__container.active {
+    margin-bottom: 90px;
+    transition: 1s margin-bottom;
   }
 
   .home__nav__container-marquee marquee {
     font-size: 15px;
     padding: 10px;
+    user-select: none;
+    /* user-select:  para que no se pueda seleccionar */
   }
 
   #burger-menu {
@@ -346,7 +352,19 @@
   }
 
   .home__nav__menu-buscador-buscador {
-    display: none;
+    width: 0;
+    height: 30px;
+    overflow: hidden;
+    padding: 0;
+    margin: 20px auto;
+    max-width: 350px;
+    transition: 1s width, 1s padding;
+  }
+
+  .home__nav__menu-buscador-buscador.active {
+    padding: 4px 10px;
+    width: 100%;
+    transition: 3s width;
   }
 
   .home__nav__menu-buscador-opciones {
@@ -359,6 +377,7 @@
 
   .home__nav__container-menu-buscador ul {
     justify-content: space-evenly;
+    flex-wrap: wrap;
     text-transform: uppercase;
     font-family: var(--font);
     font-weight: bold;
@@ -367,6 +386,10 @@
   }
 
   /* MAIN */
+  .home__main {
+    margin: 50px 20px;
+  }
+
   .home__main__section-banner-mobile {
     display: none;
   }
