@@ -59,7 +59,7 @@ const controller = {
       include: [
         {
           association: "products",
-          include: ["images"],
+          include: ["images", "colors"],
         },
       ],
     })
@@ -76,7 +76,7 @@ const controller = {
       include: [
         {
           association: "products",
-          include: ["images"],
+          include: ["images", "colors"],
         },
       ],
     })
