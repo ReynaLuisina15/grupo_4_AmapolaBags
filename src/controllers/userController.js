@@ -8,7 +8,7 @@ module.exports = {
   login: (req, res) => {
     return res.render("login", { title: "Entra al perfil" });
   },
-  proccesLogin: async (req, res) => {
+  processLogin: async (req, res) => {
     let errors = validationResult(req);
 
     if (errors.isEmpty()) {
@@ -111,4 +111,28 @@ module.exports = {
     res.cookie("amapola", null, { maxAge: -1 });
     return res.redirect("/");
   },
+  usersDetail : async (req, res) => {
+
+    try {
+      let users = await db.User.findAll({
+        order : ['name']
+      })
+      if(users){
+        return res.status(200).json({
+        ok: true,
+        data : users
+      })
+      }
+      throw  new Error({
+        ok: false,
+        msg : 'error'
+      })
+    } catch (error) {
+      console.log(error)
+      return res.status(500).json({
+        ok : false,
+        msg : error.message ? error.message : 'comuniquese con el administrador'
+      })
+    }
+  }
 };
