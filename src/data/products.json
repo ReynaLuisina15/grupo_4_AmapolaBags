@@ -3,72 +3,84 @@
      "name": "cafa",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-     "price": 23500
+     "price": 23500,
+     "imgPrimary": "Cartera-Martina.png"
   },
   {
      "name": "brenda",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-     "price": 10900
+     "price": 10900,
+     "imgPrimary": "Cartera-Brenda.png"
   },
   {
      "name": "volterra",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-     "price": 8550
+     "price": 8550,
+     "imgPrimary": "Cartera-Volterra.png"
   },
   {
      "name": "alma",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-     "price": 10900
+     "price": 10900,
+     "imgPrimary": "Cartera-Alma.png"
   },
   {
      "name": "cecilia",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-     "price": 7290
+     "price": 7290,
+     "imgPrimary": "Cartera-Cecilia.png"
   },
   {
      "name": "ventimiglia",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
-     "price": 9490
+     "price": 9490,
+     "imgPrimary": "Cartera-Ventimiglia.png"
   },
   {
      "name": "facu",
      "categoryId": 2,
      "description": "abdjajhcnjancj",
-     "price": 8500
+     "price": 8500,
+     "imgPrimary": "product-1661882065189.jpg"
   },
   {
      "name": "Melii",
      "categoryId": 2,
      "description": "adjanjcjakmckas",
-     "price": 9000
+     "price": 9000,
+     "imgPrimary": "product-1661881910201.jpg"
   },
   {
      "name": "Meli",
      "categoryId": 2,
      "description": "facheritaaaaa",
-     "price": 15000
+     "price": 15000,
+     "imgPrimary": "product-1661875647169.jpg"
   },
   {
    "name": "serena",
    "price": 14900,
    "description": "Mochila mediana de cuero",
-   "categoryId": 1
+   "categoryId": 1,
+   "imgPrimary": "serena.jpg"
 },
 {
    "name": "serena Blanca",
    "price": 14900,
    "description": "Mochila mediana de cuero blanco",
-   "categoryId": 1
+   "categoryId": 1,
+   "imgPrimary": "serena-blanca.jpg"
 },
 {
    "name": "serena Negra",
    "price": 14900,
    "description": "Mochila mediana de cuero negro",
-   "categoryId": 1
+   "categoryId": 1,
+   "imgPrimary": "serena-negra.jpg"
 }
 ]

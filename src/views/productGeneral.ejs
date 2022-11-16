@@ -23,10 +23,10 @@
                 </strong></h2>
               <% }else{ %>
                 <section class="main__section__products">
-                  <% products.forEach(({id,name,price,descripcion,images,colors})=> { %>
+                  <% products.forEach(({id,name,price,descripcion,images,colors,imgPrimary})=> { %>
                     <article class="main__section__products__productCartera">
                       <a href="/products/productDetail/<%= id %>">
-                        <img class="productCartera__img" src="/img/<%= images[0]?.file %>" alt="" />
+                        <img class="productCartera__img" src="/img/<%= imgPrimary %>" alt="" />
                       </a>
                       <h4 class="productCartera__nombre">
                         <%= name %>

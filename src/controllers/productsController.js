@@ -145,8 +145,10 @@ const controller = {
 
   store: async (req, res) => {
     /* CREAR */
-    const imagesMulter = req.files;
+    /* const imagesMulter = req.files; */
     /*return res.send(imagesMulter)*/
+    const imgPrimary = req.files.img1[0].filename
+    const imgsSecondary = req.files.img2
     try {
       const errors = validationResult(req);
 
@@ -165,6 +167,7 @@ const controller = {
           price,
           description,
           categoryId: category,
+          imgPrimary
         });
         let stock = await db.Stock.create({
           quantity,
@@ -174,8 +177,8 @@ const controller = {
 
         let images = [{ file: "default.png", productId: product.id }];
 
-        if (imagesMulter.length) {
-          images = imagesMulter.map((image) => {
+        if (imgsSecondary.length) {
+          images = imgsSecondary.map((image) => {
             return {
               file: image.filename,
               productId: product.id,

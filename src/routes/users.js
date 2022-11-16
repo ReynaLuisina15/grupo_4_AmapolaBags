@@ -1,11 +1,10 @@
 var express = require('express');
 var router = express.Router();
 
-const {login, register, proccesLogin, processRegister, profile,logout, update, processUpdate} = require("../controllers/userController");
+const {login, register, processLogin, processRegister, profile,logout, update, processUpdate} = require("../controllers/userController");
 const {loginValidator, registerValidator} = require('../validations');
 const {uploadImageUser} = require("../middlewares/upLoadFiles");
 
-const userSessionCheck =  require('../middlewares/userSessionCheck');
 
 /* user. */
 router
@@ -15,7 +14,7 @@ router
 
      /* user Login. */
      .get('/login', login)
-     .post('/login', loginValidator, proccesLogin)
+     .post('/login', loginValidator, processLogin)
 
 
      /* USER PROFILE */

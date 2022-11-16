@@ -20,6 +20,9 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER
       },
+      imgPrimary:{
+        type: Sequelize.STRING
+      },
       categoryId: {
         allowNull: false,
         type: Sequelize.INTEGER,
