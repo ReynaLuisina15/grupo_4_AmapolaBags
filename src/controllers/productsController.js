@@ -171,7 +171,8 @@ const controller = {
           productId: product.id,
         });
 
-        let images = [{ file: "default.png", productId: product.id }];
+        let images = [{ file: "default.jpg", productId: product.id }];
+
 
         if (imagesMulter.length) {
           images = imagesMulter.map((image) => {
