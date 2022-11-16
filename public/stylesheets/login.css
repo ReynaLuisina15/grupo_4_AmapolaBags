@@ -67,6 +67,10 @@
     margin-bottom: 10px;
     font-weight: bold;
 }
+.body__main__login__section1__article2__form--button:disabled {
+ background-color: rgb(87, 86, 86);
+ cursor: not-allowed;
+}
 
 .body__main__login__section1__article2__div {
     display: flex;

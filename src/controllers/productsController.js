@@ -3,6 +3,7 @@ const { loadProducts, storeProducts } = require("../data/produtcsModule");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const fs = require("fs");
 const { Op } = require("sequelize");
+const path = require('path')
 /* const products = require('../data/productsDataBase.json') */
 
 const { validationResult } = require("express-validator");
@@ -58,7 +59,7 @@ const controller = {
       include: [
         {
           association: "products",
-          include: ["images"],
+          include: ["images", "colors"],
         },
       ],
     })
@@ -75,7 +76,7 @@ const controller = {
       include: [
         {
           association: "products",
-          include: ["images"],
+          include: ["images", "colors"],
         },
       ],
     })
@@ -144,8 +145,10 @@ const controller = {
 
   store: async (req, res) => {
     /* CREAR */
-    const imagesMulter = req.files;
+    /* const imagesMulter = req.files; */
     /*return res.send(imagesMulter)*/
+    const imgPrimary = req.files.img1[0].filename
+    const imgsSecondary = req.files.img2
     try {
       const errors = validationResult(req);
 
@@ -164,6 +167,7 @@ const controller = {
           price,
           description,
           categoryId: category,
+          imgPrimary
         });
         let stock = await db.Stock.create({
           quantity,
@@ -174,8 +178,8 @@ const controller = {
         let images = [{ file: "default.jpg", productId: product.id }];
 
 
-        if (imagesMulter.length) {
-          images = imagesMulter.map((image) => {
+        if (imgsSecondary.length) {
+          images = imgsSecondary.map((image) => {
             return {
               file: image.filename,
               productId: product.id,
@@ -212,9 +216,13 @@ const controller = {
     const colors = db.Color.findAll({
       order: ["name"],
     })
-    const product = db.Product.findByPk(req.params.id);
+    const product = db.Product.findByPk(req.params.id,{
+      include:["colors"]
+    } );
     Promise.all([categories, product, colors])
       .then(([categories, product, colors]) => {
+       /*  return res.send(product) */
+        
         return res.render("productEdit", {
           product,
           categories,
@@ -227,6 +235,7 @@ const controller = {
   update: async (req, res) => {
     try {
       const errors = validationResult(req);
+     
 
       if (errors.isEmpty()) {
         const {
@@ -260,7 +269,7 @@ const controller = {
         await stock.save();
 
         // si se cargan nuevas imagenes
-         if (req.files?.length) {
+         if (req.files.length) {
           let imagesNew = req.files.map((image) => {
             return {
               file: image.filename,
@@ -269,8 +278,22 @@ const controller = {
           });
 
           // Se borran las images anteriores
+
+          
+          //return res.send(file)
+          
           product.images.forEach(async (image) => {
-            fs.unlink(`./public/img/${image.file}`);
+            
+            const file = path.join(__dirname,`../../public/img/${image.file}` )
+             //fs.unlinkSync(file);
+            
+
+            if(fs.existsSync(file)){
+              fs.unlinkSync(`./public/img/${image.file}`);          
+            } 
+            
+            
+            
 
             await db.Image.destroy({
               where: {

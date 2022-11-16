@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<%- include("./partials/head",{title : "Productos" }) %>
+<%- include("./partials/head",{title : "Mochilas" }) %>
 
   <body class="body__home">
     <%- include("./partials/header") %>
@@ -8,14 +8,14 @@
       <!-- INICIO MAIN -->
       <main class="main__carteras">
         <div class="titulos__products">
-          <h1>CARTERAS</h1>
+          <h1>MOCHILAS</h1>
         </div>
 
         <section class="main__section__products">
-          <% backpack.products.forEach(({id,name,price,descripcion,images,color})=> { %>
+          <% backpack.products.forEach(({id,name,price,descripcion,images,colors,imgPrimary})=> { %>
             <article class="main__section__products__productCartera">
               <a href="/products/productDetail/<%= id %>">
-                <img class="productCartera__img" src="/img/<%= images[0].file %>" alt="" />
+                <img class="productCartera__img" src="/img/<%= imgPrimary %>" alt="" />
               </a>
               <h4 class="productCartera__nombre">
                 <%= name %>
@@ -23,10 +23,18 @@
               <h3 class="productCartera__precio">
                 <%= toThousand(+price) %>
               </h3>
+              <ul>
+                <% colors.forEach(color=> { %>
+                  <li>
+                    <span class="span_color" style=<%="background-color:" + color.hexa
+                      +";width:40px;height:40px;display:inline-block;border-radius:50%"%>></span>
+                  </li>
+                  <% }) %>
+              </ul>
               <button class="boton-favorito">
                 <i class="fa-regular fa-heart"></i>
               </button>
-              
+
             </article>
             <% }) %>
         </section>

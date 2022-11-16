@@ -38,7 +38,7 @@
                         <select  name="color" id="color">
                             <% colors.forEach(color => { %>
                                 <!-- colocar selec -->
-                                <option value="<%= color.id %>"  ><%= color.name %></option>
+                                <option value="<%= color.id %>" <%= color.id === product.colors[0].id  && 'selected' %>><%= color.name %></option>
                             <% }) %>
                         </select>
                         

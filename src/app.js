@@ -7,14 +7,21 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 const session = require('express-session');
 const localsUserCheck = require("./middlewares/localsUserCheck");
+/* const userSessionCheck = require("./middlewares/userSessionCheck"); */
 const cookieCheck = require('./middlewares/cookieCheck');
 
 
-/* const cookie */
+/* ROUTERS REQUIRE */
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productsRouter = require('./routes/products');
+
+// ROUTERS API REQUIRE
+
+const productsApiRouter = require("./routes/APIs/apiProducts");
+const authApiRouter = require("./routes/APIs/apiAuth");
+const usersApiRouter = require("./routes/APIs/apiUsers")
 
 var app = express();
 
@@ -36,11 +43,24 @@ app.use(session({
 
 /* app.use cookie */
 app.use(cookieCheck);
-app.use(localsUserCheck);
 
+/* app.use */
+app.use(localsUserCheck);
+/* app.use(userSessionCheck); */
+
+
+/* ROUTERS */
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+
 app.use('/products', productsRouter);
+
+/* ROUTERS API */
+
+app.use("/api/products", productsApiRouter);
+//app.use("/api/auth", authApiRouter);
+//app.use("/api/users", usersApiRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

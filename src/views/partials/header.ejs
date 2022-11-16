@@ -10,7 +10,7 @@
           <h1><a href="/">amapola bags</a</h1>
         </li>
         <li id="location"><a><i class="fa-solid fa-location-dot"></i></a></li>
-        <li id="search"><a href="/products/initSearch"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+        <li id="search"><a href="#" class="link-search"><i class="fa-solid fa-magnifying-glass"></i></a></li>
         <% if (locals.userLogin) { %>
           <li id="user"><a href="/users/profile"><i class="fa-regular fa-user"></i></a></li>
           <li id="user"><a href="/users/logout"><i class="fa"></i>salir</a></li>
@@ -31,15 +31,17 @@
         <% if (locals.userLogin && userLogin.rol===1 ) { %>
           <li class="home__nav__menu-buscador-opciones"><a href="/products/productAdd">Nuevo</a></li>
           <% } %>
-            <li class="home__nav__menu-buscador-buscador">
+            <!-- <li class="home__nav__menu-buscador-buscador">
               <label><i class="fa-solid fa-magnifying-glass"></i></label>
               <input type="search" placeholder="¿Que estás buscando?">
-            </li>
+            </li> -->
       </ul>
+      <form class="home__nav__menu-buscador-buscador" action="/products/initSearch" method="GET" class="search-form"
+        id="search-form">
+        <!-- /products/initSearch?keywords=cartera -->
+        <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
+        <input type="text" name="keywords" placeholder="Buscar productos" class="search-form_input">
+      </form>
     </div>
   </nav>
-  <form action="/products/initSearch" method="GET" class="search-form"><!-- /products/initSearch?keywords=cartera -->
-    <button type="submit" class="search-form_button"><i class="fas fa-search"></i></button>
-    <input type="text" name="keywords" placeholder="Buscar productos" class="search-form_input">
-  </form>
 </header>

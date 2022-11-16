@@ -1,0 +1,94 @@
+.productDelete__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 3% 0;
+  /* border: 2px solid blue; */
+}
+
+.productDelete__container__preg {
+  margin: 0 1% 2% 1%;
+  display: flex;
+  text-transform: uppercase;
+  font-size: 10px;
+  text-align: center;
+  /* border: 2px solid yellow; */
+}
+
+.productDelete__container__form {
+  width: 100%;
+  /* border: 2px solid red; */
+}
+
+.productDelete__form {
+  display: flex;
+  width: 100%;
+  gap: 3%;
+  justify-content: center;
+  /* border: 2px solid green; */
+}
+
+.productDelete__form button,
+.productDelete__form a {
+  background-color: var(--colorNegro);
+  color: var(--colorBlanco);
+  padding: 5px;
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+
+.productDelete__form a:hover,
+.productDelete__form button:hover {
+  color: var(--colorRosa);
+}
+
+@media (min-width: 480px) {
+  .productDelete__container__preg {
+    font-size: 12px;
+    /* border: 2px solid yellow; */
+  }
+
+  .productDelete__form {
+    gap: 10%;
+    /* border: 2px solid green; */
+  }
+
+  .productDelete__form button,
+  .productDelete__form a {
+    padding: 10px;
+    width: 37%;
+  }
+}
+
+@media(min-width: 765px) {
+  .productDelete__container__preg {
+    font-size: 15px;
+    /* border: 2px solid yellow; */
+  }
+
+  .productDelete__form {
+    gap: 5%;
+    /* border: 2px solid green; */
+  }
+
+  .productDelete__form button,
+  .productDelete__form a {
+    width: 30%;
+    font-size: 17px;
+  }
+}
+
+@media(min-width: 1024px) {
+  .productDelete__container__preg {
+    font-size: 16px;
+    /* border: 2px solid yellow; */
+  }
+
+  .productDelete__form button,
+  .productDelete__form a {
+    width: 25%;
+    font-size: 20px;
+  }
+}

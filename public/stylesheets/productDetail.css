@@ -39,7 +39,7 @@
     }
 
     button h2 {
-        color: white;
+        color: var(--colorBlanco);
     }
 
     .agregar_carrito-button {
@@ -48,7 +48,7 @@
 
     .main__section__colores button {
         background-color: black;
-        color: white;
+        color: var(--colorBlanco);
         width: 90%;
         height: 70px;
         margin-bottom: 25px;
@@ -56,6 +56,11 @@
     }
 
     .main__section__colores p {
+        font-size: 20px;
+    }
+
+    .main__section__colores a {
+        color: var(--colorBlanco);
         font-size: 20px;
     }
 

@@ -1,38 +1,50 @@
 [
    {
-      "quantity": 10
+      "quantity": 10,
+      "colorId": 2
    },
    {
-      "quantity": 15
+      "quantity": 15,
+      "colorId": 2
    },
    {
-      "quantity": 10
+      "quantity": 10,
+      "colorId": 2
    },
    {
-      "quantity": 15
+      "quantity": 15,
+      "colorId": 2
    },
    {
-      "quantity": 10
+      "quantity": 10,
+      "colorId": 2
    },
    {
-      "quantity": 15
+      "quantity": 15,
+      "colorId": 2
    },
    {
-      "quantity": 10
+      "quantity": 10,
+      "colorId": 5
    },
    {
-      "quantity": 15
+      "quantity": 15,
+      "colorId": 2
    },
    {
-      "quantity": 10
+      "quantity": 10,
+      "colorId": 2
    },
    {
-      "quantity": 10
+      "quantity": 10,
+      "colorId": 4
    },
    {
-      "quantity": 15
+      "quantity": 15,
+      "colorId": 2
    },
    {
-      "quantity": 10
+      "quantity": 10,
+      "colorId": 1
    }
 ]
