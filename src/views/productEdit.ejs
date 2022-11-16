@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <%- include("./partials/head", {title: "Editar" + product.name}) %> 
+  <%- include("./partials/head", {title: "Editar" + locals?.product.name}) %> 
 
 <body>
   
@@ -46,7 +46,9 @@
                     <div>
                         <label for="description">Descripcion</label> <br>
                         <textarea name="description" id="description" cols="30" rows="6"><%= product.description %></textarea>
-                        <p class="text-danger"><%= locals.errors && errors.description ? errors.description.msg : null %></p>
+                        <p class="text-danger">
+                            <%= locals.errors && errors.description ? errors.description.msg : null %> 
+                        </p>
                     </div>
                     <div>
                         <label for="price">Precio</label>

@@ -19,19 +19,13 @@ router
 
   .get('/productDetail/:id', detail)
 
-  .get('/productEdit/:id', adminUserCheck, productsEditValidator, edit)
-  .put('/update/:id', adminUserCheck, uploadImageProduct.array("img"), productsEditValidator, update)
+  .get('/productEdit/:id', adminUserCheck, edit)
+  .put('/update/:id', uploadImageProduct.array("img"), productsEditValidator, update)
 
-  .get("/productDetail/:id", detail)
+  /* get("/productDetail/:id", detail) */
 
-  .get("/productEdit/:id", adminUserCheck, edit)
-  .put(
-    "/update/:id",
-    adminUserCheck,
-    uploadImageProduct.single("img"),
-    productsEditValidator,
-    update
-  )
+  /* .get("/productEdit/:id", adminUserCheck, edit)
+  .put( "/update/:id",adminUserCheck,uploadImageProduct.single("img"),productsEditValidator,update) */
 
   .get("/delete", adminUserCheck, productDelete)
   .delete("/delete/:id", adminUserCheck, destroy)

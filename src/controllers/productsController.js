@@ -90,14 +90,6 @@ const controller = {
   },
 
   detail: (req, res) => {
-    /*  const products = loadProducts();
-    const product = products.find((product) => product.id === +req.params.id);
-    
-
-    return res.render("productDetail", {
-      product,
-      toThousand,
-    }); */
     db.Product.findByPk(req.params.id, {
       include: [
         "images",
@@ -132,8 +124,8 @@ const controller = {
       order: ["name"],
     });
     let product = db.Product.findByPk(req.params.id);
-    Promise.all([categories, colors, product]).then(
-      ([categories, colors, product]) => {
+    Promise.all([categories, colors, product])
+    .then(([categories, colors, product]) => {
         return res.render("productAdd", {
           product,
           categories,
@@ -217,8 +209,6 @@ const controller = {
     } );
     Promise.all([categories, product, colors])
       .then(([categories, product, colors]) => {
-       /*  return res.send(product) */
-        
         return res.render("productEdit", {
           product,
           categories,
@@ -232,8 +222,7 @@ const controller = {
     try {
       const errors = validationResult(req);
      
-
-      if (errors.isEmpty()) {
+      if (errors.isEmpty()){
         const {
           name,
           price,
@@ -246,6 +235,7 @@ const controller = {
         let product = await db.Product.findByPk(req.params.id, {
           include: ["images"],
         });
+        
         let stock = await db.Stock.findOne({
           where: {
             productId: product.id,
@@ -274,7 +264,6 @@ const controller = {
           });
 
           // Se borran las images anteriores
-
           
           //return res.send(file)
           
@@ -287,10 +276,6 @@ const controller = {
             if(fs.existsSync(file)){
               fs.unlinkSync(`./public/img/${image.file}`);          
             } 
-            
-            
-            
-
             await db.Image.destroy({
               where: {
                 file: image.file,
@@ -307,7 +292,7 @@ const controller = {
         db.Color.findAll({
           order: ["name"],
         }).then((colors) => {
-          res.render("productEdit", {
+          res.render('productEdit', {
             errors: errors.mapped(),
             old: req.body,
             colors,
@@ -373,3 +358,6 @@ const controller = {
 };
 
 module.exports = controller;
+
+
+
