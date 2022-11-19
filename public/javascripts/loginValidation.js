@@ -1,52 +1,64 @@
-console.log("login success!");
-
 // SELECTOR DE ID
-const $ = (e) => document.getElementById(e);
-
-// LLAMADA AL FORMULARIO
-const formLogin = $("formLogin");
-const elements = formLogin.elements;
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const emailError = document.getElementById("emailMsg");
+const passwordError = document.getElementById("passwordMsg");
+const emailMsgBack = document.getElementById("emailMsgBack");
+const passwordMsgBack = document.getElementById("passwordMsgBack");
 
 // FUNCIÓN DE ERRORES
-const msgError = (element, msg, event) => {
-  $(element).style.color = "red";
-  $(element).innerHTML = msg;
-  event.target.classList.add("is-invalid");
+const msgError = (input, error, msg) => {
+  error.style.color = "red";
+  error.innerHTML = msg;
+
+  input.style.boxShadow = "0 0 5px red";
+  input.style.borderColor = "red";
 };
 
-const cleanError = (element, { target }) => {
-  target.classList.remove("is-invalid");
-  target.classList.remove("is-valid");
-  $(element).innerHTML = null;
+const cleanError = (error) => {
+  error.innerHTML = null;
 };
 
-const validField = (element, { target }) => {
-  $(element).innerHTML = null;
-  target.classList.remove("is-invalid");
-  target.classList.add("is-valid");
+const validField = (input, error) => {
+  error.innerHTML = null;
+  input.style.boxShadow = "0 0 5px green";
+  input.style.borderColor = "green";
+  error.innerHTML = "";
 };
 
-// EXPRECIÓN REGULAR
+const cleanErrorBack = (error) => {
+  error.innerHTML = "";
+};
+
+// EXPRESIÓN REGULAR
 regExEmail =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
-$("email").addEventListener("blur", function (e) {
+// VALIDACIÓN EMAIL
+email.addEventListener("blur", function () {
+  cleanErrorBack(emailMsgBack);
   switch (true) {
-    case !this.value === regExEmail:
-        msgError("emailMsg", "Debes ingresar un email válido", e)
+    case !this.value.trim():
+      msgError(email, emailError, "Debes ingresar un email ");
       break;
-
+    case !regExEmail.test(this.value.trim()):
+      msgError(email, emailError, "debe ser un email valido");
+      break;
     default:
+      validField(email, emailError);
       break;
   }
 });
 
-$("password").addEventListener("blur", function (e) {
-  switch (key) {
-    case value:
+// VALIDACIÓN PASSWORD
+password.addEventListener("blur", function () {
+  cleanErrorBack(passwordMsgBack);
+  switch (true) {
+    case !this.value.trim():
+      msgError(password, passwordError, "la contraseña es obligatoria");
       break;
-
     default:
+      validField(password, passwordError);
       break;
   }
 });

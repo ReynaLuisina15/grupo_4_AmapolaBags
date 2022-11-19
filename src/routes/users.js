@@ -14,8 +14,7 @@ router
 
      /* user Login. */
      .get('/login', login)
-     .post('/login', loginValidator, processLogin)
-
+     .post('/login',  loginValidator, processLogin)
 
      /* USER PROFILE */
      .get('/profile', profile)
