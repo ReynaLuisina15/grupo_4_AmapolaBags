@@ -1,4 +1,4 @@
-const express = require("express");
+/* const express = require("express");
 const router = express.Router();
 
 // -------- CONTROLLER REQUIRE
@@ -10,4 +10,5 @@ const {
     .get('api/users/')
     .get('api/users/:id')
 
-module.exports = router    
+module.exports = router   */  
+

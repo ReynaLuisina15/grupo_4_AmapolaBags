@@ -216,13 +216,13 @@ const controller = {
     const colors = db.Color.findAll({
       order: ["name"],
     })
-    const product = db.Product.findByPk(req.params.id,{
-      include:["colors"]
-    } );
+    const product = db.Product.findByPk(req.params.id, {
+      include: ["colors"]
+    });
     Promise.all([categories, product, colors])
       .then(([categories, product, colors]) => {
-       /*  return res.send(product) */
-        
+        /*  return res.send(product) */
+
         return res.render("productEdit", {
           product,
           categories,
@@ -233,9 +233,9 @@ const controller = {
   },
 
   update: async (req, res) => {
+
     try {
       const errors = validationResult(req);
-     
 
       if (errors.isEmpty()) {
         const {
@@ -260,6 +260,9 @@ const controller = {
         product.price = price;
         product.description = description.trim();
         product.categoryId = category;
+        product.imgPrimary = req.files.img1 && req.files.img1[0].filename 
+        product.imgsSecondary = req.files.img2 && req.files.img2[0].filename 
+
 
         await product.save();
 
@@ -269,31 +272,30 @@ const controller = {
         await stock.save();
 
         // si se cargan nuevas imagenes
-         if (req.files.length) {
-          let imagesNew = req.files.map((image) => {
+        if (req.files.length) {
+          let imagesNew = req.files.map((imgPrimary) => {
             return {
-              file: image.filename,
+              file: imgPrimary.filename,
               productId: product.id,
             };
+
+            
           });
 
           // Se borran las images anteriores
 
-          
-          //return res.send(file)
-          
-          product.images.forEach(async (image) => {
-            
-            const file = path.join(__dirname,`../../public/img/${image.file}` )
-             //fs.unlinkSync(file);
-            
 
-            if(fs.existsSync(file)){
-              fs.unlinkSync(`./public/img/${image.file}`);          
-            } 
-            
-            
-            
+          //return res.send(file)
+
+          product.images.forEach(async (image) => {
+
+            const file = path.join(__dirname, `../../public/img/${image.file}`)
+            //fs.unlinkSync(file);
+
+
+            if (fs.existsSync(file)) {
+              fs.unlinkSync(`./public/img/${image.file}`);
+            }
 
             await db.Image.destroy({
               where: {
@@ -304,19 +306,32 @@ const controller = {
 
           // guardo en db las nuevas imagenes
           await db.Image.bulkCreate(imagesNew);
-        } 
-        
+        }
+
         return res.redirect("/products/productDetail/" + req.params.id);
       } else {
-        db.Color.findAll({
+
+        const categories = db.Category.findAll({
+          attributes: ["id", "name"],
           order: ["name"],
-        }).then((colors) => {
-          res.render("productEdit", {
-            errors: errors.mapped(),
-            old: req.body,
-            colors,
-          });
         });
+        const colors = db.Color.findAll({
+          order: ["name"],
+        })
+        const product = db.Product.findByPk(req.params.id, {
+          include: ["colors"]
+        });
+        Promise.all([categories, product, colors])
+          .then(([categories, product, colors]) => {
+
+            return res.render("productEdit", {
+              product,
+              categories,
+              colors,
+              errors: errors.mapped()
+            });
+          })
+          .catch((error) => console.log(error));
       }
     } catch (error) {
       console.log(error);
@@ -342,7 +357,7 @@ const controller = {
   search: (req, res) => {
     const { keywords } = req.query;
     db.Product.findAll({
-      include: ["images","colors", "category"],
+      include: ["images", "colors", "category"],
       where: {
         [Op.or]: [
           {
@@ -355,11 +370,11 @@ const controller = {
               [Op.substring]: keywords,
             },
           },
-        /*   {
-            "$category.name$": {
-              [Op.substring]: keywords,
-            },
-          }, */
+          /*   {
+              "$category.name$": {
+                [Op.substring]: keywords,
+              },
+            }, */
         ],
       },
     })

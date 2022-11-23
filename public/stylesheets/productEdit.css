@@ -1,0 +1,5 @@
+.body__main__ProductEdit {
+    display: flex;
+    justify-content: center;
+    font-family: var(--font);
+}
