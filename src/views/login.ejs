@@ -17,19 +17,21 @@
                         </p>
                     </article>
                     <article class="body__main__login__section1__article2">
-                        <form class="body__main__login__section1__article2__form" action="" method="POST">
+                        <form class="body__main__login__section1__article2__form" action="" method="POST" id="formLogin">
                             <div>
                                 <label for="email">correo electronico</label>
-                                <input type="email" name="email" id="email">
-                                <p class="text-danger">
+                               <div class="">
+                                <input type="email" name="email" id="email" >
+                                <p class="text-danger" id="emailMsg">
                                     <%= locals.errors && errors.email ? errors.email.msg : null %>
                                 </p>
+                               </div>
                             </div>
                             <div>
                                 <label for="password">contraseña</label>
-                                <input type="password" name="password" id="password">
+                                <input type="password" name="password" id="password" >
                                 <a href="">¿Olvidaste tu contraseña?</a>
-                                <p class="text-danger">
+                                <p class="text-danger" id="passwordMsg">
                                     <%= locals.errors && errors.password ? errors.password.msg : null %>
                                 </p>
                             </div>
@@ -40,7 +42,7 @@
                             </div> 
 
                             <button class="body__main__login__section1__article2__form--button"
-                                type="submit">Ingresa</button>
+                                type="submit" id="btn-submit" >Ingresa</button>
                         </form>
                         <div class="body__main__login__section1__article2__div">
                             <a href="">Login <i class="fa-brands fa-facebook-square"></i></a>
@@ -97,5 +99,6 @@
             </main>
 
             <%- include("./partials/footer") %>
+            <script src="/javascripts/loginValidation.js"></script>
 
     </body>

@@ -15,12 +15,12 @@ const { uploadImageProduct } = require("../middlewares/upLoadFiles");
 /* products. */
 router
   .get('/productAdd', adminUserCheck, add)
-  .post('/productAdd',/*adminUserCheck,*/ uploadImageProduct.array("img"),/* uploadImageProduct.array("img"), */productsAddValidator, store)
+  .post('/productAdd',/*adminUserCheck,*/  uploadImageProduct.fields([{name:"img1"},{name:"img2"}]),/* uploadImageProduct.array("img"), */productsAddValidator, store)
 
   .get('/productDetail/:id', detail)
 
-  .get('/productEdit/:id', adminUserCheck, edit)
-  .put('/update/:id', uploadImageProduct.array("img"), productsEditValidator, update)
+  .get('/productEdit/:id', adminUserCheck, productsEditValidator, edit)
+  .put('/update/:id', adminUserCheck, uploadImageProduct.fields([{name:"img1"},{name:"img2"}]), productsEditValidator, update)
 
   /* get("/productDetail/:id", detail) */
 

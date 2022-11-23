@@ -7,54 +7,77 @@
 
         <%- include("./partials/header") %>
 
-            <main class="body__main__login">
-                <section class="body__main__login__section1">
-                    <article class="body__main__login__section1__article1">
+            <main class="body__main__ProductAdd">
+                <section class="body__main__ProductAdd__section1">
+                    <article class="body__main__ProductAdd__section1__article1 h3">
                         <h3>Nuevo producto</h3>
 
                     </article>
-                    <article class="body__main__login__section1__article2">
-                        <form class="body__main__login__section1__article2__form" action="/products/productAdd"
-                            method="POST" enctype="multipart/form-data">
+                    <article class="body__main__ProductAdd__section1__article1 p">
+                        <form class="body__main__ProductAdd__section1__article2__form is-invalid" action="/products/productAdd"
+                            method="POST" enctype="multipart/form-data" id="formProductAdd">
 
                             <div>
-                                <label for="name">Modelo</label>
-                                <input type="text" name="name" id="name"
+                                <label class="" for="name">Modelo</label>
+                                <input class="form-control form-control-lg" type="text" name="name" id="name"
                                     value="<%= locals.old && old.name ? old.name : null %>">
-                                <p class="text-danger">
+                                <p class="text-danger" id="nameMsg">
                                     <%= locals.errors && errors.name ? errors.name.msg : null %>
                                 </p>
 
                             </div>
                             <div>
                                 <label for="category">Categoria</label> <br>
-                                <select name="category" id="category">
+                                <select name="category" id="category" class="form-control form-control-lg">
                                     <option value="" selected hidden></option>
                                     <option value= 1>Cartera</option>
-                                    <option value= 3>Riñonera</option>
                                     <option value= 2>Mochila</option>
+                                    <option value= 3>Riñonera</option>
                                 </select>
-                                <p class="text-danger">
+                                <p class="text-danger" id="categoryMsg">
                                     <%= locals.errors && errors.category ? errors.category.msg : null %>
                                 </p>
                             </div>
-                            <div>
-                                <label for="img">Imagen</label>
-                                <input type="file" name="img" id="img" accept="image/*" multiple><!-- multiple -->
+                    <div class="contenedor__AddImagen">   
+                        <div class="contenedor__AddImagen__unidad">
+                            <div class="card" >
+                                <img class="form-control form-control-lg"  src="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg" alt="" id="image1Prev" style="width:240px ; height: 240px; object-fit: scale-down;">
+                            </div> 
+                                                    
+                            <div class="botton-img">
+                                
+                                <label for="img">Imagen Principal</label>
+                                <input class="form-control form-control-lg" type="file" name="img1" id="img1" accept="image/*" multiple><!-- multiple -->
                                 <p class="text-danger">
                                     <%= locals.errors && errors.img ? errors.img.msg : null %>
                                 </p>
                             </div>
+                        </div>
+                        <div class="contenedor__AddImagen__unidad">
+                            <div class="card" >
+                                <img class="form-control form-control-lg"  src="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg" alt="" id="image2Prev" style="width:240px ; height: 240px; object-fit: scale-down;">
+                            </div> 
+                                                    
+                            <div class="botton-img">
+                                
+                                <label for="img">Imagen secundaria</label>
+                                <input class="form-control form-control-lg" type="file" name="img2" id="img2" accept="image/*" multiple><!-- multiple -->
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.img ? errors.img.msg : null %>
+                                </p>
+                            </div>
+                        </div>
+                    </div> 
                             <div>
                                 <label for="color">Color</label>
-                                <select  name="color" id="color">
+                                <select value=" " class="form-control form-control-lg" name="color" id="color">
                                     <% colors.forEach(color => { %>
                                         <!-- colocar selec -->
                                         <option value="<%= color.id %>"  ><%= color.name %></option>
                                     <% }) %>
                                 </select>
                                    
-                                <p class="text-danger">
+                                <p class="text-danger" id="colorMsg">
                                     <%= locals.errors && errors.color ? errors.color.msg : null %>
                                 </p>
                             </div>
@@ -62,20 +85,21 @@
                                 <label for="color">Color</label>
                                 <input type="file" name="color" id="color" required>
                             </div> -->
-                            <div>
-                                <label for="description">descripcion</label><br>
-                                <textarea name="description" id="description" cols="60"
+                            <div class="body__main__login__section1__article2__form--description">
+                                <label for="description">descripcion</label> <br>
+                                <textarea class="form-control form-control-lg" name="description" id="description" cols="40"
                                     rows="6"><%= locals.old && old.description ? old.description : null %></textarea>
-                                <p class="text-danger">
+                                <p id="descriptionInfo" hidden><span id="numberCharacters"></span> caracteres disponible</p>
+                                <p class="text-danger" id="descriptionMsg">
                                     <%= locals.errors && errors.description ? errors.description.msg : null %>
                                 </p>
 
                             </div>
                             <div>
                                 <label for="price">Precio</label>
-                                <input type="number" name="price" id="price"
+                                <input class="form-control form-control-lg" type="number" name="price" id="price"
                                     value="<%= locals.old && old.price ? old.price : null %>">
-                                <p class="text-danger">
+                                <p class="text-danger" id="priceMsg">
                                     <%= locals.errors && errors.price ? errors.price.msg : null %>
                                 </p>
                             </div>
@@ -84,7 +108,7 @@
                             </div>
 
                             <button class="body__main__login__section1__article2__form--button"
-                                type="submit">Agregar</button>
+                                type="submit" id="btn-submit" disabled>Agregar</button>
                             <button class="body__main__login__section1__article2__form--button"
                                 type="reset">Borrar</button>
                         </form>
@@ -95,5 +119,5 @@
             </main>
 
             <%- include("./partials/footer") %>
-
+            <script src="/javascripts/productAddValidation.js"></script>
     </body>

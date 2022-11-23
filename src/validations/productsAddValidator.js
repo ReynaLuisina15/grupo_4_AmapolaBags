@@ -5,47 +5,33 @@ module.exports = [
         .notEmpty()
         .withMessage("el nombre de producto es obligatorio").bail()
         .isLength({
-            min : 4,
+            min : 3,
             max : 12
-        }).withMessage("el nombre debe tener entre 4 y 12 caracteres"),
+        }).withMessage("el nombre debe tener entre 3 y 12 caracteres"),
 
     check("category")
         .notEmpty()
         .withMessage("la categoria del producto es obligatoria"),
     
-    /*body("img")
-        .custom((value,{req}) => {
-          if(req.files?.length){
-            return true
-          }else{
-            return false
-          } 
-  
-          if(req.file){
-            return true
-          }else{
-            return false
-          }
-          return !!req.file 
-        })
-        .withMessage("la imagen del producto es obligatoria")
-        .custom((value,{req}) => {
-          const regImg = /(.jpg|.png|.jpeg|.webp)$/
-         req.files?.forEach(file => {
-            if(regImg.test(file.filename)){ 
-              return true
-            }else{
-              return false
-            }
-          }) 
-          if(regImg.test(req.file?.filename)){ 
-            return true
-          }else{
-            return false
-          }
-          return !!regImg.test(req.file?.filename) 
-        })
-        .withMessage("formato invalido"),*/
+   /* body("img")
+    .custom((value,{req}) => {
+      const regImg = /(.jpg|.png|.jpeg|.webp)$/
+     req.files?.forEach(file => {
+        if(regImg.test(file.filename)){ 
+          return true
+        }else{
+          return false
+        }
+      }) 
+      if(regImg.test(req.file?.filename)){ 
+        return true
+      }else{
+        return false
+      }
+      return !!regImg.test(req.file?.filename) 
+    })
+    .withMessage("formato invalido"), */    
+        
 
     check("color")
         .notEmpty()
