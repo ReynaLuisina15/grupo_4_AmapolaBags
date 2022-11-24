@@ -48,7 +48,7 @@
 
 .body__main__login__section1__article2__form a {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin: 10px 0px 25px;
     text-decoration: none;
     color: black;
@@ -58,6 +58,7 @@
 }
 
 .body__main__login__section1__article2__form--button {
+    padding: 0;
     height: 55px;
     background-color: var(--colorNegro);
     color: var(--colorBlanco);
@@ -66,6 +67,15 @@
     border: none;
     margin-bottom: 10px;
     font-weight: bold;
+   
+}
+.body__main__login__section1__article2__form--button:hover{
+    color: var(--colorRosa);
+}
+
+.body__main__login__section1__article2__form--button:disabled {
+ background-color: rgb(87, 86, 86);
+ cursor: not-allowed;
 }
 .body__main__login__section1__article2__form--button:disabled {
  background-color: rgb(87, 86, 86);
@@ -113,7 +123,7 @@
 }
 
 .body__main__login__section2--divlinea{
-    border-top: solid 1px rgba(0, 0, 0, 0.2);
+    border-top: solid px rgba(0, 0, 0, 0.2);
 }
 
 .body__main__login__section2__article1 h3 {
@@ -169,7 +179,7 @@
     height: 55px;
     box-sizing: border-box;
     text-align: center;
-    padding: 15px 0px;
+    padding: 12px;
     margin-bottom: 40px;
 }
 
@@ -180,7 +190,9 @@
     text-transform: uppercase;
     font-weight: bold;
 }
-
+.body__main__login__section2__div a:hover{
+    color: var(--colorRosa);
+}
 
 /* TABLET*/
 

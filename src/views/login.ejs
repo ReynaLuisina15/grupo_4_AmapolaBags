@@ -17,32 +17,33 @@
                         </p>
                     </article>
                     <article class="body__main__login__section1__article2">
-                        <form class="body__main__login__section1__article2__form" action="" method="POST" id="formLogin">
+                        <form class="body__main__login__section1__article2__form" action="" method="POST" novalidate>
                             <div>
-                                <label for="email">correo electronico</label>
-                               <div class="">
-                                <input type="email" name="email" id="email" >
-                                <p class="text-danger" id="emailMsg">
+                                <label for="email">correo electrónico</label>
+                                <input type="email" name="email" id="email">
+                                <p class="text-danger" id="emailMsgBack">
                                     <%= locals.errors && errors.email ? errors.email.msg : null %>
                                 </p>
-                               </div>
+                                <p class="text-danger" id="emailMsg"></p>
                             </div>
                             <div>
                                 <label for="password">contraseña</label>
-                                <input type="password" name="password" id="password" >
+                                <input type="password" name="password" id="password" placeholder="">
                                 <a href="">¿Olvidaste tu contraseña?</a>
-                                <p class="text-danger" id="passwordMsg">
+                                <p class="text-danger" id="passwordMsgBack" >
                                     <%= locals.errors && errors.password ? errors.password.msg : null %>
                                 </p>
+                                <p class="text-danger" id="passwordMsg"></p>
                             </div>
                             <div class="body__main__login__section1__article2__checkbox">
                                 <input type="checkbox" name="remember" id="recordame">
                                 <label for="recordame">Recordame</label><br>
                                 <p class="text-danger"><%= locals.errors && errors.terms ? errors.terms.msg : null %></p>
                             </div> 
-
-                            <button class="body__main__login__section1__article2__form--button"
+                           
+                                <button class="body__main__login__section1__article2__form--button"
                                 type="submit" id="btn-submit" >Ingresa</button>
+                            
                         </form>
                         <div class="body__main__login__section1__article2__div">
                             <a href="">Login <i class="fa-brands fa-facebook-square"></i></a>
@@ -99,6 +100,6 @@
             </main>
 
             <%- include("./partials/footer") %>
-            <script src="/javascripts/loginValidation.js"></script>
+           <script src="/javascripts/loginValidation.js"></script>
 
     </body>

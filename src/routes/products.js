@@ -22,16 +22,10 @@ router
   .get('/productEdit/:id', adminUserCheck, productsEditValidator, edit)
   .put('/update/:id', adminUserCheck, uploadImageProduct.fields([{name:"img1"},{name:"img2"}]), productsEditValidator, update)
 
-  .get("/productDetail/:id", detail)
+  /* get("/productDetail/:id", detail) */
 
-  .get("/productEdit/:id", adminUserCheck, edit)
-  .put(
-    "/update/:id",
-    adminUserCheck,
-    uploadImageProduct.single("img"),
-    productsEditValidator,
-    update
-  )
+  /* .get("/productEdit/:id", adminUserCheck, edit)
+  .put( "/update/:id",adminUserCheck,uploadImageProduct.single("img"),productsEditValidator,update) */
 
   .get("/delete", adminUserCheck, productDelete)
   .delete("/delete/:id", adminUserCheck, destroy)

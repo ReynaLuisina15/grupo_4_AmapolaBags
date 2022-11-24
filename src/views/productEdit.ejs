@@ -1,41 +1,75 @@
 <!DOCTYPE html>
 <html lang="es">
 
-  <%- include("./partials/head", {title: "Editar" + product.name}) %> 
+  <%- include("./partials/head", {title: "Editar" + locals?.product.name}) %> 
 
 <body>
   
   <%- include("./partials/header") %> 
 
-    <main class="body__main__login">
+    <main class="body__main__ProductEdit">
         <section class="body__main__login__section1">
             <article class="body__main__login__section1__article1">
                 <h3>Editar producto</h3>
                
             </article>
             <article class="body__main__login__section1__article2">
-                <form class="body__main__login__section1__article2__form" action="/products/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <form class="body__main__login__section1__article2__form is-invalid" action="/products/update/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data" 
+                    id="formProductEdit">
                    
                     <div>
                         <label for="name">Modelo</label>
-                        <input type="text" name="name" id="name" value="<%= product.name %>">
-                        <p class="text-danger"><%= locals.errors && errors.name ? errors.name.msg : null %></p>
+                        <input class="form-control form-control-lg" type="text" name="name" id="name" value="<%= product.name %>">
+                        <p class="text-danger" id="nameMsg" ><%= locals.errors && errors.name ? errors.name.msg : null %></p>
                     </div>
+
                     <div>
                         <label for="category">Categoria</label> <br>
-                        <select  name="category" id="category">
+                        <select  name="category" id="category" class="form-control form-control-lg">
                             <option value=3 <%= product.categoryId === 3 && "selected" %> >cartera</option>
                             <option value=2 <%= product.categoryId === 2 && "selected" %> >riñonera</option>
                             <option value=1 <%= product.categoryId === 1 && "selected" %> >mochila</option>
                         </select>
+                        <p class="text-danger" id="categoryMsg">
+                            <%= locals.errors && errors.category ? errors.category.msg : null %>
+                        </p>
                     </div>
-                    <div>
-                        <label for="img">Imagen</label>
-                        <input type="file" name="img" id="file">
-                    </div>
+
+                    <div class="contenedor__AddImagen">   
+                        <div class="contenedor__AddImagen__unidad">
+                            <div class="card" >
+                                <img class="form-control form-control-lg"  src="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg" alt="" id="image1Prev" style="width:240px ; height: 240px; object-fit: scale-down;">
+                            </div> 
+                                                    
+                            <div class="botton-img">
+                                
+                                <label for="img">Imagen Principal</label>
+                                <input class="form-control form-control-lg" type="file" name="img1" id="img1" accept="image/*" multiple><!-- multiple -->
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.img ? errors.img.msg : null %>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contenedor__AddImagen__unidad">
+                            <div class="card" >
+                                <img class="form-control form-control-lg"  src="https://getstamped.co.uk/wp-content/uploads/WebsiteAssets/Placeholder.jpg" alt="" id="image2Prev" style="width:240px ; height: 240px; object-fit: scale-down;">
+                            </div> 
+                                                    
+                            <div class="botton-img">
+                                
+                                <label for="img">Imagen secundaria</label>
+                                <input class="form-control form-control-lg" type="file" name="img2" id="img2" accept="image/*" multiple><!-- multiple -->
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.img ? errors.img.msg : null %>
+                                </p>
+                            </div>
+                        </div>
+                    </div> 
+                </div> 
+
                     <label for="color">Color</label>
                     <div>
-                        <select  name="color" id="color">
+                        <select  name="color" id="color" class="form-control form-control-lg">
                             <% colors.forEach(color => { %>
                                 <!-- colocar selec -->
                                 <option value="<%= color.id %>" <%= color.id === product.colors[0].id  && 'selected' %>><%= color.name %></option>
@@ -45,16 +79,20 @@
                     </div>
                     <div>
                         <label for="description">Descripcion</label> <br>
-                        <textarea name="description" id="description" cols="30" rows="6"><%= product.description %></textarea>
-                        <p class="text-danger"><%= locals.errors && errors.description ? errors.description.msg : null %></p>
+                        <textarea class="form-control form-control-lg" name="description" id="description" cols="40" rows="6"><%= product.description %></textarea>
+                        <p id="descriptionInfo" hidden><span id="numberCharacters"></span> caracteres disponible</p>
+                                <p class="text-danger" id="descriptionMsg">
+                        <p class="text-danger">
+                            <%= locals.errors && errors.description ? errors.description.msg : null %> 
+                        </p>
                     </div>
                     <div>
                         <label for="price">Precio</label>
-                        <input type="number" name="price" id="price" value="<%= product.price %>">
+                        <input class="form-control form-control-lg" type="number" name="price" id="price" value="<%= product.price %>">
                         <a href=""></a>
-                        <p class="text-danger"><%= locals.errors && errors.price ? errors.price.msg : null %></p>
+                        <p class="text-danger" id="priceMsg"><%= locals.errors && errors.price ? errors.price.msg : null %></p>
                     </div>                      
-                    <button class="body__main__login__section1__article2__form--button" type="submit">Actualizar</button>
+                    <button class="body__main__login__section1__article2__form--button" type="submit" id="btn-submit">Actualizar</button>
                     <button class="body__main__login__section1__article2__form--button" type="reset">Borrar</button>
                 </form>           
             </article>
@@ -63,5 +101,6 @@
     </main>
     
     <%- include("./partials/footer") %>
+    <script src="/javascripts/productEditValidation.js"></script>
 
 </body>

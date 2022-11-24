@@ -47,6 +47,7 @@ module.exports = {
     return res.render("register", { title: "Registro" });
   },
   processRegister: (req, res) => {
+    
     const { name, surname, email, password } = req.body;
 
     db.User.create({

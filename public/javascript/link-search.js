@@ -6,3 +6,4 @@ linkSearch.addEventListener("click", () => {
   barSearch.classList.toggle("active");
   nav.classList.toggle("active");
 });
+
