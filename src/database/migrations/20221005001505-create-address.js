@@ -23,7 +23,7 @@ module.exports = {
       postalcode: {
         type: Sequelize.INTEGER
       },
-      /* userId: {
+      userId: {
         type: Sequelize.INTEGER,
         refences :{
           model:{
@@ -31,7 +31,7 @@ module.exports = {
           },
           key : "id"
         }
-      }, */
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

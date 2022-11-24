@@ -1,13 +1,16 @@
-/* const express = require("express");
+const express = require("express");
 const router = express.Router();
 
 // -------- CONTROLLER REQUIRE
 const {
-
+    image,
+    list, 
+    detail
 } = require("../../controllers/APIs/apisUsersController");
 
  router
-    .get('api/users/')
-    .get('api/users/:id')
+    .get('/', list)
+    .get('/:id', detail)
+    .get('/image/:img', image)
 
-module.exports = router     */
+module.exports = router

@@ -52,14 +52,13 @@ app.use(localsUserCheck);
 /* ROUTERS */
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-
 app.use('/products', productsRouter);
 
 /* ROUTERS API */
 
 app.use("/api/products", productsApiRouter);
 //app.use("/api/auth", authApiRouter);
-//app.use("/api/users", usersApiRouter);
+app.use("/api/users", usersApiRouter);
 
 
 // catch 404 and forward to error handler
