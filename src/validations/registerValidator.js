@@ -1,5 +1,5 @@
 const {check,body} = require("express-validator");
-const users = require('../data/db').loadUsers();
+const db = require('../database/models');
 
 module.exports = [
   check("name")
@@ -16,12 +16,19 @@ module.exports = [
         min : 2
     }).withMessage('Como mínimo 2 caracteres'),
 
-  check("email")
+   check("email")
     .notEmpty().withMessage('El email es obligatorio').bail()
     .isEmail().withMessage('Debe ser un email válido').bail()
-    .custom((value, {req}) => {
-        let user = users.find(user => user.email === value.trim());
-       return !!!user;
+    .custom((value) => {
+      return db.User.findOne({
+        where: {
+          email: value
+        }
+      }).then((user) => {
+        if(user) {
+          return Promise.reject('El email ya existe')
+        }
+      })     
     }).withMessage('El email ya se encuentra registrado'),  
 
   body("password")
