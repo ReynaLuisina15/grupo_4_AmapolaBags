@@ -28,9 +28,9 @@ const validField = (element, {target}) => {
     target.classList.add("is-valid");
 };
 
-/* // FUNCIO HABILITAR BOTON AGREGAR PRODUCTO
+// FUNCIO HABILITAR BOTON AGREGAR PRODUCTO
 
-const checkFields = () => {
+/* const checkFields = () => {
     let error = false
 for (let i = 0; i < elements.length - 2; i++) {
     if (!elements[i].value || elements[i].classList.contains("is-invalid")) {
@@ -63,7 +63,6 @@ $("name").addEventListener("focus", function (e) {
                validField("nameMsg", e)
                break;
        } 
-       checkFields();  
    });
 
    // VALIDACIÓN CATEGORIA
@@ -76,7 +75,6 @@ $("category").addEventListener("blur", function (e) {
             validField("categoryMsg", e)
             break;
     }
-    checkFields();
 });
 
 // VALIDACIÓN IMAGEN
@@ -129,7 +127,7 @@ $("description").addEventListener("blur", function (e) {
             validField("descriptionMsg", e)
             break;
     }
-    checkFields();
+
 });
 $("description").addEventListener("keyup", function (e) {   
     numberCharacters = totalCharacters - +this.value.length
@@ -161,7 +159,7 @@ $("price").addEventListener("blur", function (e) {
             validField("priceMsg", e)
             break;
     }   
-    checkFields();
+
 });
 
 console.log(elements);

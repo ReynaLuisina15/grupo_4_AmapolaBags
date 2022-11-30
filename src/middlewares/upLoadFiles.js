@@ -34,3 +34,33 @@ module.exports = {
     uploadImageProduct,
     uploadImageUser
 }
+
+/* const createStorage = (entityOrFolderName) => {
+   folder = path.join(__dirname, `../../public/img/${entityOrFolderName}`)
+
+   if (!fs.existsSync(folder)) {
+    fs.mkdirSync(folder)
+    
+   }
+
+   const storage = multer.diskStorage({
+    destination: (req ,file , callback) => {
+        callback(null, `../../public/img/${entityOrFolderName}`)
+    },
+    filename: (req, file, callback) => {
+        callback(null,`${entityOrFolderName}--${Date.now()}--${file.originalname}`)
+    }
+   })
+
+   const uploads = {}
+   uploads = [entityOrFolderName] = multer({
+    storage
+   })
+
+   return uploads [entityOrFolderName] */
+
+  
+
+    
+    
+    

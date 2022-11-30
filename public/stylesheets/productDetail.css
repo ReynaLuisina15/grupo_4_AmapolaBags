@@ -46,6 +46,11 @@
         margin-bottom: 0px;
     }
 
+    .agregar_carrito-button:hover {
+        color: var(--colorRosa);
+    }
+
+
     .main__section__colores button {
         background-color: black;
         color: var(--colorBlanco);
@@ -90,7 +95,7 @@
 }
 
 
-@media(min-width: 768px) {
+@media(min-width: 764px) {
 
     .main__detail__color {
         margin-bottom: 0px;

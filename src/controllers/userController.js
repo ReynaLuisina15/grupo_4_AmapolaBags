@@ -2,7 +2,6 @@ const db = require("../database/models");
 const bcryptjs = require("bcryptjs");
 const { validationResult } = require("express-validator");
 /* const { sign } = require("jsonwebtoken"); */
-const { loadUsers, storeUsers } = require("../data/db");
 
 module.exports = {
   login: (req, res) => {
