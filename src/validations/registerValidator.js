@@ -32,7 +32,7 @@ module.exports = [
     }).withMessage('El email ya se encuentra registrado'),  
 
   body("password")
-    .notEmpty().withMessage('La contraseña es obligatorio').bail()
+    .notEmpty().withMessage('La contraseña es obligatoria').bail()
     .isLength({
         min : 6,
         max : 12

@@ -47,21 +47,30 @@ module.exports = {
     return res.render("register", { title: "Registro" });
   },
   processRegister: (req, res) => {
-    
+    let errors = validationResult(req);
     const { name, surname, email, password } = req.body;
 
-    db.User.create({
-      name: name.trim(),
-      surname: surname.trim(),
-      email: email.trim(),
-      password: bcryptjs.hashSync(password, 12),
-      rolId: 2,
-      avatar: req.file?.filename || "avatar.png",
-    })
+    if(errors.isEmpty()){
+      db.User.create({
+        name: name.trim(),
+        surname: surname.trim(),
+        email: email.trim(),
+        password: bcryptjs.hashSync(password, 12),
+        rolId: 2,
+        avatar: req.file?.filename || "avatar.png",
+      })
       .then((user) => {
         return res.redirect("/users/login");
       })
       .catch((error) => console.log(error));
+    } else {
+      return res.render("register", {
+        title: "Registrate",
+        errors: errors.mapped(),
+      });
+    }
+      
+      
   },
   profile: (req, res) => {
     db.User.findByPk(req.session.userLogin.id)

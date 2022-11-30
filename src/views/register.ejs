@@ -13,13 +13,13 @@
                         <h3>¡que lindo que te nos unas!</h3>
                     </article>
                     <article class="body__main__register__section1__article2">
-                        <form enctype="multipart/form-data" class="body__main__register__section1__article2__form" method="POST"
-                            action="/users/register">
+                        <form enctype="multipart/form-data" class="body__main__register__section1__article2__form"
+                            method="POST" action="/users/register" id="form__register">
                             <div>
                                 <label for="name">nombre</label>
                                 <input type="text" name="name" id="name"
                                     value="<%= locals.old && old.name ? old.name : null %>">
-                                <p class="text-danger">
+                                <p class="text-danger" id="nameMsgBack">
                                     <%= locals.errors && errors.name ? errors.name.msg : null %>
                                 </p>
                             </div>
@@ -27,7 +27,7 @@
                                 <label for="surname">apellido</label>
                                 <input type="text" name="surname" id="surname"
                                     value="<%= locals.old && old.surname ? old.surname : null %>">
-                                <p class="text-danger">
+                                <p class="text-danger" id="surnameMsgBack">
                                     <%= locals.errors && errors.surname ? errors.surname.msg : null %>
                                 </p>
                             </div>
@@ -35,29 +35,30 @@
                                 <label for="email">correo electronico</label>
                                 <input type="email" name="email" id="email"
                                     value="<%= locals.old && old.email ? old.email : null %>">
-                                <p class="text-danger">
+                                <p class="text-danger" id="emailMsgBack">
                                     <%= locals.errors && errors.email ? errors.email.msg : null %>
                                 </p>
                             </div>
                             <div>
                                 <label for="password">contraseña</label>
                                 <input type="password" name="password" id="password">
-                                
-                                <p class="text-danger">
+                                <p class="text-danger" id="passwordMsgBack">
                                     <%= locals.errors && errors.password ? errors.password.msg : null %>
                                 </p>
                                 <a href="">¿Olvidaste tu contraseña?</a>
                             </div>
                             <div>
                                 <label for="img">Imagen</label>
-                                <input type="file" name="img" id="img" accept="image/*" ><!-- multiple -->
-                                <p class="text-danger"><%= locals.errors && errors.img ? errors.img.msg : null %></p>
-                                
+                                <input type="file" name="img" id="img" accept="image/*"><!-- multiple -->
+                                <p class="text-danger">
+                                    <%= locals.errors && errors.img ? errors.img.msg : null %>
+                                </p>
+
                             </div>
                             <div class="body__main__login__section1__article2__checkbox">
                                 <input type="checkbox" name="terms" id="terms">
                                 <label for="terms">Acepto terminos y condiciones</label><br>
-                                <p class="text-danger">
+                                <p class="text-danger" id="termsMsgBack">
                                     <%= locals.errors && errors.terms ? errors.terms.msg : null %>
                                 </p>
                             </div>
@@ -120,5 +121,6 @@
             </main>
 
             <%- include("./partials/footer") %>
+                <script src="/javascripts/registerValidation.js"></script>
 
     </body>
