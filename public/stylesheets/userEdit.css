@@ -13,6 +13,7 @@
   justify-content: center;
 }
 
+
 .form__dates label {
   display: flex;
   width: 100%;
@@ -43,6 +44,7 @@
 }
 
 .userEdit__form--button {
+  margin-top: 15px;
   display: flex;
   padding: 1%;
   width: 35%;
@@ -55,6 +57,8 @@
 .userEdit__form--button:hover {
   color: var(--colorRosa);
 }
+
+
 
 @media (min-width: 764px) {
   .form__dates label {
