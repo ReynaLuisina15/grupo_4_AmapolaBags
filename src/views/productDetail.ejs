@@ -39,7 +39,7 @@
                                     </h1>
 
                                     <button>
-                                        <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
+                                        <a class="agregar_carrito-button" href="">AGREGAR AL CARRITO</a>
                                     </button>
 
                                     <% if (locals.userLogin && userLogin.rol===1) { %>
@@ -72,7 +72,7 @@
             </main>
 
             <%- include("./partials/footer") %>
-
+            <%- include('partials/scripts') %>
     </body>
 
 </html>

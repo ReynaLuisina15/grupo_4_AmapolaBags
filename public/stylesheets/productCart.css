@@ -25,23 +25,16 @@
 .main__carrito__compra{
    
 }
-/* Titulos */
+/* Títulos */
 .main__carrito__section__products__titulos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    display: flex;  
+    justify-content: space-around;
     border-bottom: 1px solid var(--colorNegro);
     
 }
-.main__carrito__section__products__titulos__restantes{
-    display: flex;
-    width: 50%;
-    justify-content: space-between;
-    display: none;
-    
-}
+
 .titulo__precio, .titulo__cantidad, .titulo__total{
-   width: 75px;
+   width: 80px;
 }
 
 /* Compra */
@@ -59,11 +52,12 @@ width: 60%;
 }
 .main__carrito__section__products__article__product{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
     border-bottom: 1px solid rgb(78, 77, 77);
     padding-top: 10px;
     padding-bottom: 10px;
+    align-self: center;
 }
 .main__carrito__producto__cartera{
     display: flex;
@@ -203,11 +197,19 @@ width: 60%;
 }
 .section__artiticle__comentario button{
    margin: 5px; 
+   text-align: center;
 }
 .buttoFinalizar{
     background-color: var(--colorNegro);
     color: var(--colorBlanco);
     width: 90%;
+    text-align: center;
+    padding: 5px;
+    
+    
+}
+.buttoFinalizar a:hover{
+    color: var(--colorRosa);
 }
 /* costo */
 .section__artiticle__total__div__costo{
