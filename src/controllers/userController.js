@@ -107,9 +107,10 @@ module.exports = {
   processUpdate: async (req, res) => {
     try {
       let errors = validationResult(req);
+     
       const { id } = req.session.userLogin;
 
-      let user = await db.User.findByPk(req.params.id, {
+      let user = await db.User.findByPk(req.session.userLogin.id, {
         include: ["addresses"],
       });
       if (errors.isEmpty()) {
@@ -153,11 +154,13 @@ module.exports = {
    
           return res.redirect('/users/profile')
       } else {
-        return res.send(errors.mapped())
-        return res.render("profile", {
+    
+        return res.render("userEdit", {
+          title: "Editar Perfil",
           user,
-          title: 'Edición de Perfil'
+          errors: errors.mapped()
         });
+      
       }
     } catch (error) {
       console.log(error);

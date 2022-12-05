@@ -21,5 +21,5 @@ router
      .get('/logout', logout)
 
      .get('/userEdit', update)
-     .put('/userEdit',  processUpdate)
+     .put('/userEdit', userEditValidator,  processUpdate)
 module.exports = router;
