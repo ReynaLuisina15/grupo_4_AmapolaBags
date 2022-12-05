@@ -11,7 +11,7 @@ const {
 
  router
     .get('/', list)
-    .post('/:id', addItem)
+    .post('/', addItem)
     .delete('/all/:id', removeAllItem)
     .delete('/:id', removeItem)
     

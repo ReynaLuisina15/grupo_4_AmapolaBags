@@ -22,15 +22,19 @@
 .section__entrega{
     flex: 1;
 }
-.main__carrito__compra{
-   
-}
+
 /* Títulos */
+.main__carrito__section__products__tituloOne{
+    display: flex;  
+    justify-content: space-evenly;
+    border-bottom: 1px solid var(--colorNegro);
+       
+}
 .main__carrito__section__products__titulos{
     display: flex;  
     justify-content: space-around;
     border-bottom: 1px solid var(--colorNegro);
-    
+    display: none;  
 }
 
 .titulo__precio, .titulo__cantidad, .titulo__total{
@@ -47,9 +51,7 @@
 .main__carrito__section__products__article__compra__nombre{
 width: 60%;
 }
-.main__carrito__section__products__article__compra__eliminar{
-   
-}
+
 .main__carrito__section__products__article__product{
     display: flex;
     justify-content: space-around;
@@ -205,8 +207,10 @@ width: 60%;
     width: 90%;
     text-align: center;
     padding: 5px;
-    
-    
+     
+}
+.buttoFinalizar a{
+    color: white
 }
 .buttoFinalizar a:hover{
     color: var(--colorRosa);
@@ -240,6 +244,15 @@ width: 60%;
 
 /* TABL | titulos */
 @media (min-width:768px){
+    .main__carrito__section__products__tituloOne{
+        display: none;
+   }
+   .main__carrito__section__products__titulos{
+    display: block;    
+    display: flex;  
+    justify-content: space-around;
+    border-bottom: 1px solid var(--colorNegro); 
+}
     .main__carrito__section__products__article__titulos{
          display: block;
     }

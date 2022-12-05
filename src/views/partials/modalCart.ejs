@@ -7,14 +7,19 @@
             <div class="modal-header">
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body" id="box-cart">
+            <div class="modal-body" id="modal">
             <h1 class="main__carrito__titulo">CARRITO DE COMPRAS</h1>
             
             <!-- INICIO PRODUCTS -->
           <div class="main__carrito__conteiner">
             <section class="main__carrito__section__products">
                 <h2 class="main__carrito__compra">Mi compra:</h2>
-                <!-- INICIO TITULOS DE PRODUCTOS -->
+                <!-- INICIO TÍTULOS DE PRODUCTOS -->
+                <div class="main__carrito__section__products__tituloOne">                 
+                  <div>
+                    <th class="titulo__producto">Producto</th>
+                  </div>
+                </div>
                 <div class="main__carrito__section__products__titulos">                 
                     <div>
                       <th class="titulo__producto">Producto</th>
@@ -29,32 +34,13 @@
                       <th class="titulo__total">Subtotal</th>
                     </div>      
                 </div>
-                <!-- FIN DE TITULOS DE PRODUCTOS -->
-                <div class="main__producto">
-               <!--  <article class="main__carrito__section__products__article__compra">           
-                  <h5 class="main__carrito__section__products__article__compra__nombre">Cecilia</h5>
-                </article> -->
-              
-                <article class="main__carrito__section__products__article__product">
-                   <div class="main__carrito__producto__cartera"> 
-                    <img src="/img/Cartera-Cecilia.png" alt="">
-                    
-                   </div>
-                
-                  <div>
+                <!-- FIN DE TÍTULOS DE PRODUCTOS -->
+                <!-- PRODUCTS -->
+                <div class="main__producto">           
+                <article class="main__carrito__section__products__article__product" id="box-cart">
+                  <tbody id="cart-items">
 
-                    <h4 class="precioUnidad">$7290</h4>
-                  </div>
-                    <div >
-                        <button class="mas">-</button>
-                        <span class="cantidad">1</span>
-                        <button class="mas">+</button>
-                    </div>  
-                    <div>
-                      <h4 class="precioTotal"><strong> $7290</strong></h4>
-
-                    </div>         
-                
+                  </tbody>             
                 </article>
             </div>
             </section>
@@ -66,7 +52,7 @@
             <!-- INICIO COMPRA -->
             <aside class="section__entrega">
                 <h2 class="section__entrega__titulo">Forma de entrega</h2>
-                <!-- INICO ENTREGA -->
+                <!-- INICIÓ ENTREGA -->
                 <article class="section_entrega_article_radio">
                   <form action="" method="POST">
                       <div class="form__radio-container">
@@ -88,9 +74,9 @@
                     <label for=""><h2>¿Querés escribir una dedicatoria?</h2></label>
                     <textarea name="comentario" id="comentario" cols="30" rows="6"></textarea>
                     <p>El envío es gratis! Si tenés un código de descuento, podrás añadirlo en el siguiente paso.</p>
-                    <button class="buttoFinalizar" type="submit"> <a class="agregar_carrito-button">VACIAR CARRITO</a></button>
-                    <button class="buttoFinalizar" type="submit"> <a class="agregar_carrito-button">SEGUIR COMPRANDO</a></button>
-                    <button class="buttoFinalizar" type="submit"> <a class="agregar_carrito-button">FINALIZAR</a></button>
+                    <button class="buttoFinalizar" type="submit"> <a class="a">VACIAR CARRITO</a></button>
+                    <button class="buttoFinalizar" type="submit"> <a class="">SEGUIR COMPRANDO</a></button>
+                    <button class="buttoFinalizar" type="submit"> <a class="">FINALIZAR</a></button>
                 </article>
                 <!-- FIN COMENTARIO -->
                 <!-- INICIO COSTO -->
@@ -99,7 +85,7 @@
                     <div class="section__artiticle__total__div__costo">
                        <div class="subtotal">
                         <h2 class="gris">Subtotal</h2>
-                        <h2 class="gris">Evio</h2>
+                        <h2 class="gris">Envió</h2>
                         <h2 class="negro1">Total</h2>
                         
                        </div>
