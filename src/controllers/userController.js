@@ -93,7 +93,9 @@ module.exports = {
     return res.redirect("/");
   },
   update: (req, res) => {
-    db.User.findByPk(req.session.userLogin.id)
+    db.User.findByPk(req.session.userLogin.id, {
+      include : ['addresses']
+    })
       .then((user) => {
         return res.render("userEdit", {
           title: "Editar Perfil",
@@ -103,20 +105,6 @@ module.exports = {
       .catch((error) => console.log(error));
   },
   processUpdate: async (req, res) => {
-    const {
-      name,
-      surname,
-      avatar,
-      password,
-      street,
-      number,
-      location,
-      province,
-      postalcode,
-      email,
-    } = req.body;
-    
-
     try {
       let errors = validationResult(req);
       const { id } = req.session.userLogin;
@@ -135,7 +123,7 @@ module.exports = {
           postalcode,
         } = req.body;
 
-        await User.update(
+        await db.User.update(
           {
             name,
             surname,
@@ -147,34 +135,22 @@ module.exports = {
           }
         )
 
-        await Address.update(
+        await db.Address.update(
           {
             street,
-            number,
+            number : number || null,
             location,
             province,
-            postalcode,
+            postalcode : postalcode || null,
           },
           {
-            userId : id
+            where : {
+              userId : id
+            }
           }
         )
 
-      /*   
-        (user.name = name?.trim()),
-          (user.avatar = req.file?.filename || "avatar.png"),
-          (user.surname = surname?.trim()),
-          (user.password = bcryptjs.hashSync(password, 12)),
-          (user.email = email?.trim());
-
-        const address = user.addresses.find((address) => address.active);
-        (address.street = street?.trim()),
-          (address.number = number?.trim()),
-          (address.location = location?.trim()),
-          (address.province = province?.trim()),
-          (address.postalcode = postalcode?.trim()),
-          await user.save();
- */          
+   
           return res.redirect('/users/profile')
       } else {
         return res.send(errors.mapped())
@@ -187,40 +163,7 @@ module.exports = {
       console.log(error);
     }
 
-    /* if (errors.isEmpty()) {
- user.update(req.params.id, {
-    include: [
-      {
-        association: "addresses"
-      },
-    ],
-  },
-    {
-      ...req.body,
-      avatar: req.file?.filename || "avatar.png",
-      name: name?.trim(),
-      surname: surname?.trim(),
-      password: bcryptjs.hashSync(password, 12),
-street: street?.trim(),
-number: number?.trim(),
-location: location?.trim(),
-province: province?.trim(),
-postalcode: postalcode?.trim(),
-email: email?.trim()
-    },
-    {
-      where: {
-        id,
-      },
-    }
-  )
-    .then(() => res.redirect("/users/profile"))
-    .catch((error) => console.error(error)); 
-}else{
-  return res.render("userEdit", {
-    title: "Editar Perfil",
-    errors: errors.mapped(),
-  }); */
+  
   },
   logout: (req, res) => {
     req.session.destroy();

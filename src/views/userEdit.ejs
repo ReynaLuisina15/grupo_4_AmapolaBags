@@ -35,7 +35,7 @@
             <div><strong> DIRECCIÓN:</strong></div>
             <div class="form__dates">
                 <label for="street">Calle:</label> <br>
-                <input class="form-control" type="text" name="street" id="street" value="<%= user.street %>">
+                <input class="form-control" type="text" name="street" id="street" value="<%= user.addresses[0].street %>">
                 <p class="text-danger" id="streetMsgBack">
                   <%= locals.errors && errors.street ? errors.street.msg : null %>
               </p>
@@ -43,7 +43,7 @@
               </div>
               <div class="form__dates">
                 <label for="number">Numero:</label> <br>
-                <input class="form-control" type="text" name="number" id="number" value="<%= user.number %>">
+                <input class="form-control" type="text" name="number" id="number" value="<%= user.addresses[0].number %>">
                 <p class="text-danger" id="numberMsgBack">
                   <%= locals.errors && errors.number ? errors.number.msg : null %>
               </p>
@@ -51,7 +51,7 @@
               </div>
               <div class="form__dates">
                 <label for="location">Localidad:</label> <br>
-                <input class="form-control" type="text" name="location" id="location" value="<%= user.location %>">
+                <input class="form-control" type="text" name="location" id="location" value="<%= user.addresses[0].location %>">
                 <p class="text-danger" id="locationMsgBack">
                   <%= locals.errors && errors.location ? errors.location.msg : null %>
               </p>
@@ -59,7 +59,7 @@
               </div>
               <div class="form__dates">
                 <label for="province">Provincia:</label> <br>
-                <input class="form-control" type="text" name="province" id="province" value="<%= user.province %>">
+                <input class="form-control" type="text" name="province" id="province" value="<%= user.addresses[0].province %>">
                 <p class="text-danger" id="provinceMsgBack">
                   <%= locals.errors && errors.province ? errors.province.msg : null %>
               </p>
@@ -67,7 +67,7 @@
               </div>
               <div class="form__dates">
                 <label for="number">Codigo Postal:</label> <br>
-                <input class="form-control" type="text" name="postalcode" id="postalcode" value="<%= user.postalcode %>">
+                <input class="form-control" type="text" name="postalcode" id="postalcode" value="<%= user.addresses[0].postalcode %>">
                 <p class="text-danger" id="postalcodeMsgBack">
                   <%= locals.errors && errors.postalcode ? errors.postalcode.msg : null %>
               </p>
