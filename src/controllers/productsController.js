@@ -147,8 +147,10 @@ const controller = {
     /* CREAR */
     /* const imagesMulter = req.files; */
     /*return res.send(imagesMulter)*/
-    const imgPrimary = req.files.img1[0].filename
-    const imgsSecondary = req.files.img2
+    
+    const imgPrimary = req.files?.img1?.length ? req.files.img1[0].filename : []
+    const imgsSecondary = req.files?.img2?.length ? req.files.img2 : []
+    
     try {
       const errors = validationResult(req);
 
