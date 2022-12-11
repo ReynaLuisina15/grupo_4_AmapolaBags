@@ -3,7 +3,7 @@ const {unlinkSync} = require("fs");
 const path = require("path");
 const {Op} = require("sequelize");
 const {sendJsonError} = require("../../helpers/sendJsonError");
-const {literalQueryUrlImage} = require("../../helpers/literalQueryUrlImage")
+const {literalQueryUrl} = require("../../helpers/literalQueryUrl")
 
 const controller = {
     // GET IMAGE IN VIEW
@@ -67,7 +67,7 @@ const controller = {
                 association:"images",
                 attributes:{
                     include:[
-                        literalQueryUrlImage(req,"file","urlfile")
+                        literalQueryUrl({req, field:"file", alias:"urlfile", pathRoute:'/api/products/image/'})
                     ],
                     exclude:["updatedAt","createdAt","deletedAt"],
                 }
@@ -161,7 +161,7 @@ const controller = {
                     association:"images",
                     attributes:{
                         include:[
-                            literalQueryUrlImage(req,"file","file")
+                            literalQueryUrl({req, field: "file", alias: "file", pathRoute:'/api/products/image/'})
                         ],
                         exclude:["updatedAt","createdAt","deletedAt", "productId"],
                     }
