@@ -65,6 +65,7 @@ const controller = {
           exclude: ["updatedAt", "rolId", "password"],
           include: [
             literalQueryUrl({req, field: 'avatar', alias: 'avatar', pathRoute: '/api/users/image/'}), 
+            literalQueryUrl({req, field:'id', alias:'detail', pathRoute:'/api/users/'})
           ],
         },
         limit,
