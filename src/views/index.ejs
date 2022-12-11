@@ -8,7 +8,7 @@
     <%- include("./partials/header") %>
 
       <main class="home__main">
-        <section class="home__main__section-banner">
+        <!-- <section class="home__main__section-banner">
           <div id="home-banner">
             <img src="/img/Desktop - Home (1).png">
           </div>
@@ -119,7 +119,32 @@
             seleccionadx y aparecer
             en nuestro website y redes sociales!</p>
           <p class="community-subrayadoo"> I want to be part!</p>
-        </section>
+        </section> -->
+        <div class="home-container-carrusel">
+
+          <div class="home-carrusel-container">
+            <input type="radio" name="carrusel" id="item-1" checked>
+            <input type="radio" name="carrusel" id="item-2">
+            <input type="radio" name="carrusel" id="item-3">
+
+            <div class="home-carrusel-cards">
+              <label class="carrusel-card" for="item-1" id="selector-1">
+                <img src="/img/mochila-molly.webp">
+                <p>cam</p>
+              </label>
+              <label class="carrusel-card" for="item-2" id="selector-2">
+                <img src="/img/cartera-martina.jpg">
+                <p>cam</p>
+              </label>
+              <label class="carrusel-card" for="item-3" id="selector-3">
+                <img src="/img/cartera-lima.webp">
+                <p>cam</p>
+              </label>
+            </div>
+          </div>
+
+
+        </div>
       </main>
       <%- include("./partials/footer") %>
   </body>
