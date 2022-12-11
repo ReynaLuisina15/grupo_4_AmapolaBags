@@ -13,24 +13,25 @@ module.exports = [
         .notEmpty()
         .withMessage("la categoria del producto es obligatoria"),
     
-   /* body("img")
+   body("img")
     .custom((value,{req}) => {
       const regImg = /(.jpg|.png|.jpeg|.webp)$/
-     req.files?.forEach(file => {
-        if(regImg.test(file.filename)){ 
+    
+        if(regImg.test(req.files.img1[0].filename)){ 
           return true
         }else{
           return false
         }
-      }) 
-      if(regImg.test(req.file?.filename)){ 
+     
+        
+      /* if(regImg.test(req.file?.filename)){ 
         return true
       }else{
         return false
       }
-      return !!regImg.test(req.file?.filename) 
+      return !!regImg.test(req.file?.filename) */ 
     })
-    .withMessage("formato invalido"), */    
+    .withMessage("formato invalido"),    
         
 
     check("color")

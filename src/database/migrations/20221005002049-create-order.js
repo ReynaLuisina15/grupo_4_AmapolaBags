@@ -18,6 +18,15 @@ module.exports = {
         type: Sequelize.INTEGER,
         refeces:{
           model:{
+            tableName : "Statuses"
+          },
+          key : "id"
+        }
+      },
+      statusId: {
+        type: Sequelize.INTEGER,
+        refeces:{
+          model:{
             tableName : "Users"
           },
           key : "id"

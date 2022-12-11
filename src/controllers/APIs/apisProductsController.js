@@ -15,7 +15,7 @@ const controller = {
     // ALL PRODUCTS + QUERIES
     all: async (req,res) => {
         try {
-         let {page = 1,limit = 6,offset = 0, price = 0, order = "ASC", sortBy = "name", search = ""} = req.query;
+         let {page = 1,limit = 6,offset = 0, price = 0, order = "ASC", sortBy = "name", search = "", filter} = req.query;
         
          // tipos de ordenamientos
          const typesSort =[
@@ -35,7 +35,7 @@ const controller = {
          page = +page <= 0 || isNaN(+page) ? 1 : +page
          // --------------- fin comprobaciones de key ----
 
-         // Modificacion de parametros por query
+         // Modificación de parámetros por query
           const queriesValuesDefaultAndModify = {
             limit,
             price,
@@ -51,7 +51,7 @@ const controller = {
             };
             
         
-         // Cuentas matematiacas de objetos
+         // Cuentas matemáticas de objetos
          page -= 1;
 
          offset = page * limit
@@ -92,11 +92,12 @@ const controller = {
                         description:{
                             [Op.substring]:search
                         }
+                        
                     }
                 ]
             }
          }
-         // --------------- fin asociacion ------------
+         // --------------- fin asociación ------------
          // filtrado de precio
          const optionsPrice = {
             ...options,
@@ -113,6 +114,8 @@ const controller = {
          // -------------- fin filtrado de precio ----
          const {count, rows:products} = await db.Product.findAndCountAll(options);
 
+         
+
          if (!products.length) {
             return res.status(200).json({
                 ok:true,
@@ -121,7 +124,21 @@ const controller = {
             })
          }
 
-        // condisiones de pagina anterior y de pagina sigiente
+         //Filtrado por categoría
+
+         /* if(filter){
+            console.log(products)
+            const productByCategory = products.filter(product => product.category.name === filter)
+            return res.status(200).json({
+                ok: true,
+                status: 200,
+                filter,
+                data: productByCategory,
+                products
+            })
+         } */
+
+        // condiciones de pagina anterior y de pagina siguiente
          const existPrev = page > 0 && offset <= count;
          const existNext = Math.floor(count / limit) >= page + 1 && limit !== count;
 
@@ -137,7 +154,7 @@ const controller = {
             }
 
             return res.status(200).json({
-                mwta:{
+                meta:{
                     ok: true,
                     status: 200,
                 },
@@ -208,6 +225,38 @@ const controller = {
     destroy: (req,res) => {
         
     },
+    destroy: (req,res) => {
+        
+    },
+    category: async (req,res) => {
+        try {
+            let {filter} = req.query;
+
+            
+        //const orderQuery = sortBy === "category"
+        const categorySort = await db.Category.findOne({
+            where: {name: filter},
+            include: [ 'products']
+        })
+        
+
+        
+        return res.json({
+            msg: "ok",
+            filter,
+            quantity: categorySort.products.length,
+            categorySort,
+        })
+        } catch (error) {
+            console.log(error)
+            return res.json({
+                msg: "false",
+                error
+            })
+        }
+        
+    },
+   
 };
 
 module.exports = controller;

@@ -1,10 +1,11 @@
 "use strict";
 
-const stocksDB = require("../../data/stock.json");
+const stocksDB = require('../../data/stock.json');
 
-const stocks = stocksDB.map(({ stock }, index) => {
+const stocks = stocksDB.map(({ cantidad, color }, index) => {
   return {
-    ...stock,
+    quantity: cantidad,
+    colorId: color,
     productId: index + 1,
     createdAt: new Date(),
   };
