@@ -79,7 +79,9 @@ const controller = {
             }],
             attributes: {
                 exclude:["updatedAt","deletedAt"],
-                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/',id)`),"urlProduct"]]
+                include: [ 
+                    literalQueryUrl({req, field:"id", alias:"urlProduct", pathRoute:'/api/products/'}) 
+                ]
             },
             order: orderQuery,
             where:{
