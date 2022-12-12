@@ -54,7 +54,6 @@ module.exports = {
              return res.redirect("/users/profile");
             } else {
               db.Order.create({
-                id: order.id,
                 userId: id,
                 statusId : 1,
                 total : 0

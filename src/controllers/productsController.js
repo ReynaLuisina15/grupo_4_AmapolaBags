@@ -100,7 +100,7 @@ const controller = {
     }); */
     db.Product.findByPk(req.params.id, {
       include: [
-        "images",
+        "images","category",
         {
           association: "colors",
           attributes: {
