@@ -79,6 +79,7 @@ const controller = {
             }],
             attributes: {
                 exclude:["updatedAt","deletedAt"],
+                include: [[literal(`CONCAT('${req.protocol}://${req.get('host')}/api/products/',id)`),"urlProduct"]]
             },
             order: orderQuery,
             where:{
@@ -124,19 +125,6 @@ const controller = {
             })
          }
 
-         //Filtrado por categoría
-
-         /* if(filter){
-            console.log(products)
-            const productByCategory = products.filter(product => product.category.name === filter)
-            return res.status(200).json({
-                ok: true,
-                status: 200,
-                filter,
-                data: productByCategory,
-                products
-            })
-         } */
 
         // condiciones de pagina anterior y de pagina siguiente
          const existPrev = page > 0 && offset <= count;
@@ -233,7 +221,7 @@ const controller = {
             let {filter} = req.query;
 
             
-        //const orderQuery = sortBy === "category"
+        
         const categorySort = await db.Category.findOne({
             where: {name: filter},
             include: [ 'products']
