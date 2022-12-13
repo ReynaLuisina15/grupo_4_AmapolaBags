@@ -12,7 +12,7 @@ const {
        .get("/image/:img", image)
        .get("/", all)
        .get("/:id", detail)
-    // .post("/,store")
+       .post("/,store")
     // .patch("/:id",update)
     // .delete("/:id,destroy")
 
