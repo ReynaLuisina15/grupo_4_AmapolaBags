@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-const {login, register, processLogin, processRegister, profile,logout, update, processUpdate} = require("../controllers/userController");
+const {login, register, processLogin, processRegister, profile,logout, update, processUpdate, userList} = require("../controllers/userController");
 const {loginValidator, registerValidator} = require('../validations');
 const {uploadImageUser} = require("../middlewares/upLoadFiles");
 
@@ -22,4 +22,6 @@ router
 
      .get('/userEdit', update)
      .put('/userEdit', processUpdate)
+
+     //.get('/list' ,userList)
 module.exports = router;

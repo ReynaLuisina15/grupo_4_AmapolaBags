@@ -1,0 +1,28 @@
+.main_div_datos{
+    display: flex;
+    padding: 50px;    
+    object-fit: cover;
+ 
+}
+
+.main_div_datos h2{
+    padding-left: 40px;
+}
+
+.h2_title{
+    padding: 30px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.h5_datos{
+    font-weight: 300;
+    padding-left: 10px;
+}
+
+
+.main_section_datos{
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+}

@@ -20,8 +20,8 @@
     }
 
     .main__section__detalles--esp h2 {
-        margin-bottom: 37px;
-        margin-top: 5px;
+        margin-bottom: 26px;
+  
     }
 
     .main__section__detalle--colores-txt {
@@ -145,6 +145,8 @@
     .div__imgCartera img {
         width: 700px;
         height: 700px;
+        padding-top: 40px;
+        padding-right: 20px;
     }
 
     .image__none {

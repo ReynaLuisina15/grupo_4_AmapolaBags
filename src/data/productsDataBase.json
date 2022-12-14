@@ -17,8 +17,8 @@
    {
       "id": 2,
       "name": "brenda",
-      "category": "cartera",
-      "image": "Cartera-Brenda.png",
+      "category": "cartera-leopardo.png",
+      "image": "ca",
       "color": [
          "#af2323",
          "#af2387"
@@ -106,5 +106,49 @@
          "#eb14ce"
       ],
       "category": "cartera"
+   },
+   {
+      "id": 13,
+      "name": "riñoneraa azucena ",
+      "description": "facheritaaaaa",
+      "price": 15000,
+      "image": "product-1661875647169.jpg",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "cartera"
+   },
+   {
+      "id": 14,
+      "name": "riñoneraa azucena ",
+      "description": "facheritaaaaa",
+      "price": 15000,
+      "image": "product-1661875647169.jpg",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "cartera"
+   },
+   {
+      "id": 15,
+      "name": "Seoul blue",
+      "description": "facheritaaaaa",
+      "price": 17000,
+      "image": "seoul-blue.png",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "mochila"
+   },
+   {
+      "id": 16,
+      "name": "Riñonera Vulk",
+      "description": "facheritaaaaa",
+      "price": 9000,
+      "image": "riñonera-vulk.png",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "riñonera"
    }
 ]

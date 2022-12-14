@@ -11,7 +11,7 @@
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
      "price": 10900,
-     "imgPrimary": "Cartera-Brenda.png"
+     "imgPrimary": "cartera-leopardo.png"
   },
   {
      "name": "volterra",
@@ -46,7 +46,7 @@
      "categoryId": 2,
      "description": "abdjajhcnjancj",
      "price": 8500,
-     "imgPrimary": "product-1661882065189.jpg"
+     "imgPrimary": "everlast.png"
   },
   {
      "name": "Melii",
@@ -82,5 +82,33 @@
    "description": "Mochila mediana de cuero negro",
    "categoryId": 1,
    "imgPrimary": "serena-negra.jpg"
+},
+{
+   "name": "serena Negra",
+   "price": 14900,
+   "description": "Mochila mediana de cuero negro",
+   "categoryId": 1,
+   "imgPrimary": "serena-negra.jpg"
+},
+{
+   "name": "riñoneraa azucena ",
+   "price": 20000,
+   "description": "riñonera azucena ultimo modelo",
+   "categoryId": 2,
+   "imgPrimary": "riñonera-azucena.jpg"
+},
+{
+   "name": "Seoul blue",
+   "price": 17000,
+   "description": "seoul blue ultimo modelo",
+   "categoryId": 1,
+   "imgPrimary": "seoul-blue.png"
+},
+{
+   "name": "Riñoneraa Vulk",
+   "price": 17000,
+   "description": "Vulk ultimo modelo",
+   "categoryId": 2,
+   "imgPrimary": "riñonera-vulk.png"
 }
 ]
