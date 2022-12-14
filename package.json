@@ -6,12 +6,13 @@
     "start": "node ./src/bin/www",
     "reset-db": "sequelize db:drop && sequelize db:create && sequelize db:migrate && sequelize db:seed:all",
     "server": "nodemon ./src/bin/www",
-    "client:start" : "cd admin && npm start",
-    "dev" : "concurrently \"npm run server\" \"npm rum client:start\""
+    "client:start": "cd admin && npm start",
+    "dev": "concurrently \"npm run server\" \"npm rum client:start\""
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "ejs": "~2.6.1",
