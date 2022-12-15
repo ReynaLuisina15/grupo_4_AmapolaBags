@@ -10,7 +10,7 @@
 .main__section__products{
     display: flex;
     flex-wrap: wrap;
-    justify-content: left;
+    justify-content: space-evenly;
 }
 .main__section__products__productCartera{
     width: 320;
