@@ -237,7 +237,6 @@ module.exports = {
       });
     }
   },
-<<<<<<< HEAD
   userList : async (req, res)=>{
     let users = await db.User.findAll({
      order : ['name']
@@ -248,6 +247,4 @@ module.exports = {
      users
    } );
  }
-=======
->>>>>>> develop
 };
