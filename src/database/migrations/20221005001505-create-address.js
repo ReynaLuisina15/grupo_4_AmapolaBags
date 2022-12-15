@@ -23,6 +23,10 @@ module.exports = {
       postalcode: {
         type: Sequelize.INTEGER
       },
+      active:{
+        type:Sequelize.BOOLEAN,
+        defaultValue:false
+      },
       userId: {
         type: Sequelize.INTEGER,
         refences :{

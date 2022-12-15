@@ -22,26 +22,23 @@
 .section__entrega{
     flex: 1;
 }
-.main__carrito__compra{
-   
-}
-/* Titulos */
-.main__carrito__section__products__titulos{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+
+/* Títulos */
+.main__carrito__section__products__tituloOne{
+    display: flex;  
+    justify-content: space-evenly;
     border-bottom: 1px solid var(--colorNegro);
-    
+       
 }
-.main__carrito__section__products__titulos__restantes{
-    display: flex;
-    width: 50%;
-    justify-content: space-between;
-    display: none;
-    
+.main__carrito__section__products__titulos{
+    display: flex;  
+    justify-content: space-around;
+    border-bottom: 1px solid var(--colorNegro);
+    display: none;  
 }
+
 .titulo__precio, .titulo__cantidad, .titulo__total{
-   width: 75px;
+   width: 80px;
 }
 
 /* Compra */
@@ -54,16 +51,15 @@
 .main__carrito__section__products__article__compra__nombre{
 width: 60%;
 }
-.main__carrito__section__products__article__compra__eliminar{
-   
-}
+
 .main__carrito__section__products__article__product{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     flex-direction: row;
     border-bottom: 1px solid rgb(78, 77, 77);
     padding-top: 10px;
     padding-bottom: 10px;
+    align-self: center;
 }
 .main__carrito__producto__cartera{
     display: flex;
@@ -203,11 +199,21 @@ width: 60%;
 }
 .section__artiticle__comentario button{
    margin: 5px; 
+   text-align: center;
 }
 .buttoFinalizar{
     background-color: var(--colorNegro);
     color: var(--colorBlanco);
     width: 90%;
+    text-align: center;
+    padding: 5px;
+     
+}
+.buttoFinalizar a{
+    color: white
+}
+.buttoFinalizar a:hover{
+    color: var(--colorRosa);
 }
 /* costo */
 .section__artiticle__total__div__costo{
@@ -238,6 +244,15 @@ width: 60%;
 
 /* TABL | titulos */
 @media (min-width:768px){
+    .main__carrito__section__products__tituloOne{
+        display: none;
+   }
+   .main__carrito__section__products__titulos{
+    display: block;    
+    display: flex;  
+    justify-content: space-around;
+    border-bottom: 1px solid var(--colorNegro); 
+}
     .main__carrito__section__products__article__titulos{
          display: block;
     }

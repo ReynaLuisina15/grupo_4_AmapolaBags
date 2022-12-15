@@ -3,7 +3,7 @@ const {unlinkSync} = require("fs");
 const path = require("path");
 const {Op} = require("sequelize");
 const {sendJsonError} = require("../../helpers/sendJsonError");
-const {literalQueryUrlImage} = require("../../helpers/literalQueryUrlImage")
+const {literalQueryUrl} = require("../../helpers/literalQueryUrl")
 
 const controller = {
     // GET IMAGE IN VIEW
@@ -15,7 +15,7 @@ const controller = {
     // ALL PRODUCTS + QUERIES
     all: async (req,res) => {
         try {
-         let {page = 1,limit = 6,offset = 0, price = 0, order = "ASC", sortBy = "name", search = ""} = req.query;
+         let {page = 1,limit = 6,offset = 0, price = 0, order = "ASC", sortBy = "name", search = "", filter} = req.query;
         
          // tipos de ordenamientos
          const typesSort =[
@@ -35,7 +35,7 @@ const controller = {
          page = +page <= 0 || isNaN(+page) ? 1 : +page
          // --------------- fin comprobaciones de key ----
 
-         // Modificacion de parametros por query
+         // Modificación de parámetros por query
           const queriesValuesDefaultAndModify = {
             limit,
             price,
@@ -51,7 +51,7 @@ const controller = {
             };
             
         
-         // Cuentas matematiacas de objetos
+         // Cuentas matemáticas de objetos
          page -= 1;
 
          offset = page * limit
@@ -67,7 +67,7 @@ const controller = {
                 association:"images",
                 attributes:{
                     include:[
-                        literalQueryUrlImage(req,"file","urlfile")
+                        literalQueryUrl({req, field:"file", alias:"urlfile", pathRoute:'/api/products/image/'})
                     ],
                     exclude:["updatedAt","createdAt","deletedAt"],
                 }
@@ -79,6 +79,9 @@ const controller = {
             }],
             attributes: {
                 exclude:["updatedAt","deletedAt"],
+                include: [ 
+                    literalQueryUrl({req, field:"id", alias:"urlProduct", pathRoute:'/api/products/'}) 
+                ]
             },
             order: orderQuery,
             where:{
@@ -92,11 +95,12 @@ const controller = {
                         description:{
                             [Op.substring]:search
                         }
+                        
                     }
                 ]
             }
          }
-         // --------------- fin asociacion ------------
+         // --------------- fin asociación ------------
          // filtrado de precio
          const optionsPrice = {
             ...options,
@@ -113,6 +117,8 @@ const controller = {
          // -------------- fin filtrado de precio ----
          const {count, rows:products} = await db.Product.findAndCountAll(options);
 
+         
+
          if (!products.length) {
             return res.status(200).json({
                 ok:true,
@@ -121,7 +127,8 @@ const controller = {
             })
          }
 
-        // condisiones de pagina anterior y de pagina sigiente
+
+        // condiciones de pagina anterior y de pagina siguiente
          const existPrev = page > 0 && offset <= count;
          const existNext = Math.floor(count / limit) >= page + 1 && limit !== count;
 
@@ -137,7 +144,7 @@ const controller = {
             }
 
             return res.status(200).json({
-                mwta:{
+                meta:{
                     ok: true,
                     status: 200,
                 },
@@ -161,7 +168,7 @@ const controller = {
                     association:"images",
                     attributes:{
                         include:[
-                            literalQueryUrlImage(req,"file","file")
+                            literalQueryUrl({req, field: "file", alias: "file", pathRoute:'/api/products/image/'})
                         ],
                         exclude:["updatedAt","createdAt","deletedAt", "productId"],
                     }
@@ -208,6 +215,38 @@ const controller = {
     destroy: (req,res) => {
         
     },
+    destroy: (req,res) => {
+        
+    },
+    category: async (req,res) => {
+        try {
+            let {filter} = req.query;
+
+            
+        
+        const categorySort = await db.Category.findOne({
+            where: {name: filter},
+            include: [ 'products']
+        })
+        
+
+        
+        return res.json({
+            msg: "ok",
+            filter,
+            quantity: categorySort.products.length,
+            categorySort,
+        })
+        } catch (error) {
+            console.log(error)
+            return res.json({
+                msg: "false",
+                error
+            })
+        }
+        
+    },
+   
 };
 
 module.exports = controller;

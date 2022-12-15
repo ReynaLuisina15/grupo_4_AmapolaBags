@@ -19,6 +19,10 @@ module.exports = (sequelize, DataTypes) => {
       User.hasMany(models.Address, {
         as: "addresses",
         foreignKey: "userId"
+      });
+      User.hasMany(models.Order, {
+        as: "orders",
+        foreignKey: "userId"
       })
 
       // define association here

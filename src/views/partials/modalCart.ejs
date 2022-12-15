@@ -1,0 +1,115 @@
+<div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="cartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          
+          <main class="main__carrito">
+            <div class="modal-header">
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="modal">
+            <h1 class="main__carrito__titulo">CARRITO DE COMPRAS</h1>
+            
+            <!-- INICIO PRODUCTS -->
+          <div class="main__carrito__conteiner">
+            <section class="main__carrito__section__products">
+                <h2 class="main__carrito__compra">Mi compra:</h2>
+                <!-- INICIO TÍTULOS DE PRODUCTOS -->
+                <div class="main__carrito__section__products__tituloOne">                 
+                  <div>
+                    <th class="titulo__producto">Producto</th>
+                  </div>
+                </div>
+                <div class="main__carrito__section__products__titulos">                 
+                    <div>
+                      <th class="titulo__producto">Producto</th>
+                    </div>
+                    <div>
+                      <th class="titulo__precio">Precio</th>
+                    </div>
+                    <div>
+                      <th class="titulo__cantidad">Cantidad</th>
+                    </div>
+                    <div>
+                      <th class="titulo__total">Subtotal</th>
+                    </div>      
+                </div>
+                <!-- FIN DE TÍTULOS DE PRODUCTOS -->
+                <!-- PRODUCTS -->
+                <div class="main__producto">           
+                <article class="main__carrito__section__products__article__product" id="box-cart">
+                  <tbody id="cart-items">
+
+                  </tbody>             
+                </article>
+            </div>
+            </section>
+            <!-- FIN PRODUCTS -->
+            <div class="lineaDelMedio">
+                <p> </p>
+        
+            </div>
+            <!-- INICIO COMPRA -->
+            <aside class="section__entrega">
+                <h2 class="section__entrega__titulo">Forma de entrega</h2>
+                <!-- INICIÓ ENTREGA -->
+                <article class="section_entrega_article_radio">
+                  <form action="" method="POST">
+                      <div class="form__radio-container">
+                          <input class="form__radio-input" type="radio" name="envio" value="envio" id="envio">
+                          <label class="form__radio-button" for="envio"></label>
+                          <label class="form__label-radio" for="envio"> <i class="fa-solid fa-truck"></i> Envió</label>
+                      </div>
+                      <div class="form__radio-container">
+                          <input class="form__radio-input" type="radio" name="envio" value="retiro" id="sucursal">
+                          <label class="form__radio-button" for="sucursal"></label>
+                          <label class="form__label-radio" for="sucursal"> <i class="fa-solid fa-store"></i> Retiro en sucursal</label>
+                      </div>
+          
+              </article>
+                <!-- FIN ENTREGA -->
+                <!-- INICIO COMENTARIO -->
+                <article class="section__artiticle__comentario">
+                    <form action="" method="post"></form>
+                    <label for=""><h2>¿Querés escribir una dedicatoria?</h2></label>
+                    <textarea name="comentario" id="comentario" cols="30" rows="6"></textarea>
+                    <p>El envío es gratis! Si tenés un código de descuento, podrás añadirlo en el siguiente paso.</p>
+                    <button class="buttoFinalizar" type="submit"> <a class="a">VACIAR CARRITO</a></button>
+                    <button class="buttoFinalizar" type="submit"> <a class="">SEGUIR COMPRANDO</a></button>
+                    <button class="buttoFinalizar" type="submit"> <a class="">FINALIZAR</a></button>
+                </article>
+                <!-- FIN COMENTARIO -->
+                <!-- INICIO COSTO -->
+                <!-- article class="section__artiticle__total">
+                    
+                    <div class="section__artiticle__total__div__costo">
+                       <div class="subtotal">
+                        <h2 class="gris">Subtotal</h2>
+                        <h2 class="gris">Envió</h2>
+                        <h2 class="negro1">Total</h2>
+                        
+                       </div>
+                       <div class="envio">
+                        
+                        
+                       </div> 
+                       <div class="totalFinal">
+                        <h2 class="gris">$7290</h2>
+                        <h2 class="gris"> -</h2>
+                        <h2 class="negro2">$7290</h2>
+                       </div>
+                    </div>
+                   
+                  
+                </article> -->
+                <!-- FIN COSTO -->        
+            </aside>  
+            <!-- FIN COMPRA --> 
+         </div>  
+        </div>
+          </main>
+        
+        </div>
+      </div>
+    </div>
+  </div>
