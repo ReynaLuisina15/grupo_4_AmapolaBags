@@ -9,17 +9,53 @@
 
       <main class="home__main">
         <section class="home__main__section-banner">
+          <!-- banner desktop -->
           <div id="home-banner">
-            <img src="/img/Desktop - Home (1).png">
+            <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+                  aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                  aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                  aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="/img/sliderNavidad.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="/img/sliderNavidad3.png" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item">
+                  <img src="/img/Desktop - Home (1).png" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+            <!-- <img src="/img/Desktop - Home (1).png"> -->
           </div>
+          <!-- fin banner desktop -->
           <div class="home__main__section-banner-mobile">
-            <img src="/img/banner-mobile.jpg">
-            <button class="home__main__section-banner-botonNew">
+            <!-- banner mobile -->
+            <img src="/img/bannerMobile2.jpg">
+
+            <!-- fin banner mobile -->
+            <p class="home__main__section-banner-botonNew">
               NEW COLECTION
-            </button>
-            <button class="home__main__section-banner-botonShop">
+            </p>
+            <a href="/products/productGeneral" class="home__main__section-banner-botonShop">
               SHOP NOW
-            </button>
+            </a>
           </div>
         </section>
         <section class="home__main__container-section-carrusel">
@@ -122,7 +158,7 @@
         </section>
       </main>
       <%- include("./partials/footer") %>
-      <%- include('partials/scripts') %>
+        <%- include('partials/scripts') %>
   </body>
 
 </html>
