@@ -61,6 +61,7 @@
     border: none;
     margin-bottom: 10px;
     font-weight: bold;
+    padding: 0;
 }
 
 .body__main__register__section1__article2__div {
@@ -99,10 +100,10 @@
 
 .body__main__register__section2 {
     margin: 0px 15px;
-    
+
 }
 
-.body__main__register__section2--divlinea{
+.body__main__register__section2--divlinea {
     border-top: solid 1px rgba(0, 0, 0, 0.2);
 }
 
@@ -159,7 +160,7 @@
     height: 55px;
     box-sizing: border-box;
     text-align: center;
-    padding: 15px 0px;
+    padding: 12px 0px;
 }
 
 .body__main__register__section2__div a {
@@ -176,7 +177,7 @@
 
     .body__main__register__section2--divlinea {
         display: none;
-        
+
     }
 
     .body__main__register {
@@ -198,7 +199,7 @@
     }
 
     .body__main__register__section2__article2 {
-        display:flex;
+        display: flex;
     }
 
     .body__main__register__section2__article2__div {
