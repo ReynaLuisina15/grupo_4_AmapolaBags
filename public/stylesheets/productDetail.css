@@ -104,6 +104,7 @@
     .div__imgCartera img {
         width: 500px;
         height: 500px;
+        object-fit: scale-down;
     }
 
     .main__section__detalles--esp {
@@ -147,6 +148,7 @@
         height: 700px;
         padding-top: 40px;
         padding-right: 20px;
+        object-fit: scale-down;
     }
 
     .image__none {
