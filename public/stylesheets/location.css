@@ -1,0 +1,149 @@
+.location__main {
+  display: flex;
+  margin: 0px 20px 20px 20px;
+  flex-wrap: wrap;
+  border-bottom: 4px double pink;
+  padding-bottom: 20px;
+}
+
+.location__main h1 {
+  width: 100%;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding-bottom: 20px;
+  border-bottom: 4px double pink;
+  font-size: 20px;
+}
+
+.location__section-info {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+
+}
+
+.location__section-info div {
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--colorNegro);
+  font-size: 12px;
+  width: 100%;
+}
+
+#location-inspiraciones {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+
+#location-inspiraciones a {
+  color: var(--colorNegro);
+}
+
+#location-integrantes {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 3px;
+}
+
+.location__section-mapa {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  align-items: center;
+}
+
+.location__section-mapa iframe {
+  height: 150px;
+}
+
+@media (min-width:764px) {
+  .location__main {
+    margin: 30px 20px 20px 20px;
+  }
+
+  .location__section-info {
+    width: 50%;
+  }
+
+  .location__section-info div {
+    font-size: 15px;
+  }
+
+  #location-integrantes {
+    gap: 5px;
+  }
+
+  .location__section-mapa {
+    width: 50%;
+  }
+
+  .location__section-mapa iframe {
+    height: 300px;
+  }
+}
+
+@media (min-width:1024px) {
+  .location__main {
+    display: flex;
+    margin: 50px 20px 20px 20px;
+    flex-wrap: wrap;
+    border-bottom: 4px double pink;
+    padding-bottom: 20px;
+  }
+
+  .location__main h1 {
+    font-size: 30px;
+  }
+
+  .location__section-info {
+    display: flex;
+    width: 50%;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+
+  }
+
+  .location__section-info div {
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--colorNegro);
+    font-size: 16px;
+    width: 100%;
+  }
+
+  #location-inspiraciones {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  #location-inspiraciones a {
+    color: var(--colorNegro);
+  }
+
+  #location-integrantes {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+  }
+
+  .location__section-mapa {
+    display: flex;
+    width: 50%;
+    justify-content: center;
+    padding: 10px;
+    align-items: center;
+  }
+
+  .location__section-mapa iframe {
+    height: 500px;
+  }
+}
