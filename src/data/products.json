@@ -1,62 +1,62 @@
 [
   {
-     "name": "cafa",
+     "name": "Cartera Cafa",
      "categoryId": 3,
-     "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
+     "description": "Cartera cafa ultimo modelo",
      "price": 23500,
      "imgPrimary": "Cartera-Martina.png"
   },
   {
-     "name": "brenda",
+     "name": "Cartera Brenda",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
      "price": 10900,
      "imgPrimary": "cartera-leopardo.png"
   },
   {
-     "name": "volterra",
+     "name": "Cartera Volterra",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
      "price": 8550,
      "imgPrimary": "Cartera-Volterra.png"
   },
   {
-     "name": "alma",
+     "name": "Cartera Alma",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
      "price": 10900,
      "imgPrimary": "Cartera-Alma.png"
   },
   {
-     "name": "cecilia",
+     "name": "Cecilia",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
      "price": 7290,
      "imgPrimary": "Cartera-Cecilia.png"
   },
   {
-     "name": "ventimiglia",
+     "name": "Ventimiglia",
      "categoryId": 3,
      "description": "Lorem ipsum dolor sit, amet consectetur adipisicing elit",
      "price": 9490,
      "imgPrimary": "Cartera-Ventimiglia.png"
   },
   {
-     "name": "facu",
+     "name": "Riñonera Facu",
      "categoryId": 2,
-     "description": "abdjajhcnjancj",
+     "description": "Riñonera Facu ultimo modelo",
      "price": 8500,
-     "imgPrimary": "everlast.png"
+     "imgPrimary": "riñonera-malva.png"
   },
   {
-     "name": "Melii",
+     "name": "Riñonera Meli",
      "categoryId": 2,
-     "description": "adjanjcjakmckas",
+     "description": "Riñonera Meli ultimo modelo",
      "price": 9000,
      "imgPrimary": "product-1661881910201.jpg"
   },
   {
-     "name": "Meli",
+     "name": "Riñonera Reyna",
      "categoryId": 2,
      "description": "facheritaaaaa",
      "price": 15000,
@@ -84,31 +84,45 @@
    "imgPrimary": "serena-negra.jpg"
 },
 {
-   "name": "serena Negra",
+   "name": "Mochila Vriesia",
    "price": 14900,
-   "description": "Mochila mediana de cuero negro",
+   "description": "Mochila vriesia ultimo modelo",
    "categoryId": 1,
-   "imgPrimary": "serena-negra.jpg"
+   "imgPrimary": "mochila-vriesia.png"
 },
 {
-   "name": "riñoneraa azucena ",
+   "name": "Riñonera supreme",
    "price": 20000,
-   "description": "riñonera azucena ultimo modelo",
+   "description": "Riñonera Supreme ultimo modelo",
    "categoryId": 2,
    "imgPrimary": "riñonera-azucena.jpg"
 },
 {
-   "name": "Seoul blue",
+   "name": "Valeriana",
    "price": 17000,
-   "description": "seoul blue ultimo modelo",
+   "description": "Mochila valeriana ultimo modelo",
    "categoryId": 1,
-   "imgPrimary": "seoul-blue.png"
+   "imgPrimary": "mochila-valeriana.png"
 },
 {
-   "name": "Riñoneraa Vulk",
+   "name": "Riñonera Vulk",
    "price": 17000,
    "description": "Vulk ultimo modelo",
    "categoryId": 2,
-   "imgPrimary": "riñonera-vulk.png"
+   "imgPrimary": "riñonera-celinda.png"
+},
+{
+   "name": "Riñonera Fresia",
+   "price": 17000,
+   "description": "fresia ultimo modelo",
+   "categoryId": 2,
+   "imgPrimary": "riñonera-fresia.png"
+},
+{
+   "name": "Mochila Fobos",
+   "price": 17000,
+   "description": "Mochila Fobos ultimo modelo",
+   "categoryId": 1,
+   "imgPrimary": "mochila-fobos.png"
 }
 ]
