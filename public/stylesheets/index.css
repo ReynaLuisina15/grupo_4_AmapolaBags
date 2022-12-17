@@ -37,8 +37,13 @@
   color: var(--colorNegro);
 }
 
-#burger-menu {
-  margin: 0px;
+#burguer-menu {
+  display: flex;
+  border: 1px solid red;
+}
+
+#burger-menu i {
+  font-size: 27px;
 }
 
 #title {
@@ -67,7 +72,7 @@
 }
 
 .home__nav__container-menu-buscador ul {
-  display: flex;
+  display: none;
 }
 
 .home__nav__menu-buscador-opciones {
@@ -316,6 +321,10 @@
     justify-content: space-between;
     margin-bottom: 5px;
     transition: 3.5s margin-bottom;
+  }
+
+  .home__nav__container-menu-buscador ul {
+    display: flex;
   }
 
   .home__nav__container.active {
