@@ -19,6 +19,7 @@
 }
 .productCartera__nombre, .productCartera__precio{
     padding-bottom: 10px;
+    text-transform: uppercase;
 }
 .main__section__products__productCartera, button{
     border: none;
