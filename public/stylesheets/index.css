@@ -59,12 +59,12 @@
   display: none;
 }
 
-#user {
-  order: 3;
+#userLogout {
+  display: none;
 }
 
-#heart {
-  order: 1;
+#user {
+  order: 3;
 }
 
 #bag {
@@ -351,8 +351,11 @@
     font-size: 25px;
   }
 
+  #userLogout {
+    display: inline-block;
+  }
+
   #user,
-  #heart,
   #bag {
     order: 0;
   }
