@@ -38,18 +38,20 @@ module.exports = {
             },
             include : [{
               association : "carts",
-              include : [{
+              attributes : ['quantity'],
+              include: [{
                 association : "product",
+                attributes: ['id','name','price',],
                 include : ["images"]
               }]
             }]
           }).then(order => {
             if (order) {
               req.session.orderCart = {
-                id: order.Id,
+                id: order.id,
                 userId : order.userId,
                 total : order.total,
-                products : order.carts
+               items : order.carts
              };
              return res.redirect("/users/profile");
             } else {
@@ -59,9 +61,10 @@ module.exports = {
                 total : 0
               }).then(order => {
                 req.session.orderCart = {
+                  id : order.id,
                   userId : order.userId,
                   total : 0,
-                  products : []
+                  items : []
                };
                return res.redirect("/users/profile");
               })

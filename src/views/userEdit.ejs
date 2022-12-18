@@ -8,80 +8,97 @@
       <main>
         <section class="userEdit__container">
           <form class="userEdit__container__form" method="POST" action="/users/userEdit?_method=PUT" id="formUserEdit" >
-            <div class="userEdit__form--img">
-              <img src="<%= /http/.test(user.avatar) ? user.avatar : " /img/avatar/" + user.avatar %>"
-              width="130px" height="130px" alt="">
+            <div class=>
+              <div class="userEdit__form--img">
+                <img src="<%= /http/.test(user.avatar) ? user.avatar : " /img/avatar/" + user.avatar %>"
+                width="130px" height="130px" alt="">
             </div>
-          
-              </div>
-          </div>
+            </div>
+           
             <div><strong> DATOS PERSONALES:</strong></div>
-            <div class="form__dates">
-              <label for="name">Nombre:</label> <br>
-              <input class="form-control" type="text" name="name" id="name" value="<%= user.name %>">
-              <p class="text-danger" id="nameMsgBack">
-                <%= locals.errors && errors.name ? errors.name.msg : null %>
-            </p>
-              <p id="nameMsg"  ></p>
+            <div class="form__dates ">
+              <label for="name">Nombre:</label> 
+              <div class="w-50">
+                <input class="form-control w-100" type="text" name="name" id="name" value="<%= user.name %>">
+                <p class="text-danger" id="nameMsgBack">
+                  <%= locals.errors && errors.name ? errors.name.msg : null %>
+              </p>
+                <p id="nameMsg"  ></p>
+              </div>  
             </div>
             <div class="form__dates">
-              <label for="surname">Apellido:</label> <br>
-              <input  class="form-control" type="text" name="surname" id="surname" value="<%= user.surname %>">
-              <p class="text-danger" id="surnameMsgBack">
-                <%= locals.errors && errors.surname ? errors.surname.msg : null %>
-            </p>
-              <p id="surnameMsg"></p>
+              <label for="surname">Apellido:</label> 
+              <div class="w-50">
+                <input  class="form-control w-100" type="text" name="surname" id="surname" value="<%= user.surname %>">
+                <p class="text-danger" id="surnameMsgBack">
+                  <%= locals.errors && errors.surname ? errors.surname.msg : null %>
+              </p>
+                <p id="surnameMsg"></p>
+              </div>     
             </div>
             <div><strong> DIRECCIÓN:</strong></div>
             <div class="form__dates">
-                <label for="street">Calle:</label> <br>
-                <input class="form-control" type="text" name="street" id="street" value="<%= user.addresses[0].street %>">
-                <p class="text-danger" id="streetMsgBack">
-                  <%= locals.errors && errors.street ? errors.street.msg : null %>
-              </p>
-                <p id="streetMsg" ></p>
+                <label for="street">Calle:</label> 
+                <div class="w-50">
+                  <input class="form-control w-100" type="text" name="street" id="street" value="<%= user.addresses[0].street %>">
+                  <p class="text-danger" id="streetMsgBack">
+                    <%= locals.errors && errors.street ? errors.street.msg : null %>
+                </p>
+                  <p id="streetMsg" ></p>
+                </div>     
               </div>
               <div class="form__dates">
-                <label for="number">Numero:</label> <br>
-                <input class="form-control" type="text" name="number" id="number" value="<%= user.addresses[0].number %>">
-                <p class="text-danger" id="numberMsgBack">
-                  <%= locals.errors && errors.number ? errors.number.msg : null %>
-              </p>
-                <p id="numberMsg" ></p>
+                <label for="number">Numero:</label> 
+<div class="w-50">
+  <input class="form-control w-100" type="text" name="number" id="number" value="<%= user.addresses[0].number %>">
+  <p class="text-danger" id="numberMsgBack">
+    <%= locals.errors && errors.number ? errors.number.msg : null %>
+</p>
+  <p id="numberMsg" ></p>
+</div>
               </div>
               <div class="form__dates">
-                <label for="location">Localidad:</label> <br>
-                <input class="form-control" type="text" name="location" id="location" value="<%= user.addresses[0].location %>">
-                <p class="text-danger" id="locationMsgBack">
-                  <%= locals.errors && errors.location ? errors.location.msg : null %>
-              </p>
-                <p id="locationMsg" ></p>
+                <label for="location">Localidad:</label> 
+                <div class="w-50">
+                  <input class="form-control w-100" type="text" name="location" id="location" value="<%= user.addresses[0].location %>">
+                  <p class="text-danger" id="locationMsgBack">
+                    <%= locals.errors && errors.location ? errors.location.msg : null %>
+                </p>
+                  <p id="locationMsg" ></p>
+                </div>
               </div>
               <div class="form__dates">
-                <label for="province">Provincia:</label> <br>
-                <input class="form-control" type="text" name="province" id="province" value="<%= user.addresses[0].province %>">
-                <p class="text-danger" id="provinceMsgBack">
-                  <%= locals.errors && errors.province ? errors.province.msg : null %>
-              </p>
-                <p id="provinceMsg" ></p>
+                <label for="province">Provincia:</label> 
+                <div class="w-50">
+                  <input class="form-control w-100" type="text" name="province" id="province" value="<%= user.addresses[0].province %>">
+                  <p class="text-danger" id="provinceMsgBack">
+                    <%= locals.errors && errors.province ? errors.province.msg : null %>
+                </p>
+                  <p id="provinceMsg" ></p>
+                </div>
               </div>
               <div class="form__dates">
-                <label for="number">Codigo Postal:</label> <br>
-                <input class="form-control" type="text" name="postalcode" id="postalcode" value="<%= user.addresses[0].postalcode %>">
-                <p class="text-danger" id="postalcodeMsgBack">
-                  <%= locals.errors && errors.postalcode ? errors.postalcode.msg : null %>
-              </p>
-                <p id="postalcodeMsg" ></p>
+                <label for="number">Codigo Postal:</label> 
+                <div class="w-50">
+                  <input class="form-control w-100" type="text" name="postalcode" id="postalcode" value="<%= user.addresses[0].postalcode %>">
+                  <p class="text-danger" id="postalcodeMsgBack">
+                    <%= locals.errors && errors.postalcode ? errors.postalcode.msg : null %>
+                </p>
+                  <p id="postalcodeMsg" ></p>
+                </div>
+
               </div>
             <div class="form__dates">
-              <label for="email">Correo Electronico:</label> <br>
-              <input class="form-control" id="form__dates-email" type="email" name="email" id="email" value="<%= user.email %>">
-              <p class="text-danger" id="emailMsgBack">
-                <%= locals.errors && errors.email ? errors.email.msg : null %>
-            </p>
-              <p id="emailMsg"></p>
+              <label for="email">Correo Electronico:</label> 
+              <div class="w-50">
+                <input class="form-control w-100" id="form__dates-email" type="email" name="email" id="email" value="<%= user.email %>">
+                <p class="text-danger" id="emailMsgBack">
+                  <%= locals.errors && errors.email ? errors.email.msg : null %>
+              </p>
+                <p id="emailMsg"></p>
+              </div>
             </div>
-            <div class="form__dates">
+            <div class="form__dates--button">
               <button class="userEdit__form--button" type="submit" >Actualizar
               </button>
             </div>

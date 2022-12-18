@@ -38,8 +38,8 @@
                                     <h1>PRECIO: <%= toThousand(product.price) %>
                                     </h1>
 
-                                    <button onclick="addCartItem('<%=product.id%>')">
-                                        <a class="agregar_carrito-button" href="">AGREGAR AL CARRITO</a>
+                                    <button >
+                                        <a onclick="event.preventDefault(); addCartItem('<%=product.id%>')" class="agregar_carrito-button" href="">AGREGAR AL CARRITO</a>
                                     </button>
 
                                     <% if (locals.userLogin && userLogin.rol===1) { %>

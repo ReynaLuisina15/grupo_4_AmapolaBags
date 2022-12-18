@@ -23,6 +23,10 @@
     flex: 1;
 }
 
+.main__carrito__tbody tr td {
+vertical-align: baseline;
+}
+
 /* Títulos */
 .main__carrito__section__products__tituloOne{
     display: flex;  
