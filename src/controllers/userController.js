@@ -240,4 +240,14 @@ module.exports = {
       });
     }
   },
+  userList : async (req, res)=>{
+    let users = await db.User.findAll({
+     order : ['name']
+ })
+ console.log(users + 'holaaaa')
+
+   return res.render("usersList",{
+     users
+   } );
+ }
 };

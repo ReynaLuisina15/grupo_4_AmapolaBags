@@ -9,6 +9,7 @@ const session = require('express-session');
 const localsUserCheck = require("./middlewares/localsUserCheck");
 /* const userSessionCheck = require("./middlewares/userSessionCheck"); */
 const cookieCheck = require('./middlewares/cookieCheck');
+const cors = require('cors');
 
 
 /* ROUTERS REQUIRE */
@@ -19,10 +20,12 @@ var productsRouter = require('./routes/products');
 
 // ROUTERS API REQUIRE
 
+const mainApiRouter = require("./routes/APIs/apiMain");
+const categoriesApiRouter = require("./routes/APIs/apiCategories");
 const productsApiRouter = require("./routes/APIs/apiProducts");
 const authApiRouter = require("./routes/APIs/apiAuth");
 const usersApiRouter = require("./routes/APIs/apiUsers");
-const cartsApiRouter = require("./routes/APIs/apiCarts")
+const cartsApiRouter = require("./routes/APIs/apiCarts");
 
 var app = express();
 
@@ -41,6 +44,7 @@ app.use(session({
   resave : false,
   saveUninitialized : true
 }));;
+app.use(cors())
 
 /* app.use cookie */
 app.use(cookieCheck);
@@ -57,6 +61,8 @@ app.use('/products', productsRouter);
 
 /* ROUTERS API */
 
+app.use("/api", mainApiRouter);
+app.use("/api/categories", categoriesApiRouter);
 app.use("/api/products", productsApiRouter);
 //app.use("/api/auth", authApiRouter);
 app.use("/api/users", usersApiRouter);

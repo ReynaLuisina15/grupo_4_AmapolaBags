@@ -17,8 +17,8 @@
    {
       "id": 2,
       "name": "brenda",
-      "category": "cartera",
-      "image": "Cartera-Brenda.png",
+      "category": "cartera-leopardo.png",
+      "image": "ca",
       "color": [
          "#af2323",
          "#af2387"
@@ -76,8 +76,8 @@
    },
    {
       "id": 7,
-      "name": "facu",
-      "description": "abdjajhcnjancj",
+      "name": "Riñonera Malva",
+      "description": "Riñonera malva ultimo modelo",
       "price": 8500,
       "image": "product-1661882065189.jpg",
       "color": [
@@ -106,5 +106,71 @@
          "#eb14ce"
       ],
       "category": "cartera"
+   },
+   {
+      "id": 13,
+      "name": "Riñonera azucena",
+      "description": "facheritaaaaa",
+      "price": 15000,
+      "image": "product-1661875647169.jpg",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "riñonera"
+   },
+   {
+      "id": 14,
+      "name": "Riñoneraa azucena ",
+      "description": "Riñonera azucena ultimo modelo",
+      "price": 15000,
+      "image": "product-1661875647169.jpg",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "riñonera"
+   },
+   {
+      "id": 15,
+      "name": "Mochila Valeriana",
+      "description": "Mochila valeriana ultimo modelo",
+      "price": 17000,
+      "image": "mochila-valeriana.png",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "mochila"
+   },
+   {
+      "id": 16,
+      "name": "Riñonera Vulk",
+      "description": "Riñonera vulk ultimo modelo",
+      "price": 9000,
+      "image": "riñonera-vulk.png",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "riñonera"
+   },
+   {
+      "id": 17,
+      "name": "Riñonera Fresia",
+      "description": "Riñonera fresia ultimo modelo",
+      "price": 9000,
+      "image": "riñonera-fresia.png",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "riñonera"
+   },
+   {
+      "id": 18,
+      "name": "Mochila Fobos",
+      "description": "Mochila fobos ultimo modelo",
+      "price": 9000,
+      "image": "riñonera-fresia.png",
+      "color": [
+         "#eb14ce"
+      ],
+      "category": "mochila"
    }
 ]

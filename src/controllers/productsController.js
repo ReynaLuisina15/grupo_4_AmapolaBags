@@ -119,6 +119,7 @@ const controller = {
           product,
           toThousand,
         });
+        console.log(product + "holaaaaa")
       })
       .catch((error) => console.log(error));
   },
