@@ -2,7 +2,8 @@ const db = require("../../database/models");
 const path = require("path");
 const { sendJsonError } = require("../../helpers/sendJsonError");
 const { Op } = require("sequelize");
-const { literalQueryUrlImage } = require("../../helpers/literalQueryUrlImage");
+const { literalQueryUrl } = require("../../helpers/literalQueryUrl");
+const {literal} = require("sequelize");
 const bcryptjs = require("bcryptjs");
 const { use } = require("../../routes/APIs/apiUsers");
 
@@ -62,7 +63,10 @@ const controller = {
 
         attributes: {
           exclude: ["updatedAt", "rolId", "password"],
-          include: [literalQueryUrlImage(req, 'avatar', 'avatar', '/users')]
+          include: [
+            literalQueryUrl({req, field: 'avatar', alias: 'avatar', pathRoute: '/api/users/image/'}), 
+            literalQueryUrl({req, field:'id', alias:'detail', pathRoute:'/api/users/'})
+          ],
         },
         limit,
         offset,
@@ -125,7 +129,7 @@ const controller = {
 
         attributes: {
           exclude: ["updatedAt", "deletedAt", "password", "rolId"],
-          include: [literalQueryUrlImage(req, 'avatar', 'avatar', '/users')]
+          include: [literalQueryUrl({req, field:'avatar', alias:'avatar', pathRoute:'/api/users/image/'})]
         }
       }
 

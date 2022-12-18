@@ -6,11 +6,13 @@ const {
    image,
    all, 
    detail,
+   category
 } = require("../../controllers/APIs/apisProductsController");
 
  router
        .get("/image/:img", image)
        .get("/", all)
+       .get("/category", category)
        .get("/:id", detail)
        .post("/,store")
     // .patch("/:id",update)

@@ -1,7 +1,7 @@
 <header>
   <nav class="home__nav__container">
     <div class="home__nav__container-marquee">
-      <marquee>ENVIOS GRATIS A TODO EL PAIS | 12 CUOTAS SIN INTERÉS</marquee>
+      <marquee>ENVÍOS GRATIS A TODO EL PAÍS | 12 CUOTAS SIN INTERÉS</marquee>
     </div>
     <div class="home__nav__containter-iconos">
       <ul class="home__nav-iconos">
@@ -18,7 +18,7 @@
             <li id="user"><a href="/users/login"><i class="fa-regular fa-user"></i></a></li>
             <% } %>
               <li id="heart"><a href=""><i class="fa-regular fa-heart"></i></a></li>
-              <li id="bag"><a href="/products/productCart"><i class="fa-solid fa-bag-shopping"></i></a></li>
+              <li id="bag" ><a type="button" data-bs-toggle="modal" data-bs-target="#cartModal"><i class="fa-solid fa-bag-shopping"></i></a></li>
       </ul>
     </div>
     <div class="home__nav__container-menu-buscador">
@@ -44,4 +44,5 @@
       </form>
     </div>
   </nav>
+  <%- include("./modalCart") %> 
 </header>

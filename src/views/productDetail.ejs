@@ -21,7 +21,7 @@
                         </h2>
                         <h2>Descripcion: <%= product.description %>
                         </h2>
-                        <h2>Categoria: <%= product.category %>
+                        <h2>Categoria: <%= product.category.name %>
                         </h2>
                         <div class="main__section__detalle--colores-txt">
                             <h2>Colores: </h2>
@@ -38,8 +38,8 @@
                                     <h1>PRECIO: <%= toThousand(product.price) %>
                                     </h1>
 
-                                    <button>
-                                        <p class="agregar_carrito-button">AGREGAR AL CARRITO</p>
+                                    <button onclick="addCartItem('<%=product.id%>')">
+                                        <a class="agregar_carrito-button" href="">AGREGAR AL CARRITO</a>
                                     </button>
 
                                     <% if (locals.userLogin && userLogin.rol===1) { %>
@@ -63,7 +63,7 @@
 
                 <section class="main__section__masProductos">
                     <div><img src="/img/Cartera-Martina.png" alt=""></div>
-                    <div><img src="/img/Cartera-Alma2" alt=""></div>
+                    <div><img src="/img/Cartera-Alma2.png" alt=""></div>
                     <div> <img src="/img/Cartera-Alma.png" alt=""></div>
                     <div><img src="/img/Cartera-Cecilia2.png" alt=""></div>
                     <img class="image__none" src="/img/Cartera-mobile.jpg" alt="">
@@ -72,7 +72,7 @@
             </main>
 
             <%- include("./partials/footer") %>
-
+            <%- include('partials/scripts') %>
     </body>
 
 </html>

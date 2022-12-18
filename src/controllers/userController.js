@@ -28,8 +28,49 @@ module.exports = {
             res.cookie("amapola", req.session.userLogin, {
               maxAge: 1000 * 60 * 60 * 24,
             });
-          }
-          return res.redirect("/users/profile");
+          };
+          // Carrito
+
+          db.Order.findOne({
+            where:{
+              userId : id,
+              statusId : 1
+            },
+            include : [{
+              association : "carts",
+              include : [{
+                association : "product",
+                include : ["images"]
+              }]
+            }]
+          }).then(order => {
+            if (order) {
+              req.session.orderCart = {
+                id: order.Id,
+                userId : order.userId,
+                total : order.total,
+                products : order.carts
+             };
+             return res.redirect("/users/profile");
+            } else {
+              db.Order.create({
+                userId: id,
+                statusId : 1,
+                total : 0
+              }).then(order => {
+                req.session.orderCart = {
+                  userId : order.userId,
+                  total : 0,
+                  products : []
+               };
+               return res.redirect("/users/profile");
+              })
+            }
+            
+             
+          }).catch(error => console.log(error))
+          
+          /* return res.redirect("/users/profile"); */
         })
         .catch((error) => console.log(error));
 
