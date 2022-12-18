@@ -19,36 +19,25 @@ module.exports = {
     try {
       const { productId } = req.body;
 
-      const newCartItem = await db.Cart.create({
+      const newCart = await db.Cart.create({
         quantity: 1,
-        productId: +productId,
+        productId,
         orderId: req.session.orderCart.id,
       });
 
-      console.log("linea 28");
-      const cartItem = await newCartItem.reload({
-        include: [
-          {
-            association: "product",
-            include: ["images"],
-          },
-        ],
-      }); /* await db.cart.findByPk(newCartItem.id, {
-            include:[
-                {
-                    association: 'product',
-                    include : ['images']
-                }
-            ]
-        }) */
+      const cartItem = await db.Cart.findByPk(newCart.id, {
+        include: { association: "product", include: ["images"] },
+      });
 
-        console.log("CART ITEM PRODUCT", cartItem);
-      const { id, name, price, imgPrimary } = cartItem.dataValues.product;
+      console.log("cartItem", cartItem);
+      const {
+        product: { id, name, price, imgPrimary },
+      } = cartItem;
 
       req.session.orderCart = {
         ...req.session.orderCart,
-        products: [
-          ...req.session.orderCart.products,
+        items: [
+          ...(req.session.orderCart.items ? req.session.orderCart.items : []),
           {
             id,
             name,
