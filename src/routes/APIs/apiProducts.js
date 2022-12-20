@@ -14,7 +14,7 @@ const {
        .get("/", all)
        .get("/category", category)
        .get("/:id", detail)
-    // .post("/,store")
+       .post("/,store")
     // .patch("/:id",update)
     // .delete("/:id,destroy")
 
