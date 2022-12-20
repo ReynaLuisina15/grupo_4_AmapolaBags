@@ -26,11 +26,9 @@ export const Products = () => {
 
   const getInfo = (id) => {
     UseFetch(`/products/${id}`)
-    .then(({meta, data}) => {
-     console.log(data);
-     if (meta.ok) {
-      console.log(data);
-       setProduct(data)
+    .then(({ok, data}) => {
+      if (ok) {
+        setProduct(data)
      }
     }).catch(error => console.error)
   }

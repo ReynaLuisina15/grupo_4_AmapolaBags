@@ -18,7 +18,7 @@ export const Table = ({products, getInfo}) => {
     <tbody>       
         
         {
-            products.map((product, index) => <Row getInfo={getInfo} {...product} key={product.name + index}/>)
+            products.map((product) => <Row getInfo={getInfo} {...product} key={product.id}/>)
         } 
 
     </tbody>

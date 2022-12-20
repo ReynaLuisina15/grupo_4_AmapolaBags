@@ -5,7 +5,7 @@ export const Row = ({id,name,price,category, getInfo}) => {
     <tr>
     <th scope="row">{id}</th>
     <td>{name}</td>
-    <td className='text-center'>{category.name}</td>
+    <td className='text-center'>{category?.name}</td>
     <td className='text-right'>${price}</td>
     <td>
       <div className='d-flex justify-content-center'>

@@ -80,7 +80,8 @@ const controller = {
             attributes: {
                 exclude:["updatedAt","deletedAt"],
                 include: [ 
-                    literalQueryUrl({req, field:"id", alias:"urlProduct", pathRoute:'/api/products/'}) 
+                    literalQueryUrl({req, field:"id", alias:"urlProduct", pathRoute:'/api/products/'}),
+                    literalQueryUrl({req, field:"imgPrimary", alias:"urlImgPrimary", pathRoute:'/api/products/image/'})
                 ]
             },
             order: orderQuery,
@@ -180,6 +181,7 @@ const controller = {
                 }],
                 attributes: {
                     exclude:["updatedAt","deletedAt"],
+                    include:[ literalQueryUrl({req, field:"imgPrimary", alias:"urlImgPrimary", pathRoute:'/api/products/image/'})]
                 },              
              }
             
