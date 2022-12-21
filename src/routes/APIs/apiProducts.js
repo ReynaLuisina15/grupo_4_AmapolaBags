@@ -9,13 +9,14 @@ const {
    category,
    store
 } = require("../../controllers/APIs/apisProductsController");
+const { uploadImageProduct } = require("../../middlewares/upLoadFiles");
 
  router
        .get("/image/:img", image)
        .get("/", all)
        .get("/category", category)
        .get("/:id", detail)
-       .post("/",store)
+       .post("/",uploadImageProduct.array("images"), store)
     // .patch("/:id",update)
     // .delete("/:id,destroy")
 

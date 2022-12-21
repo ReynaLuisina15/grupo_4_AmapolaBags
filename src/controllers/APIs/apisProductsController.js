@@ -209,7 +209,7 @@ const controller = {
    store: async (req, res) => {
     try {
       const {name, description, price, categoryId} = req.body;
-
+       return res.send(req.body)
       const product = await db.Product.create({
         name: name?.trim(),
         description: description?.trim(),
