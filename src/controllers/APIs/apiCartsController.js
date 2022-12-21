@@ -19,34 +19,65 @@ module.exports = {
     try {
       const { productId } = req.body;
 
-      const newCart = await db.Cart.create({
-        quantity: 1,
-        productId,
-        orderId: req.session.orderCart.id,
-      });
+      const existProduct = req.session.orderCart.items.find(
+        ({ id }) => id === +productId
+      );
 
-      const cartItem = await db.Cart.findByPk(newCart.id, {
-        include: { association: "product", include: ["images"] },
-      });
+      if (!existProduct) {
+        const newCart = await db.Cart.create({
+          quantity: 1,
+          productId,
+          orderId: req.session.orderCart.id,
+        });
 
-      console.log("cartItem", cartItem);
-      const {
-        product: { id, name, price, imgPrimary },
-      } = cartItem;
+        const cartItem = await db.Cart.findByPk(newCart.id, {
+          include: ["product"],
+        });
 
-      req.session.orderCart = {
-        ...req.session.orderCart,
-        items: [
-          ...(req.session.orderCart.items ? req.session.orderCart.items : []),
-          {
-            id,
-            name,
-            price,
-            imgPrimary,
-            quantity: cartItem.quantity,
-          },
-        ],
-      };
+        const {
+          product: { id, name, price, imgPrimary },
+          quantity,
+        } = cartItem;
+
+        req.session.orderCart = {
+          ...req.session.orderCart,
+          items: [
+            ...(req.session.orderCart.items ? req.session.orderCart.items : []),
+            {
+              id,
+              name,
+              price,
+              imgPrimary,
+              quantity,
+            },
+          ],
+        };
+      } else {
+        const cartItem = await db.Cart.findOne({
+          where: { productId, orderId: req.session.orderCart.id },
+          include: ["product"],
+        });
+        let {
+          product: { id, name, price, imgPrimary },
+          quantity,
+        } = cartItem;
+        cartItem.quantity += 1;
+        await cartItem.save();
+
+        req.session.orderCart = {
+          ...req.session.orderCart,
+          items: [
+            ...(req.session.orderCart.items ? req.session.orderCart.items : []),
+            {
+              id,
+              name,
+              price,
+              imgPrimary,
+              quantity: cartItem.quantity,
+            },
+          ],
+        };
+      }
 
       return res.status(200).json({
         ok: true,

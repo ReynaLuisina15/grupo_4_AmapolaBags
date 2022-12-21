@@ -51,23 +51,23 @@ module.exports = {
             ],
           })
             .then((order) => {
-              const items = order.carts.map(
-                ({
-                  dataValues: {
-                    product: { id, name, price, imgPrimary },
-                    quantity,
-                  },
-                }) => {
-                  return {
-                    id,
-                    name,
-                    price,
-                    imgPrimary,
-                    quantity,
-                  };
-                }
-              );
-              if (order) {
+              if (order) { 
+                const items = order.carts.map(
+                  ({
+                    dataValues: {
+                      product: { id, name, price, imgPrimary },
+                      quantity,
+                    },
+                  }) => {
+                    return {
+                      id,
+                      name,
+                      price,
+                      imgPrimary,
+                      quantity,
+                    };
+                  }
+                );
                 req.session.orderCart = {
                   id: order.id,
                   userId: order.userId,
