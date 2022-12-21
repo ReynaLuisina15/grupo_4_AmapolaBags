@@ -12,6 +12,7 @@ bag.addEventListener("click", async () => {
       const { items } = result.data;
       console.log("items",items);
       if (items.length) {
+        boxCart.innerHTML = null;
         items.forEach(({ name, price, id, quantity,imgPrimary }) => {
           boxCart.innerHTML += `
                 <tr>
