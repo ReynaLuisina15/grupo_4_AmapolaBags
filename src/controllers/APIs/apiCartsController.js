@@ -64,18 +64,18 @@ module.exports = {
         cartItem.quantity += 1;
         await cartItem.save();
 
+        const itemsModify = req.session.orderCart.items.map(element => {
+          if(element.id == cartItem.product.dataValues.id){
+              element.quantity = element.quantity + 1;
+              return element
+          }
+
+          return element
+      })
+
         req.session.orderCart = {
           ...req.session.orderCart,
-          items: [
-            ...(req.session.orderCart.items ? req.session.orderCart.items : []),
-            {
-              id,
-              name,
-              price,
-              imgPrimary,
-              quantity: cartItem.quantity,
-            },
-          ],
+          items:itemsModify,
         };
       }
 
@@ -92,17 +92,17 @@ module.exports = {
     }
   },
   removeItem : async(req,res) => {
-
+   
     try {
 
         const {productId} = req.body;
 
-        let item = req.session.orderCart.items.find(item => item.product.id === +productId);
+        let item = req.session.orderCart.items.find(item => item.id === +productId);
 
         if(item.quantity === 1){
             await db.Cart.destroy({
                 where : {
-                    id : item.id
+                  productId : item.id
                 }
             });
 
@@ -120,7 +120,7 @@ module.exports = {
                 },
                 {
                     where : {
-                        id : item.id
+                      productId : item.id
                     }
                 }
             )
@@ -148,6 +148,7 @@ module.exports = {
 
         
     } catch (error) {
+      console.log(error);
         return res.status(error.status || 500).json({
             ok : false,
             msg : error.message || 'Upps, un error!'
@@ -156,6 +157,33 @@ module.exports = {
 
 },
   removeAllItem: async (req, res) => {
+        const {id} = req.params;
 
-  },
+        try {
+          await db.Cart.destroy({
+            where : {
+              productId : id
+            }
+          })
+
+          const itemsModify = req.session.orderCart.items.filter(element => element.id != id )
+
+        req.session.orderCart = {
+            ...req.session.orderCart,
+            items : itemsModify
+        }        
+
+        return res.status(200).json({
+          ok : true,
+          data : req.session.orderCart || null
+      })
+        } catch (error) {
+          console.log(error);
+          return res.status(error.status || 500).json({
+              ok : false,
+              msg : error.message || 'Upps, un error!'
+          });
+        }
+      
+      },
 };
