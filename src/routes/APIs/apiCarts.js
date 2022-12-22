@@ -13,7 +13,7 @@ const {
     .get('/', list)
     .post('/', addItem)
     .delete('/all/:id', removeAllItem)
-    .delete('/:id', removeItem)
+    .delete('/', removeItem)
     
 
 module.exports = router;

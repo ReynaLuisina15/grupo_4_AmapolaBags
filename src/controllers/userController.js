@@ -28,48 +28,71 @@ module.exports = {
             res.cookie("amapola", req.session.userLogin, {
               maxAge: 1000 * 60 * 60 * 24,
             });
-          };
+          }
           // Carrito
 
           db.Order.findOne({
-            where:{
-              userId : id,
-              statusId : 1
+            where: {
+              userId: id,
+              statusId: 1,
             },
-            include : [{
-              association : "carts",
-              include : [{
-                association : "product",
-                include : ["images"]
-              }]
-            }]
-          }).then(order => {
-            if (order) {
-              req.session.orderCart = {
-                id: order.Id,
-                userId : order.userId,
-                total : order.total,
-                products : order.carts
-             };
-             return res.redirect("/users/profile");
-            } else {
-              db.Order.create({
-                userId: id,
-                statusId : 1,
-                total : 0
-              }).then(order => {
+            include: [
+              {
+                association: "carts",
+                attributes: ["quantity"],
+                include: [
+                  {
+                    association: "product",
+                    attributes: ["id", "name", "price", "imgPrimary"],
+                    include: ["images"],
+                  },
+                ],
+              },
+            ],
+          })
+            .then((order) => {
+              if (order) { 
+                const items = order.carts.map(
+                  ({
+                    dataValues: {
+                      product: { id, name, price, imgPrimary },
+                      quantity,
+                    },
+                  }) => {
+                    return {
+                      id,
+                      name,
+                      price,
+                      imgPrimary,
+                      quantity,
+                    };
+                  }
+                );
                 req.session.orderCart = {
-                  userId : order.userId,
-                  total : 0,
-                  products : []
-               };
-               return res.redirect("/users/profile");
-              })
-            }
-            
-             
-          }).catch(error => console.log(error))
-          
+                  id: order.id,
+                  userId: order.userId,
+                  total: order.total,
+                  items: items,
+                };
+                return res.redirect("/users/profile");
+              } else {
+                db.Order.create({
+                  userId: id,
+                  statusId: 1,
+                  total: 0,
+                }).then((order) => {
+                  req.session.orderCart = {
+                    id: order.id,
+                    userId: order.userId,
+                    total: 0,
+                    items: [],
+                  };
+                  return res.redirect("/users/profile");
+                });
+              }
+            })
+            .catch((error) => console.log(error));
+
           /* return res.redirect("/users/profile"); */
         })
         .catch((error) => console.log(error));
@@ -135,7 +158,7 @@ module.exports = {
   },
   update: (req, res) => {
     db.User.findByPk(req.session.userLogin.id, {
-      include : ['addresses']
+      include: ["addresses"],
     })
       .then((user) => {
         return res.render("userEdit", {
@@ -148,7 +171,7 @@ module.exports = {
   processUpdate: async (req, res) => {
     try {
       let errors = validationResult(req);
-     
+
       const { id } = req.session.userLogin;
 
       let user = await db.User.findByPk(req.session.userLogin.id, {
@@ -172,42 +195,37 @@ module.exports = {
           },
           {
             where: {
-              id
-            }
+              id,
+            },
           }
-        )
+        );
 
         await db.Address.update(
           {
             street,
-            number : number || null,
+            number: number || null,
             location,
             province,
-            postalcode : postalcode || null,
+            postalcode: postalcode || null,
           },
           {
-            where : {
-              userId : id
-            }
+            where: {
+              userId: id,
+            },
           }
-        )
+        );
 
-   
-          return res.redirect('/users/profile')
+        return res.redirect("/users/profile");
       } else {
-    
         return res.render("userEdit", {
           title: "Editar Perfil",
           user,
-          errors: errors.mapped()
+          errors: errors.mapped(),
         });
-      
       }
     } catch (error) {
       console.log(error);
     }
-
-  
   },
   logout: (req, res) => {
     req.session.destroy();
@@ -237,14 +255,14 @@ module.exports = {
       });
     }
   },
-  userList : async (req, res)=>{
+  userList: async (req, res) => {
     let users = await db.User.findAll({
-     order : ['name']
- })
- console.log(users + 'holaaaa')
+      order: ["name"],
+    });
+    console.log(users + "holaaaa");
 
-   return res.render("usersList",{
-     users
-   } );
- }
+    return res.render("usersList", {
+      users,
+    });
+  },
 };

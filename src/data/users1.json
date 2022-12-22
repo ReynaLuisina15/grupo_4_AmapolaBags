@@ -1,10 +1,10 @@
 [
    {
-      "name": "Eric",
-      "surname": "Mena",
-      "email": "ericmena@gmail.com",
+      "name": "admin",
+      "surname": "administrador",
+      "email": "admin@gmail.com",
       "password": "$2a$12$k.16mW.ZhBjHvSuOt.kVjO7eynd0phBXAQlozaF2jsOabkYhQAcRq",
-      "rolId": 2,
+      "rolId": 1,
       "avatar": "avatar.png"
    },
    {

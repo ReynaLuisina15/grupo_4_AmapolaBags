@@ -1,11 +1,9 @@
-import React from 'react'
-
 export const UseFetch = async (endpoint, method = "GET",data , token) => {
   
   const apiUrlBase = process.env.REACT_APP_API_URL_BASE
 
   const url = apiUrlBase + endpoint;
-console.log(url);
+  // console.log(url);
   let response;
 
   if (method === "GET") {

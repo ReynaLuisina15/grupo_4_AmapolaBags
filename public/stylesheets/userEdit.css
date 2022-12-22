@@ -3,7 +3,6 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  height: 650px;
 }
 
 .form__dates {
@@ -11,6 +10,15 @@
   width: 80%;
   flex-wrap: wrap;
   justify-content: center;
+}
+
+.form__dates--button {
+  display: flex;
+  width: 80%;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 10px;
+
 }
 
 .form__dates label {
@@ -38,8 +46,13 @@
   text-transform: none;
 }
 
+.userEdit__form--img {
+  margin: 20px;
+}
+
 .userEdit__form--img img {
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .userEdit__form--button {

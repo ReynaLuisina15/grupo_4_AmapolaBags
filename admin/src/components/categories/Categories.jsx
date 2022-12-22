@@ -12,7 +12,6 @@ export const Categories = () => {
 
 
     useEffect(() => {
-       console.log("holaaaaaa");
         UseFetch('/categories')
             .then(({ data }) => {
                 console.log(data);
