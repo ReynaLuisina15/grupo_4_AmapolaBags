@@ -8,10 +8,13 @@
       <main>
         <section class="userEdit__container">
           <form class="userEdit__container__form" method="POST" action="/users/userEdit?_method=PUT" id="formUserEdit">
-            <div class=>
-              <div class="userEdit__form--img">
-                <img src="<%= /http/.test(user.avatar) ? user.avatar : " /img/avatar/" + user.avatar %>"
+            <div>
+              <div class="userEdit__form--img text-center">
+                <img id="imgPreview" src="<%= /http/.test(user.avatar) ? user.avatar : " /img/avatar/" + user.avatar %>"
                 width="130px" height="130px" alt="">
+              </div>
+              <div class="mb-3">
+                <input class="form-control form-control-sm" id="formFileSm" type="file" onchange="previewImage(event, '#imgPreview')">
               </div>
             </div>
             <h5><strong> DATOS PERSONALES:</strong></h5>
@@ -61,7 +64,7 @@
             <div class="form__dates">
               <label for="location">Localidad:</label>
               <div class="w-50">
-                <input class="form-control w-100" type="text" name="location" id="location"
+                <input class="form-control w-100" type="text" name="location" id="location-input"
                   value="<%= user.addresses[0].location %>">
                 <p class="text-danger" id="locationMsgBack">
                   <%= locals.errors && errors.location ? errors.location.msg : null %>
