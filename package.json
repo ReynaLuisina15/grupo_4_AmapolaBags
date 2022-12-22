@@ -27,7 +27,8 @@
     "mysql2": "^2.3.3",
     "react-router-dom": "^6.4.5",
     "react-scripts": "^5.0.1",
-    "sequelize": "^6.24.0"
+    "sequelize": "^6.24.0",
+    "sweetalert2": "^11.6.16"
   },
   "devDependencies": {
     "concurrently": "^7.6.0",

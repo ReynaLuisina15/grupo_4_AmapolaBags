@@ -39,7 +39,7 @@
                                     </h1>
 
                                     <button >
-                                        <a onclick="event.preventDefault(); addCartItem('<%=product.id%>')" class="agregar_carrito-button" href="">AGREGAR AL CARRITO</a>
+                                        <a onclick="event.preventDefault();mostrar(); addCartItem('<%=product.id%>')" class="agregar_carrito-button" href="">AGREGAR AL CARRITO</a>
                                     </button>
 
                                     <% if (locals.userLogin && userLogin.rol===1) { %>
