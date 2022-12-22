@@ -80,7 +80,8 @@ const controller = {
             attributes: {
                 exclude:["updatedAt","deletedAt"],
                 include: [ 
-                    literalQueryUrl({req, field:"id", alias:"urlProduct", pathRoute:'/api/products/'}) 
+                    literalQueryUrl({req, field:"id", alias:"urlProduct", pathRoute:'/api/products/'}),
+                    literalQueryUrl({req, field:"imgPrimary", alias:"urlImgPrimary", pathRoute:'/api/products/image/'})
                 ]
             },
             order: orderQuery,
@@ -180,6 +181,7 @@ const controller = {
                 }],
                 attributes: {
                     exclude:["updatedAt","deletedAt"],
+                    include:[ literalQueryUrl({req, field:"imgPrimary", alias:"urlImgPrimary", pathRoute:'/api/products/image/'})]
                 },              
              }
             
@@ -206,7 +208,35 @@ const controller = {
     // CREATE PRODUCT  /* Almacenamiento de info */
    store: async (req, res) => {
     try {
-      const { name, description, price, categoryId } = req.body;
+      const {name, description, price, categoryId} = req.body;
+       return res.send(req.body)
+      const product = await db.Product.create({
+        name: name?.trim(),
+        description: description?.trim(),
+        price: +price,
+        categoryId: +categoryId,
+      });
+
+       let images = [{ productId: product.id, file: "default.png" }];
+
+       if (req.files?.length) {
+        images = req.files.map((file) => {
+          return {
+            productId: product.id,
+            file: file.filename,
+          };
+        });
+      }
+
+       await db.Images.bulkCreate({ images });
+
+       return res.status(201).json({
+        ok: true,
+        status: 201,
+        data: product,
+      });
+
+      /* const { name, description, price, categoryId } = req.body;
       // destructuramos la info de la tabla //
 
       const product = await db.Product.create({
@@ -256,14 +286,14 @@ const controller = {
         ok: true,
         status: 201,
         data: productReload,
-      });
+      }); */
       // envio las respuestas satifactorias 
     } catch (error) {
       sendJsonError(error, res);
     }
   },
   // EDIT PRODUCT
-  update: async (req, res) => {
+ /*  update: async (req, res) => {
     try {
       const { name, description, price, categoryId } = req.body;
       const { id } =
@@ -371,7 +401,7 @@ const controller = {
       } catch (error) {
         sendJsonError(error, res);
       }
-    },
+    }, */
     category: async (req,res) => {
         try {
             let {filter} = req.query;
