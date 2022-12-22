@@ -128,22 +128,22 @@ $('number').addEventListener('blur', function(e) {
 
 //LOCALIDAD
 
-$('location').addEventListener('focus', function(e) {
+$('location-input').addEventListener('focus', function(e) {
     this.classList.remove('is-invalid')
     this.classList.remove('is-valid')
     $('locationMsg').innerHTML = null;
 });
 
 
-$('location').addEventListener('blur', function(e) {
+$('location-input').addEventListener('blur', function(e) {
     switch (true) {
         case !this.value.trim():
             msgError("locationMsg", "El nombre de la calle es requerido", e)
-            break;
-            default:
+        break;
+        default:
             $('locationMsg').innerHTML = null;
             this.classList.add('is-valid')
-            break;
+        break;
     }
 });
 
@@ -216,3 +216,25 @@ $('form__dates-email').addEventListener('blur', function(e) {
             break;
     }
 });
+
+function previewImage(event, querySelector){
+
+	//Recuperamos el input que desencadeno la acción
+	const input = event.target;
+	
+	//Recuperamos la etiqueta img donde cargaremos la imagen
+	$imgPreview = document.querySelector(querySelector);
+
+	// Verificamos si existe una imagen seleccionada
+	if(!input.files.length) return
+	
+	//Recuperamos el archivo subido
+	file = input.files[0];
+
+	//Creamos la url
+	objectURL = URL.createObjectURL(file);
+	
+	//Modificamos el atributo src de la etiqueta img
+	$imgPreview.src = objectURL;
+                
+}
