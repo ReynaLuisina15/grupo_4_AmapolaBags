@@ -7,7 +7,9 @@ const {
    all, 
    detail,
    category,
-   store
+   store,
+   update,
+   destroy
 } = require("../../controllers/APIs/apisProductsController");
 const { uploadImageProduct } = require("../../middlewares/upLoadFiles");
 
@@ -16,8 +18,8 @@ const { uploadImageProduct } = require("../../middlewares/upLoadFiles");
        .get("/", all)
        .get("/category", category)
        .get("/:id", detail)
-       .post("/",uploadImageProduct.array("images"), store)
-    // .patch("/:id",update)
-    // .delete("/:id,destroy")
+       .post("/",uploadImageProduct.fields([{name:"img1"},{name:"img2"}]), store)
+       .patch("/:id",uploadImageProduct.fields([{name:"img1"},{name:"img2"}]), update)
+       .delete("/:id", destroy)
 
 module.exports = router    

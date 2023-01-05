@@ -207,9 +207,11 @@ const controller = {
     },
     // CREATE PRODUCT  /* Almacenamiento de info */
    store: async (req, res) => {
+    const imgPrimary = req.files?.img1?.length ? req.files.img1[0].filename : []
+    const imgsSecondary = req.files?.img2?.length ? req.files.img2 : []
     try {
-      const {name, description, price, categoryId} = req.body;
-       return res.send(req.body)
+  /*     const {name, description, price, categoryId} = req.body;
+        return res.send(req.body) 
       const product = await db.Product.create({
         name: name?.trim(),
         description: description?.trim(),
@@ -235,8 +237,8 @@ const controller = {
         status: 201,
         data: product,
       });
-
-      /* const { name, description, price, categoryId } = req.body;
+ */
+       const { name, description, price, categoryId } = req.body;
       // destructuramos la info de la tabla //
 
       const product = await db.Product.create({
@@ -244,23 +246,26 @@ const controller = {
         description: description?.trim(),
         price: +price,
         categoryId: +categoryId,
+        imgPrimary: "default.png"
       }); // Lo que viene por el body lo guardamos como un objeto y creamos el Producto //
 
-      let images = [{ productId: product.id, file: "default.png" }];
-      // como son varias imagenes vienen por array y sino se sube ninguna se guarda por defecto 
+      let images = [{ file: "default.jpg", productId: product.id }];
 
-      if (req.files?.length) {
-        images = req.files.map((file) => {
+
+      if (imgsSecondary.length) {
+        images = imgsSecondary.map((image) => {
           return {
+            file: image.filename,
             productId: product.id,
-            file: file.filename,
           };
         });
       }
       // En un condicional si existen las imagenes va a ser mayor a cero y valida true. Luego esas imagenes se mapean
        //y retorna un objeto con esa estructura 
 
-      await db.Images.bulkCreate({ images });
+       await db.Image.bulkCreate(images, {
+        validate: true,
+      });
 
       // Imagen creada y modificaad por las imagenes subidas  
 
@@ -286,14 +291,14 @@ const controller = {
         ok: true,
         status: 201,
         data: productReload,
-      }); */
+      }); 
       // envio las respuestas satifactorias 
     } catch (error) {
       sendJsonError(error, res);
     }
   },
   // EDIT PRODUCT
- /*  update: async (req, res) => {
+   update: async (req, res) => {
     try {
       const { name, description, price, categoryId } = req.body;
       const { id } =
@@ -401,7 +406,7 @@ const controller = {
       } catch (error) {
         sendJsonError(error, res);
       }
-    }, */
+    }, 
     category: async (req,res) => {
         try {
             let {filter} = req.query;
