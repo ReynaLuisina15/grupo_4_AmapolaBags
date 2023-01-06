@@ -9,11 +9,7 @@ export const Home = () => {
                 <h1 className="h3 mb-0 text-gray-800">Amapola Bags</h1>
             </div>
 
-
             <Metrics />
-
-
-
 
             <div className="row">
 
@@ -31,7 +27,6 @@ export const Home = () => {
                         </div>
                     </div>
                 </div>
-
 
                 <Categories />
 
