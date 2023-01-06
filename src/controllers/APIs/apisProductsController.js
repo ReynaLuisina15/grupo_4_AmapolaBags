@@ -303,9 +303,10 @@ const controller = {
       const { name, description, price, categoryId } = req.body;
       const { id } =
         req.params; // params porque recibe en la ruta un id del producto 
-      const { deletePreviousImages } = req.query;
+      //const { deletePreviousImages } = req.query;
 
       const product = await db.Product.findByPk(id, {
+        
         include: [
           {
             association: "images",
@@ -320,11 +321,12 @@ const controller = {
             },
           },
         ],
-      });
+      })
+      res.send(product)
 
       //Busco el producto por el id y lo traigo con sus asociaciones  
 
-      product.name =
+    /*   product.name =
         name?.trim() || product.name; // el trim cubre los espacios en blanco 
       product.description = description?.trim() || product.description;
       product.price =
@@ -359,7 +361,7 @@ const controller = {
         ok: true,
         status: 200,
         data: await product.reload(),
-      });
+      }); */
     } catch (error) {
       sendJsonError(error, res);
     }
