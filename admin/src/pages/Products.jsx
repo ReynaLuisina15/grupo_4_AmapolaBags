@@ -3,15 +3,23 @@ import { UseFetch } from "../hooks/UseFetch";
 import { Table } from "../components/products/Table";
 import { Info } from "../components/products/Info";
 import { Modal } from "../components/modal/Modal";
+import { useForm } from "../hooks/useForm";
 
 export const Products = () => {
   const [products, setProducts] = useState({
     loading: true,
     data: [],
   });
+
   const [action, setAction] = useState(null);
   const [product, setProduct] = useState({});
 
+  const [
+    inputsValue,
+    setInputsValues,
+    handleChangeInputsValue,
+    resetInputsValue,
+  ] = useForm();
   const handleCreate = () => {
     setProduct({});
     setAction("create");
@@ -19,31 +27,31 @@ export const Products = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const elements = Array.from(e.target.elements);
-    elements.forEach((el) => {
-      setProduct((product) => {
-        return {
-          ...product,
-          [el.name]: el.value,
-        };
-      });
-    });
-
-    if (action === "update") {
+    const img1 = new FormData(e.target).get("img1");
+    const img2 = new FormData(e.target).get("img2");
+    const formData = new FormData()
+    formData.append('img1')
+    const data = { img1, img2, ...inputsValue };
+    console.log(data);
+    
+    /*   if (action === "update") {
       UseFetch(`/update/${product.id}`, "PATCH").then(({ meta, data }) => {
         // console.log(data);
         if (meta.ok) {
         }
       });
-    }
-    
+    } */
+
     if (action === "create") {
-      UseFetch(`/api/products`, "POST").then(({ meta, data }) => {
-        // console.log(data);
-        if (meta.ok) {
+      UseFetch(`/products`, "POST", data).then(({ ok, data }) => {
+        console.log(data);
+        if (ok) {
         }
-      });
+      })
+      .catch(err=>console.warn(err));
     }
+    resetInputsValue();
+    e.target.reset();
   };
 
   const handleDelete = (e) => {
@@ -58,8 +66,8 @@ export const Products = () => {
 
   useEffect(() => {
     UseFetch("/products")
-      .then(({ meta, data }) => {
-        if (meta.ok) {
+      .then(({ meta: { ok }, data }) => {
+        if (ok) {
           setProducts({
             loading: false,
             data,
@@ -73,7 +81,10 @@ export const Products = () => {
     UseFetch(`/products/${id}`)
       .then(({ ok, data }) => {
         if (ok) {
-          setProduct(data);
+          setInputsValues({
+            ...inputsValue,
+            ...data,
+          });
         }
       })
       .catch((error) => console.error);
@@ -108,7 +119,14 @@ export const Products = () => {
           </div>
         </div>
         <div className="col-4">
-          {<Info {...product} action={action} onSubmit={handleSubmit} />}
+          {
+            <Info
+              {...inputsValue}
+              action={action}
+              handleChangeInputsValue={handleChangeInputsValue}
+              onSubmit={handleSubmit}
+            />
+          }
         </div>
       </div>
       <Modal

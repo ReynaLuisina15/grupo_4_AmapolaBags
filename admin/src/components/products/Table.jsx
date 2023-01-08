@@ -4,7 +4,7 @@ import { Row } from './Row'
 export const Table = ({products, getInfo, setAction}) => {
   return (
     <div className='table-responsive'>
-    <table className="table table-striped">
+    <table className="table table-striped table-hover">
     <thead>
       <tr>
         <th scope="col">Id</th>

@@ -240,7 +240,7 @@ const controller = {
  */
        const { name, description, price, categoryId } = req.body;
       // destructuramos la info de la tabla //
-
+      console.log(req.body);
       const product = await db.Product.create({
         name: name?.trim(),
         description: description?.trim(),
@@ -294,6 +294,7 @@ const controller = {
       }); 
       // envio las respuestas satifactorias 
     } catch (error) {
+      console.log("error||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||",error);
       sendJsonError(error, res);
     }
   },
