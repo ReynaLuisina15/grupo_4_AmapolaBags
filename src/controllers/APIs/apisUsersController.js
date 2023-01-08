@@ -16,7 +16,7 @@ const controller = {
 
     try {
 
-      let { page = 1, limit = 5, offset = 0, order = 'ASC', sortBy = 'name', search = "" } = req.query;
+      let { page = 1, limit = 6, offset = 0, order = 'ASC', sortBy = 'name', search = "" } = req.query;
 
       const typesSort = [
         'name',
@@ -62,7 +62,7 @@ const controller = {
       const { count, rows: users } = await db.User.findAndCountAll({
 
         attributes: {
-          exclude: ["updatedAt", "rolId", "password"],
+          exclude: ["updatedAt",  "password"],
           include: [
             literalQueryUrl({req, field: 'avatar', alias: 'avatar', pathRoute: '/api/users/image/'}), 
             literalQueryUrl({req, field:'id', alias:'detail', pathRoute:'/api/users/'})
@@ -171,7 +171,7 @@ const controller = {
           surname:surname?.trim(),
           email:req.body.email?.trim(),
           password: bcryptjs.hashSync(password, 12),
-          avatar : req.file?.filename || 'avatar.jng',
+          avatar : req.file?.filename || 'avatar.png',
         })
       
 

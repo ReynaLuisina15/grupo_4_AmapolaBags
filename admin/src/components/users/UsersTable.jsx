@@ -1,34 +1,26 @@
 import React from "react";
-export const UsersTable = () => {
-    return (
-        <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Facundo</td>
-      <td>Arévalos</td>
-      <td>facundoarevalos04@gmail.com</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table>
-    )
+import {Row} from "./Row";
+
+
+export const UsersTable = ({users, getUserInfo}) => {
+  return (
+    <table className="table">
+
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre: </th>
+          <th scope="col">Apellido</th>
+          <th scope="col">Email</th>
+          <th scope="col">Rol ID</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+       users.map((user, index) => <Row getUserInfo={getUserInfo} {...user} key={user.name + index} /> )
+        }
+      </tbody>
+
+    </table>
+  )
 }
