@@ -1,13 +1,61 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Judson&display=swap');
+
+:root {
+  --font: 'Poppins';
+  --fontTitulos: 'Judson';
+  --colorNegro: #000000;
+  --colorBlanco: #FFFFFF;
+  --colorRosa: #FFC9E0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: var(--font);
+}
+
+#originalNav {
+  background-color: #f7007c;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 350px;
+  list-style: none;
+  align-items: center;
+}
+
+.originalNav-icon {
+  color: var(--colorBlanco);
+  width: 100%;
+}
+
+.originalNav-icon span {
+  color: var(--colorBlanco);
+
+}
+
+.originalNav-icon i {
+  color: var(--colorRosa);
+  margin-right: 5px;
+}
+
+#logo {
+  width: 80%;
+  padding: 10px;
+}
+
+.logo img {
+  border-radius: 50%;
+  width: 100%;
+}
+
+#opciones {
+  border-top: 2px dashed var(--colorRosa);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+#categorias {
+  border-bottom: 2px dashed var(--colorRosa);
+  padding-bottom: 20px;
 }
