@@ -18,7 +18,7 @@ body {
   background-color: #f7007c;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 50px 20px 20px 20px;
   width: 300px;
   list-style: none;
   align-items: center;
@@ -81,4 +81,14 @@ body {
 #perfilAdmin {
   display: flex;
   justify-content: center;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.card-body p {
+  text-align: center;
 }

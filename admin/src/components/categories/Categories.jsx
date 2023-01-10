@@ -21,7 +21,7 @@ export const Categories = () => {
                 })
             }).catch(error => console.error(error))
 
-    },[]);
+    }, []);
 
 
 
@@ -29,7 +29,7 @@ export const Categories = () => {
         <div className="col-lg-6 mb-4">
             <div className="card shadow mb-4">
                 <div className="card-header py-3">
-                    <h5 className="m-0 font-weight-bold text-gray-800">Genres in Data Base</h5>
+                    <h5 className="m-0 font-weight-bold text-gray-800">Categorias</h5>
                 </div>
                 <div className="card-body">
                     <div className="row">
@@ -40,7 +40,7 @@ export const Categories = () => {
                                 <p>Cargando...</p>
                                 :
                                 state.categories.map((category, index) => (
-                                    <Category {...category} key={category.name + index}/>
+                                    <Category {...category} key={category.name + index} />
                                 ))
 
 
