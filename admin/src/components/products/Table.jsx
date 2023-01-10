@@ -1,10 +1,10 @@
 import React from 'react'
 import { Row } from './Row'
 
-export const Table = ({products, getInfo}) => {
+export const Table = ({products, getInfo, setAction}) => {
   return (
     <div className='table-responsive'>
-    <table className="table table-striped">
+    <table className="table table-striped table-hover">
     <thead>
       <tr>
         <th scope="col">Id</th>
@@ -15,12 +15,10 @@ export const Table = ({products, getInfo}) => {
         <th scope="col" className='text-center'>Acciones</th>
       </tr>
     </thead>
-    <tbody>       
-        
+    <tbody> 
         {
-            products.map((product) => <Row getInfo={getInfo} {...product} key={product.id}/>)
+            products.map((product) => <Row getInfo={getInfo} setAction={setAction} {...product} key={product.id}/>)
         } 
-
     </tbody>
   </table>
   </div>

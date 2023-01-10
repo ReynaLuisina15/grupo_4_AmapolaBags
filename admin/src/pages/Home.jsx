@@ -21,7 +21,6 @@ export const Home = () => {
                 <h1 className="h3 mb-0 text-gray-800">AMAPOLA BAGS</h1>
             </div>
 
-
             <Metrics />
 
 
@@ -47,7 +46,6 @@ export const Home = () => {
                         }
                     </div>
                 </div>
-
 
                 <Categories />
 

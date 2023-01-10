@@ -17,14 +17,15 @@
                     </div>
 
                     <div class="main__section__detalles--esp">
-                        <h2>Nombre: <%= product.name %>
+                        <h2><strong>Nombre:</strong>
+                            <%= product.name %>
                         </h2>
-                        <h2>Descripcion: <%= product.description %>
+                        <h2><strong>Descripción: </strong><%= product.description %>
                         </h2>
-                        <h2>Categoria: <%= product.category.name %>
+                        <h2><strong>Categoría: </strong><%= product.category.name %>
                         </h2>
                         <div class="main__section__detalle--colores-txt">
-                            <h2>Colores: </h2>
+                            <h2><strong>Color:</strong></h2>
                         </div>
                         <% product.colors.forEach(color=> { %>
 
@@ -35,7 +36,7 @@
 
                                 <div class="main__section__colores">
                                     <hr>
-                                    <h1>PRECIO: <%= toThousand(product.price) %>
+                                    <h1><strong>PRECIO: </strong><%= toThousand(product.price) %>
                                     </h1>
 
                                     <button >

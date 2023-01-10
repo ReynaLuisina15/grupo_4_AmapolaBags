@@ -1,4 +1,4 @@
-export const UseFetch = async (endpoint, method = "GET", data , token) => {
+export const UseFetch = async (endpoint, method = "GET", data, token, contentType = "application/json") => {
   
   const apiUrlBase = process.env.REACT_APP_API_URL_BASE
 
@@ -6,6 +6,7 @@ export const UseFetch = async (endpoint, method = "GET", data , token) => {
   // console.log(url);
   let response;
 
+  console.log(JSON.stringify(data));
   if (method === "GET") {
     response = await fetch(url)
   }
@@ -14,7 +15,7 @@ export const UseFetch = async (endpoint, method = "GET", data , token) => {
       method,
       body : JSON.stringify(data),
       headers : {
-        "Content-type" : "application/json",
+        "Content-type" : contentType,
         Authorization : token
       }
     })
