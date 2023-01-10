@@ -17,15 +17,29 @@
                     </div>
 
                     <div class="main__section__detalles--esp">
-                        <h2><strong>Nombre:</strong>
-                            <%= product.name %>
-                        </h2>
-                        <h2><strong>Descripción: </strong><%= product.description %>
-                        </h2>
-                        <h2><strong>Categoría: </strong><%= product.category.name %>
-                        </h2>
+                        <div>
+                            <h4><strong>Nombre:</strong></h4>
+                            <p>
+                                <%= product.name %>
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4><strong>Descripción: </strong></h4>
+                            <p>
+                                <%= product.description %>
+                            </p>
+                        </div>
+
+                        <div>
+                            <h4><strong>Categoría: </strong></h4>
+                            <p>
+                                <%= product.category.name %>
+                            </p>
+                        </div>
+
                         <div class="main__section__detalle--colores-txt">
-                            <h2><strong>Color:</strong></h2>
+                            <h3><strong>Color:</strong></h3>
                         </div>
                         <% product.colors.forEach(color=> { %>
 
@@ -36,11 +50,13 @@
 
                                 <div class="main__section__colores">
                                     <hr>
-                                    <h1><strong>PRECIO: </strong><%= toThousand(product.price) %>
-                                    </h1>
+                                    <h3><strong>PRECIO: $</strong>
+                                        <%= toThousand(product.price) %>
+                                    </h3>
 
-                                    <button >
-                                        <a onclick="event.preventDefault();mostrar(); addCartItem('<%=product.id%>')" class="agregar_carrito-button" href="">AGREGAR AL CARRITO</a>
+                                    <button>
+                                        <a onclick="event.preventDefault();mostrar(); addCartItem('<%=product.id%>')"
+                                            class="agregar_carrito-button" href="">AGREGAR AL CARRITO</a>
                                     </button>
 
                                     <% if (locals.userLogin && userLogin.rol===1) { %>
@@ -65,27 +81,27 @@
 
                 <div class="glider-contain">
                     <div class="glider">
-                      <div><img src="/img/Cartera-Alma.png" alt=""></div>
-                      <div><img src="/img/Cartera-Cecilia.png" alt=""></div>
-                      <div><img src="/img/cartera-martina.jpg" alt=""></div>
-                      <div><img src="/img/mochila-molly.webp" alt=""></div>
-                      <div><img src="/img/serena-negra.jpg" alt=""></div>
-                      <div><img src="/img/riñonera-azucena.jpg" alt=""></div>
-                      <div><img src="/img/cartera-leopardo.png" alt=""></div>
-                      <div><img src="/img/seoul-blue.png" alt=""></div>
-                      <div><img src="/img/riñonera-vulk.png" alt=""></div>
+                        <div><img src="/img/Cartera-Alma.png" alt=""></div>
+                        <div><img src="/img/Cartera-Cecilia.png" alt=""></div>
+                        <div><img src="/img/cartera-martina.jpg" alt=""></div>
+                        <div><img src="/img/mochila-molly.webp" alt=""></div>
+                        <div><img src="/img/serena-negra.jpg" alt=""></div>
+                        <div><img src="/img/riñonera-azucena.jpg" alt=""></div>
+                        <div><img src="/img/cartera-leopardo.png" alt=""></div>
+                        <div><img src="/img/seoul-blue.png" alt=""></div>
+                        <div><img src="/img/riñonera-vulk.png" alt=""></div>
                     </div>
-                  
+
                     <button aria-label="Previous" class="glider-prev">«</button>
                     <button aria-label="Next" class="glider-next">»</button>
                     <div role="tablist" class="dots"></div>
-                  </div>
+                </div>
 
             </main>
 
             <%- include("./partials/footer") %>
-            <script src="/javascripts/gliderProductDetail.config.js"></script>
-            <%- include('partials/scripts') %>
+                <script src="/javascripts/gliderProductDetail.config.js"></script>
+                <%- include('partials/scripts') %>
     </body>
 
 </html>
