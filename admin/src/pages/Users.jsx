@@ -35,6 +35,16 @@ export const Users = () => {
       .catch((error) => console.error);
   };
 
+  const userDelete = (id) => {
+    UseFetch('/users/delete/' + id)
+    .then(({ ok }) => {
+      if (ok) {
+        setUser();
+      }
+    })
+    .catch((error) => console.error);
+  }
+
   return (
     <div className="container">
       <div className="row">
@@ -47,7 +57,7 @@ export const Users = () => {
               {users.loading ? (
                 <p>cargando...</p>
               ) : (
-                <UsersTable users={users.data.users} getUserInfo={getUserInfo}/>
+                <UsersTable users={users.data.users} getUserInfo={getUserInfo}  userDelete={userDelete}/>
               )}
             </div>
           </div>

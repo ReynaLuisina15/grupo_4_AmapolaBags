@@ -2,7 +2,7 @@ import React from "react";
 import {Row} from "./Row";
 
 
-export const UsersTable = ({users, getUserInfo}) => {
+export const UsersTable = ({users, getUserInfo, userDelete}) => {
   return (
     <table className="table">
 
@@ -17,7 +17,7 @@ export const UsersTable = ({users, getUserInfo}) => {
       </thead>
       <tbody>
         {
-       users.map((user, index) => <Row getUserInfo={getUserInfo} {...user} key={user.name + index} /> )
+       users.map((user, index) => <Row getUserInfo={getUserInfo} {...user} key={user.name + index} userDelete={user}/> )
         }
       </tbody>
 

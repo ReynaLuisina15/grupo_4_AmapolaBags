@@ -4,7 +4,7 @@ export const UserInfo = ({ name, surname, rolId, email, avatar }) => {
   return (
     <div className="card">
       <div className="card-header">
-        <h5>Información</h5>
+        <h5>Información del Usuario</h5>
       </div>
       <div className="card-body">
         <ul className="list-group list-group-flush">
@@ -34,7 +34,7 @@ export const UserInfo = ({ name, surname, rolId, email, avatar }) => {
             </p>
           </li>
           <li className="list-group-item">
-            <label htmlFor="">Rol:</label>
+            <label htmlFor="">Rol ID:</label>
             <p className="m-0">
               <b>{rolId}</b>
             </p>
