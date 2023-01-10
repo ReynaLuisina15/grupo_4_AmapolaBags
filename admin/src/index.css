@@ -22,6 +22,7 @@ body {
   width: 350px;
   list-style: none;
   align-items: center;
+  height: 100vh;
 }
 
 .originalNav-icon {
@@ -58,4 +59,21 @@ body {
 #categorias {
   border-bottom: 2px dashed var(--colorRosa);
   padding-bottom: 20px;
+}
+
+.container-fluid {
+  background-color: var(--colorRosa);
+  padding: 20px;
+}
+
+.sidebarContainer {
+  background-color: #f7007c;
+}
+
+#title {
+  padding-top: 10px;
+}
+
+#imgProduct {
+  height: 200px;
 }

@@ -2,32 +2,29 @@ import React from 'react'
 import { Footer } from './Footer';
 import { SideBar } from './SideBar';
 import { TopBar } from './TopBar';
-import {Outlet} from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 
 export const Root = () => {
-  return (
-    <div id="wrapper">
+	return (
+		<div id="wrapper">
 
-		<SideBar/>
-	
-		<div id="content-wrapper" className="d-flex flex-column">
+			<SideBar />
 
-		
-			<div id="content">
+			<div id="content-wrapper" className="d-flex flex-column">
 
-			
-			<TopBar/>
-				
-			<Outlet/>
-				
+
+				<div id="content">
+
+					<Outlet />
+
+				</div>
+
+				<Footer />
+
+
 			</div>
-		
-		<Footer/>
-			
+
 
 		</div>
-		
-
-	</div>
-  )
+	)
 }
