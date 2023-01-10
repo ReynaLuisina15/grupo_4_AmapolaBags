@@ -7,6 +7,7 @@ const {
     list, 
     detail, 
     register,
+    destroy,
 } = require("../../controllers/APIs/apisUsersController");
 
  router
@@ -14,7 +15,8 @@ const {
     .get('/:id', detail)
     .get('/image/:img', image)
     .post('/register', register)
-    //.patch('/update', update)
+    .delete('/delete/:id', destroy)
+    //.put('/edit/:id', edit)
     //.post('/login', login)
 
 module.exports = router

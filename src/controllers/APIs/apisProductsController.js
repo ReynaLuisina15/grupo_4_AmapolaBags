@@ -15,7 +15,7 @@ const controller = {
     // ALL PRODUCTS + QUERIES
     all: async (req,res) => {
         try {
-         let {page = 1,limit = 6,offset = 0, price = 0, order = "ASC", sortBy = "name", search = "", filter} = req.query;
+         let {page = 1,limit = 6,offset = 0, price = 0, order = "ASC", sortBy = "Id", search = "", filter} = req.query;
         
          // tipos de ordenamientos
          const typesSort =[

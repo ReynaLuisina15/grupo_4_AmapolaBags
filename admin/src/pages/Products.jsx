@@ -89,7 +89,6 @@ export const Products = () => {
       })
       .catch((error) => console.error);
   };
-
   return (
     <div className="container">
       <div className="row">
