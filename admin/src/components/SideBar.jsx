@@ -13,9 +13,9 @@ export const SideBar = () => {
 				</li>
 
 
-				<li className="originalNav-icon">
+				<li id="perfilAdmin" className="originalNav-icon">
 					<Link className="nav-link" to="/">
-						<span>PERFIL ADMINISTRADOR</span></Link>
+						<span >PERFIL ADMINISTRADOR</span></Link>
 				</li>
 
 				<div className="originalNav-icon" id='opciones'><span>OPCIONES</span></div>

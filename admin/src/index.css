@@ -19,7 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  width: 350px;
+  width: 300px;
   list-style: none;
   align-items: center;
   height: 100vh;
@@ -76,4 +76,9 @@ body {
 
 #imgProduct {
   height: 200px;
+}
+
+#perfilAdmin {
+  display: flex;
+  justify-content: center;
 }
